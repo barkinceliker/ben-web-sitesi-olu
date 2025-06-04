@@ -23,18 +23,18 @@ const Hero = () => {
         </div>
 
         <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-fade-in">
-          Ali Developer
+          Barkın Çeliker
         </h1>
         
         <p className="text-2xl md:text-3xl text-gray-300 mb-4 animate-fade-in delay-200">
           <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
-            Full Stack Developer
+            Yönetim Bilişim Sistemleri Öğrencisi & Developer
           </span>
         </p>
         
         <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in delay-300">
-          Modern web teknolojileri ile kullanıcı deneyimini ön planda tutan, 
-          performanslı ve ölçeklenebilir uygulamalar geliştiriyorum.
+          Yaşar Üniversitesi Yönetim Bilişim Sistemleri 3. sınıf öğrencisiyim. 
+          Modern web teknolojileri ile kullanıcı deneyimini ön planda tutan uygulamalar geliştiriyorum.
         </p>
         
         <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in delay-500">
@@ -49,7 +49,7 @@ const Hero = () => {
         
         <div className="flex justify-center gap-6 animate-fade-in delay-700">
           <a 
-            href="https://github.com" 
+            href="https://github.com/barkinceliker" 
             target="_blank" 
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-white/10 backdrop-blur-lg border border-purple-500/20 hover:bg-white/20 transition-all duration-300 hover-scale"
@@ -57,7 +57,7 @@ const Hero = () => {
             <Github className="w-6 h-6 text-purple-300" />
           </a>
           <a 
-            href="https://linkedin.com" 
+            href="https://www.linkedin.com/in/celikerbarkin/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-white/10 backdrop-blur-lg border border-purple-500/20 hover:bg-white/20 transition-all duration-300 hover-scale"
@@ -65,7 +65,7 @@ const Hero = () => {
             <Linkedin className="w-6 h-6 text-purple-300" />
           </a>
           <a 
-            href="mailto:ali@example.com"
+            href="mailto:barkinclkr@gmail.com"
             className="p-3 rounded-full bg-white/10 backdrop-blur-lg border border-purple-500/20 hover:bg-white/20 transition-all duration-300 hover-scale"
           >
             <Mail className="w-6 h-6 text-purple-300" />

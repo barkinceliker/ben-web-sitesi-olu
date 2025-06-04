@@ -21,19 +21,19 @@ const Contact = () => {
     {
       icon: Mail,
       title: "E-posta",
-      value: "ali@example.com",
-      href: "mailto:ali@example.com"
+      value: "barkinclkr@gmail.com",
+      href: "mailto:barkinclkr@gmail.com"
     },
     {
       icon: Phone,
       title: "Telefon",
-      value: "+90 555 123 45 67",
-      href: "tel:+905551234567"
+      value: "+90 530 979 86 54",
+      href: "tel:+905309798654"
     },
     {
       icon: MapPin,
       title: "Konum",
-      value: "İstanbul, Türkiye",
+      value: "İzmir, Türkiye",
       href: "https://maps.google.com"
     }
   ];
@@ -42,19 +42,13 @@ const Contact = () => {
     {
       icon: Github,
       name: "GitHub",
-      url: "https://github.com/username",
+      url: "https://github.com/barkinceliker",
       color: "hover:text-gray-300"
     },
     {
       icon: Linkedin,
       name: "LinkedIn", 
-      url: "https://linkedin.com/in/username",
-      color: "hover:text-blue-400"
-    },
-    {
-      icon: Twitter,
-      name: "Twitter",
-      url: "https://twitter.com/username",
+      url: "https://www.linkedin.com/in/celikerbarkin/",
       color: "hover:text-blue-400"
     }
   ];

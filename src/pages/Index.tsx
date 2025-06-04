@@ -80,14 +80,14 @@ const Index = () => {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
-            Merhaba, Ben Ali
+            Merhaba, Ben Barkın
           </h1>
           <p className="text-xl md:text-2xl text-purple-200 mb-6">
-            Full Stack Developer & UI/UX Designer
+            YBS Öğrencisi & Developer
           </p>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            Modern web teknolojileri ile kullanıcı dostu çözümler geliştiriyorum. 
-            Yaratıcılık ve kod arasında köprü kurarak projelerinizi hayata geçiriyorum.
+            Yaşar Üniversitesi Yönetim Bilişim Sistemleri 3. sınıf öğrencisiyim. 
+            Modern web teknolojileri ile kullanıcı dostu çözümler geliştiriyorum.
           </p>
           
           <div className="flex flex-wrap gap-4 justify-center mb-12">
@@ -114,13 +114,13 @@ const Index = () => {
           </div>
           
           <div className="flex gap-6 justify-center">
-            <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+            <a href="https://github.com/barkinceliker" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
               <Github size={24} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+            <a href="https://www.linkedin.com/in/celikerbarkin/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
               <Linkedin size={24} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">
+            <a href="mailto:barkinclkr@gmail.com" className="text-gray-400 hover:text-purple-400 transition-colors">
               <Mail size={24} />
             </a>
           </div>
@@ -321,7 +321,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 text-center border-t border-purple-500/20">
         <p className="text-gray-400">
-          © 2024 Ali. Tüm hakları saklıdır.
+          © 2024 Barkın Çeliker. Tüm hakları saklıdır.
         </p>
       </footer>
     </div>
