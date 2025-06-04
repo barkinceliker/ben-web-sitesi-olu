@@ -11,9 +11,27 @@ const Index = () => {
     setIsVisible(true);
   }, []);
 
-  const skills = [
-    'React', 'TypeScript', 'Node.js', 'Python', 'JavaScript', 'CSS/SCSS',
-    'Tailwind CSS', 'Git', 'MongoDB', 'PostgreSQL', 'Docker', 'AWS'
+  const skillCategories = [
+    {
+      title: 'Frontend',
+      skills: ['React', 'TypeScript', 'JavaScript', 'Vue.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'SCSS', 'Responsive Design'],
+      icon: '🎨'
+    },
+    {
+      title: 'Backend',
+      skills: ['Node.js', 'Python', 'Express.js', 'FastAPI', 'REST APIs', 'GraphQL', 'Microservices'],
+      icon: '⚙️'
+    },
+    {
+      title: 'Database',
+      skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Supabase', 'Firebase'],
+      icon: '💾'
+    },
+    {
+      title: 'DevOps & Tools',
+      skills: ['Docker', 'AWS', 'Git', 'CI/CD', 'Linux', 'Nginx', 'Kubernetes'],
+      icon: '🚀'
+    }
   ];
 
   const projects = [
@@ -21,19 +39,22 @@ const Index = () => {
       title: 'E-Ticaret Platformu',
       description: 'Modern React ve Node.js ile geliştirilmiş full-stack e-ticaret uygulaması',
       tech: ['React', 'Node.js', 'MongoDB'],
-      gradient: 'from-pink-500 to-rose-500'
+      gradient: 'from-pink-500 to-rose-500',
+      github: 'https://github.com/username/ecommerce-platform'
     },
     {
       title: 'Task Management App',
       description: 'Takım işbirliği için geliştirilmiş proje yönetim aracı',
       tech: ['TypeScript', 'Express', 'PostgreSQL'],
-      gradient: 'from-blue-500 to-cyan-500'
+      gradient: 'from-blue-500 to-cyan-500',
+      github: 'https://github.com/username/task-management'
     },
     {
       title: 'Portfolio Website',
       description: 'Responsive ve modern tasarımlı kişisel portfolio sitesi',
       tech: ['React', 'Tailwind', 'Framer Motion'],
-      gradient: 'from-purple-500 to-indigo-500'
+      gradient: 'from-purple-500 to-indigo-500',
+      github: 'https://github.com/username/portfolio'
     }
   ];
 
@@ -69,12 +90,19 @@ const Index = () => {
             Yaratıcılık ve kod arasında köprü kurarak projelerinizi hayata geçiriyorum.
           </p>
           
-          <div className="flex gap-4 justify-center mb-12">
+          <div className="flex flex-wrap gap-4 justify-center mb-12">
             <Button 
               onClick={() => scrollToSection('projects')}
               className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
             >
               Projelerimi Gör
+            </Button>
+            <Button 
+              variant="outline" 
+              onClick={() => window.open('/blog', '_self')}
+              className="border-blue-400 text-blue-200 hover:bg-blue-400/20 px-8 py-3 rounded-full transition-all duration-300"
+            >
+              Blog & Makaleler
             </Button>
             <Button 
               variant="outline" 
@@ -115,15 +143,41 @@ const Index = () => {
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-300 leading-relaxed">
-                5+ yıllık deneyimle modern web teknolojileri alanında uzmanlaşmış bir yazılım geliştiricisiyim. 
-                Kullanıcı deneyimini ön planda tutarak, performanslı ve ölçeklenebilir çözümler üretiyorum.
-              </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Frontend'den backend'e, tasarımdan deployment'a kadar yazılım geliştirme sürecinin her aşamasında 
-                deneyim sahibiyim. Sürekli öğrenmeyi seven ve teknolojiyi hayatımızı kolaylaştırmak için kullanan biriyim.
-              </p>
+            <div className="space-y-8">
+              <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-6 rounded-2xl border border-purple-500/20">
+                <h3 className="text-2xl font-bold mb-4 text-purple-300">🚀 Tutkum</h3>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  5+ yıllık deneyimle modern web teknolojileri alanında uzmanlaşmış bir yazılım geliştiricisiyim. 
+                  Kullanıcı deneyimini ön planda tutarak, performanslı ve ölçeklenebilir çözümler üretiyorum.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 p-6 rounded-2xl border border-blue-500/20">
+                <h3 className="text-2xl font-bold mb-4 text-blue-300">💡 Yaklaşımım</h3>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Frontend'den backend'e, tasarımdan deployment'a kadar yazılım geliştirme sürecinin her aşamasında 
+                  deneyim sahibiyim. Sürekli öğrenmeyi seven ve teknolojiyi hayatımızı kolaylaştırmak için kullanan biriyim.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="text-center p-4 bg-white/5 rounded-xl">
+                  <div className="text-3xl mb-2">🎯</div>
+                  <div className="text-sm text-purple-300">Hedef Odaklı</div>
+                </div>
+                <div className="text-center p-4 bg-white/5 rounded-xl">
+                  <div className="text-3xl mb-2">⚡</div>
+                  <div className="text-sm text-purple-300">Hızlı Çözüm</div>
+                </div>
+                <div className="text-center p-4 bg-white/5 rounded-xl">
+                  <div className="text-3xl mb-2">🤝</div>
+                  <div className="text-sm text-purple-300">Takım Çalışması</div>
+                </div>
+                <div className="text-center p-4 bg-white/5 rounded-xl">
+                  <div className="text-3xl mb-2">📈</div>
+                  <div className="text-sm text-purple-300">Sürekli Gelişim</div>
+                </div>
+              </div>
             </div>
             
             <div className="grid grid-cols-1 gap-6">
@@ -157,22 +211,35 @@ const Index = () => {
 
       {/* Skills Section */}
       <section className="py-20 px-6 bg-black/20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Teknolojiler & Beceriler
           </h2>
           
-          <div className="flex flex-wrap gap-3 justify-center">
-            {skills.map((skill, index) => (
-              <Badge 
-                key={skill}
-                className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/30 text-purple-200 px-4 py-2 text-sm hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 cursor-default"
-                style={{
-                  animationDelay: `${index * 0.1}s`
-                }}
-              >
-                {skill}
-              </Badge>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {skillCategories.map((category, categoryIndex) => (
+              <Card key={category.title} className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="text-center mb-6">
+                    <div className="text-4xl mb-3">{category.icon}</div>
+                    <h3 className="text-xl font-bold text-purple-300">{category.title}</h3>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {category.skills.map((skill, skillIndex) => (
+                      <Badge 
+                        key={skill}
+                        className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/30 text-purple-200 text-xs hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 cursor-default w-full justify-center"
+                        style={{
+                          animationDelay: `${(categoryIndex * category.skills.length + skillIndex) * 0.05}s`
+                        }}
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -187,10 +254,17 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 group">
+              <Card 
+                key={index} 
+                className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+                onClick={() => window.open(project.github, '_blank')}
+              >
                 <CardContent className="p-6">
-                  <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${project.gradient} mb-6 flex items-center justify-center`}>
+                  <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${project.gradient} mb-6 flex items-center justify-center relative overflow-hidden`}>
                     <Code className="w-16 h-16 text-white opacity-80" />
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Github className="w-6 h-6 text-white" />
+                    </div>
                   </div>
                   
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-300 transition-colors">
@@ -200,12 +274,16 @@ const Index = () => {
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech) => (
                       <Badge key={tech} className="bg-purple-500/20 text-purple-200 text-xs">
                         {tech}
                       </Badge>
                     ))}
+                  </div>
+                  
+                  <div className="text-xs text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                    GitHub'da görüntüle →
                   </div>
                 </CardContent>
               </Card>
