@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
+import Navbar from '@/components/Navbar';
 
 const Blog = () => {
   const blogPosts = [
@@ -43,8 +44,9 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 text-white">
+      <Navbar />
       {/* Header */}
-      <header className="py-8 px-6 border-b border-purple-500/20">
+      <header className="py-8 px-6 border-b border-purple-500/20 pt-24">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link to="/">
             <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-400/20">

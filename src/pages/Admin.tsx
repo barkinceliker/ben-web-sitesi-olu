@@ -18,6 +18,7 @@ import {
   Code,
   User
 } from 'lucide-react';
+import Navbar from '@/components/Navbar';
 
 const Admin = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -91,6 +92,7 @@ const Admin = () => {
   if (!isLoggedIn) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 flex items-center justify-center px-6">
+        <Navbar />
         <Card className="w-full max-w-md bg-white/10 backdrop-blur-lg border-purple-500/20">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold text-white mb-2">
@@ -147,8 +149,9 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 text-white">
+      <Navbar />
       {/* Header */}
-      <header className="border-b border-purple-500/20 bg-black/20 backdrop-blur-lg">
+      <header className="border-b border-purple-500/20 bg-black/20 backdrop-blur-lg mt-16">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Settings className="w-8 h-8 text-purple-400" />

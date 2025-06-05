@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, ChevronDown, Code, Palette, Zap } from 'lucide-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import Navbar from '@/components/Navbar';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -64,8 +65,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 text-white">
+      <Navbar />
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm"></div>
         
         <div className={`relative z-10 text-center px-6 transition-all duration-1000 ${
@@ -96,20 +98,6 @@ const Index = () => {
               className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
             >
               Projelerimi Gör
-            </Button>
-            <Button 
-              variant="outline" 
-              onClick={() => window.open('/blog', '_self')}
-              className="border-blue-400 text-blue-200 hover:bg-blue-400/20 px-8 py-3 rounded-full transition-all duration-300"
-            >
-              Blog & Makaleler
-            </Button>
-            <Button 
-              variant="outline" 
-              onClick={() => window.open('/admin', '_self')}
-              className="border-green-400 text-green-200 hover:bg-green-400/20 px-8 py-3 rounded-full transition-all duration-300"
-            >
-              Admin Paneli
             </Button>
             <Button 
               variant="outline" 
