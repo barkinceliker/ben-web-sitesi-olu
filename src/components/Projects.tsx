@@ -7,13 +7,12 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "Modern bir e-ticaret platformu. React, Node.js ve PostgreSQL kullanılarak geliştirildi. Ödeme entegrasyonu, admin paneli ve real-time bildirimlere sahip.",
-      longDescription: "Tam özellikli e-ticaret platformu. Kullanıcı authentication, sepet yönetimi, ödeme işlemleri, admin dashboard ve envanter yönetimi sistemi içerir.",
-      image: "🛒",
-      github: "https://github.com/username/ecommerce-platform",
-      demo: "https://ecommerce-demo.vercel.app",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Redux", "Material-UI"],
+      title: "Müşteri Segmentasyonu AI",
+      description: "Machine learning algoritmaları ile müşteri davranışlarını analiz eden segmentasyon sistemi. K-means ve hierarchical clustering teknikleri kullanıldı.",
+      longDescription: "E-ticaret verilerini analiz ederek müşteri segmentasyonu yapan AI sistemi. RFM analizi, demographic segmentation ve behavior-based clustering.",
+      github: "https://github.com/barkinceliker/customer-segmentation",
+      demo: "https://customer-segmentation-demo.vercel.app",
+      technologies: ["Python", "Scikit-learn", "Pandas", "Matplotlib", "PostgreSQL", "Flask"],
       status: "Tamamlandı",
       stars: 45,
       forks: 12,
@@ -21,13 +20,12 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "Takım çalışması için geliştirilmiş görev yönetim uygulaması. Real-time collaboration, drag & drop ve gelişmiş filtreleme özellikleri.",
-      longDescription: "Agile takımlar için özel olarak tasarlanmış proje yönetim aracı. Kanban board, sprint planning ve team collaboration özellikleri.",
-      image: "📋",
-      github: "https://github.com/username/task-manager",
-      demo: "https://taskmanager-demo.vercel.app",
-      technologies: ["React", "TypeScript", "Socket.io", "MongoDB", "Express", "Tailwind"],
+      title: "Satış Tahmin Modeli",
+      description: "Time series analizi ile gelecek satış tahminleri yapan makine öğrenmesi modeli. LSTM ve ARIMA modellerini karşılaştırır.",
+      longDescription: "Geçmiş satış verilerini analiz ederek gelecek dönem satış tahminleri yapan predictive analytics sistemi.",
+      github: "https://github.com/barkinceliker/sales-forecasting",
+      demo: "https://sales-forecast-demo.vercel.app",
+      technologies: ["Python", "TensorFlow", "Keras", "Pandas", "NumPy", "Plotly"],
       status: "Geliştiriliyor",
       stars: 32,
       forks: 8,
@@ -35,13 +33,12 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: "Social Media Dashboard",
-      description: "Sosyal medya hesaplarını tek yerden yönetmek için analitik dashboard. Çoklu platform desteği ve detaylı raporlama.",
-      longDescription: "Instagram, Twitter, Facebook ve LinkedIn hesaplarını tek dashboard'dan yönetme imkanı sunan analitik platform.",
-      image: "📊",
-      github: "https://github.com/username/social-dashboard",
-      demo: "https://social-demo.vercel.app",
-      technologies: ["Next.js", "Chart.js", "API Integration", "Tailwind", "Vercel"],
+      title: "Finansal Dashboard",
+      description: "Real-time finansal verileri görselleştiren interaktif dashboard. Hisse senedi, kripto para ve forex verilerini analiz eder.",
+      longDescription: "Finansal piyasa verilerini real-time olarak takip eden ve görselleştiren analytics dashboard. Technical indicators ve risk analizi.",
+      github: "https://github.com/barkinceliker/financial-dashboard",
+      demo: "https://financial-dashboard-demo.vercel.app",
+      technologies: ["React", "D3.js", "Python API", "Alpha Vantage", "Chart.js", "WebSocket"],
       status: "Tamamlandı",
       stars: 67,
       forks: 23,
@@ -49,13 +46,12 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: "Weather Forecast App",
-      description: "Gelişmiş hava durumu uygulaması. 7 günlük tahmin, haritalar ve push bildirimleri. PWA özellikli.",
-      longDescription: "Detaylı hava durumu bilgileri, interaktif haritalar, hava radar görüntüleri ve kişiselleştirilmiş bildirimler.",
-      image: "🌤️",
-      github: "https://github.com/username/weather-app",
-      demo: "https://weather-demo.vercel.app",
-      technologies: ["React", "PWA", "OpenWeather API", "Geolocation", "Service Workers"],
+      title: "Sentiment Analysis Tool",
+      description: "Sosyal medya verilerini analiz ederek duygu analizi yapan NLP projesi. Twitter ve Reddit verilerini işler.",
+      longDescription: "Natural Language Processing teknikleri ile sosyal medya postlarının sentiment analizini yapan tool. Brand monitoring için geliştirildi.",
+      github: "https://github.com/barkinceliker/sentiment-analysis",
+      demo: "https://sentiment-demo.vercel.app",
+      technologies: ["Python", "NLTK", "spaCy", "Transformers", "Twitter API", "Streamlit"],
       status: "Tamamlandı",
       stars: 28,
       forks: 5,
@@ -63,13 +59,12 @@ const Projects = () => {
     },
     {
       id: 5,
-      title: "Real-time Chat App",
-      description: "WebSocket tabanlı gerçek zamanlı mesajlaşma uygulaması. Grup chatleri, dosya paylaşımı ve emoji desteği.",
-      longDescription: "End-to-end şifreleme, sesli/görüntülü arama, dosya paylaşımı ve bot entegrasyonu olan modern chat platformu.",
-      image: "💬",
-      github: "https://github.com/username/chat-app",
-      demo: "https://chat-demo.vercel.app",
-      technologies: ["React", "Socket.io", "Node.js", "MongoDB", "WebRTC"],
+      title: "Fraud Detection System",
+      description: "Kredi kartı işlemlerinde sahte işlemleri tespit eden machine learning sistemi. Anomaly detection algoritmaları kullanır.",
+      longDescription: "Finansal işlemlerde fraud detection için geliştirilen ML sistemi. Real-time monitoring ve alert sistemi içerir.",
+      github: "https://github.com/barkinceliker/fraud-detection",
+      demo: "https://fraud-detection-demo.vercel.app",
+      technologies: ["Python", "XGBoost", "Isolation Forest", "Apache Kafka", "PostgreSQL", "Docker"],
       status: "Geliştiriliyor",
       stars: 54,
       forks: 15,
@@ -77,13 +72,12 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: "Cryptocurrency Tracker",
-      description: "Kripto para takip uygulaması. Real-time fiyatlar, portfolio yönetimi ve teknik analiz araçları.",
-      longDescription: "Binlerce kripto para birimini takip etme, portfolio oluşturma, fiyat alarmları ve detaylı analiz grafikleri.",
-      image: "₿",
-      github: "https://github.com/username/crypto-tracker",
-      demo: "https://crypto-demo.vercel.app",
-      technologies: ["React", "CoinGecko API", "Chart.js", "LocalStorage", "PWA"],
+      title: "Supply Chain Analytics",
+      description: "Tedarik zinciri optimizasyonu için veri analizi platformu. Inventory management ve demand forecasting özellikleri.",
+      longDescription: "Supply chain verilerini analiz ederek optimizasyon önerileri sunan analytics platform. Cost reduction ve efficiency improvement.",
+      github: "https://github.com/barkinceliker/supply-chain-analytics",
+      demo: "https://supply-chain-demo.vercel.app",
+      technologies: ["Python", "OR-Tools", "Pandas", "Tableau", "SQL", "AWS"],
       status: "Tamamlandı",
       stars: 89,
       forks: 34,
@@ -120,7 +114,7 @@ const Projects = () => {
               <CardContent className="p-6">
                 {/* Project Header */}
                 <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${project.gradient} mb-6 flex items-center justify-center relative overflow-hidden`}>
-                  <div className="text-6xl opacity-80">{project.image}</div>
+                  <div className="text-6xl opacity-80 font-bold text-white">AI</div>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                   
                   {/* Status Badge */}
@@ -206,7 +200,7 @@ const Projects = () => {
                 GitHub profilimde daha fazla açık kaynak proje ve kod örneği bulabilirsiniz.
               </p>
               <Button 
-                onClick={() => handleGithubClick('https://github.com/username')}
+                onClick={() => handleGithubClick('https://github.com/barkinceliker')}
                 className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-full"
               >
                 <Github className="w-5 h-5 mr-2" />

@@ -5,55 +5,55 @@ import { Progress } from '@/components/ui/progress';
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Frontend Technologies",
-      icon: "🎨",
+      title: "Veri Analizi & İstatistik",
+      icon: "📊",
       gradient: "from-blue-500 to-purple-500",
       skills: [
-        { name: "React", level: 95, description: "Hooks, Context, Redux" },
-        { name: "TypeScript", level: 90, description: "Type safety, Generics" },
-        { name: "JavaScript", level: 95, description: "ES6+, Async/Await" },
-        { name: "CSS3 / SCSS", level: 85, description: "Flexbox, Grid, Animations" },
-        { name: "Tailwind CSS", level: 90, description: "Utility-first styling" },
-        { name: "Next.js", level: 80, description: "SSR, SSG, API Routes" }
+        { name: "Python", level: 95, description: "Pandas, NumPy, SciPy" },
+        { name: "R", level: 85, description: "Statistical analysis, ggplot2" },
+        { name: "SQL", level: 90, description: "Complex queries, Optimization" },
+        { name: "Excel/VBA", level: 85, description: "Advanced formulas, Macros" },
+        { name: "SPSS", level: 75, description: "Statistical software" },
+        { name: "Stata", level: 70, description: "Econometric analysis" }
       ]
     },
     {
-      title: "Backend Technologies",
-      icon: "⚙️",
+      title: "Machine Learning & AI",
+      icon: "🤖",
       gradient: "from-green-500 to-blue-500",
       skills: [
-        { name: "Node.js", level: 85, description: "Express, RESTful APIs" },
-        { name: "Python", level: 75, description: "Django, FastAPI" },
-        { name: "PostgreSQL", level: 80, description: "Complex queries, Optimization" },
-        { name: "MongoDB", level: 75, description: "NoSQL, Aggregation" },
-        { name: "GraphQL", level: 70, description: "Apollo, Schemas" },
-        { name: "Docker", level: 70, description: "Containerization, Compose" }
+        { name: "Scikit-learn", level: 90, description: "Classification, Regression" },
+        { name: "TensorFlow", level: 85, description: "Deep learning, Neural networks" },
+        { name: "Keras", level: 80, description: "High-level neural networks" },
+        { name: "XGBoost", level: 85, description: "Gradient boosting" },
+        { name: "NLTK/spaCy", level: 75, description: "Natural Language Processing" },
+        { name: "OpenCV", level: 70, description: "Computer vision" }
       ]
     },
     {
-      title: "Cloud & DevOps",
-      icon: "☁️",
+      title: "Veri Görselleştirme",
+      icon: "📈",
       gradient: "from-purple-500 to-pink-500",
       skills: [
-        { name: "AWS", level: 75, description: "EC2, S3, Lambda" },
-        { name: "Vercel", level: 85, description: "Deployment, CI/CD" },
-        { name: "Git", level: 95, description: "Version control, Workflows" },
-        { name: "GitHub Actions", level: 70, description: "Automation, Testing" },
-        { name: "Nginx", level: 65, description: "Reverse proxy, Load balancing" },
-        { name: "Linux", level: 75, description: "Command line, Server management" }
+        { name: "Tableau", level: 85, description: "Business intelligence dashboards" },
+        { name: "Power BI", level: 80, description: "Microsoft analytics platform" },
+        { name: "Plotly", level: 90, description: "Interactive visualizations" },
+        { name: "Matplotlib/Seaborn", level: 95, description: "Python visualization" },
+        { name: "D3.js", level: 75, description: "Web-based visualizations" },
+        { name: "Grafana", level: 70, description: "Monitoring dashboards" }
       ]
     },
     {
-      title: "Tools & Others",
-      icon: "🛠️",
+      title: "Veritabanı & Big Data",
+      icon: "💾",
       gradient: "from-pink-500 to-red-500",
       skills: [
-        { name: "VS Code", level: 95, description: "Extensions, Debugging" },
-        { name: "Figma", level: 80, description: "UI/UX Design, Prototyping" },
-        { name: "Postman", level: 85, description: "API Testing, Documentation" },
-        { name: "Jest", level: 75, description: "Unit testing, Mocking" },
-        { name: "Webpack", level: 70, description: "Module bundling, Optimization" },
-        { name: "Agile/Scrum", level: 85, description: "Project management, Sprints" }
+        { name: "PostgreSQL", level: 90, description: "Advanced SQL, Optimization" },
+        { name: "MongoDB", level: 80, description: "NoSQL, Aggregation" },
+        { name: "Apache Spark", level: 75, description: "Big data processing" },
+        { name: "Hadoop", level: 70, description: "Distributed computing" },
+        { name: "Redis", level: 75, description: "In-memory data structure" },
+        { name: "Snowflake", level: 65, description: "Cloud data warehouse" }
       ]
     }
   ];

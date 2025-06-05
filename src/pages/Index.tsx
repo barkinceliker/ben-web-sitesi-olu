@@ -13,48 +13,48 @@ const Index = () => {
 
   const skillCategories = [
     {
-      title: 'Frontend',
-      skills: ['React', 'TypeScript', 'JavaScript', 'Vue.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'SCSS', 'Responsive Design'],
-      icon: '🎨'
+      title: 'Veri Analizi',
+      skills: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Plotly', 'Jupyter', 'Google Colab', 'Excel'],
+      icon: '📊'
     },
     {
-      title: 'Backend',
-      skills: ['Node.js', 'Python', 'Express.js', 'FastAPI', 'REST APIs', 'GraphQL', 'Microservices'],
-      icon: '⚙️'
+      title: 'Machine Learning',
+      skills: ['Scikit-learn', 'TensorFlow', 'Keras', 'XGBoost', 'Random Forest', 'Linear Regression', 'Classification'],
+      icon: '🤖'
     },
     {
-      title: 'Database',
-      skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Supabase', 'Firebase'],
+      title: 'Databases & Big Data',
+      skills: ['SQL', 'PostgreSQL', 'MongoDB', 'Apache Spark', 'Hadoop', 'Redis', 'Data Warehousing'],
       icon: '💾'
     },
     {
-      title: 'DevOps & Tools',
-      skills: ['Docker', 'AWS', 'Git', 'CI/CD', 'Linux', 'Nginx', 'Kubernetes'],
-      icon: '🚀'
+      title: 'Veri Görselleştirme',
+      skills: ['Tableau', 'Power BI', 'D3.js', 'React Charts', 'Dash', 'Streamlit', 'Grafana'],
+      icon: '📈'
     }
   ];
 
   const projects = [
     {
-      title: 'E-Ticaret Platformu',
-      description: 'Modern React ve Node.js ile geliştirilmiş full-stack e-ticaret uygulaması',
-      tech: ['React', 'Node.js', 'MongoDB'],
+      title: 'Müşteri Segmentasyonu AI',
+      description: 'Machine learning ile müşteri davranışlarını analiz eden segmentasyon sistemi',
+      tech: ['Python', 'Scikit-learn', 'PostgreSQL'],
       gradient: 'from-pink-500 to-rose-500',
-      github: 'https://github.com/username/ecommerce-platform'
+      github: 'https://github.com/barkinceliker/customer-segmentation'
     },
     {
-      title: 'Task Management App',
-      description: 'Takım işbirliği için geliştirilmiş proje yönetim aracı',
-      tech: ['TypeScript', 'Express', 'PostgreSQL'],
+      title: 'Satış Tahmin Modeli',
+      description: 'Time series analizi ile gelecek satış tahminleri yapan veri modeli',
+      tech: ['Python', 'TensorFlow', 'Pandas'],
       gradient: 'from-blue-500 to-cyan-500',
-      github: 'https://github.com/username/task-management'
+      github: 'https://github.com/barkinceliker/sales-forecasting'
     },
     {
-      title: 'Portfolio Website',
-      description: 'Responsive ve modern tasarımlı kişisel portfolio sitesi',
-      tech: ['React', 'Tailwind', 'Framer Motion'],
+      title: 'Finansal Dashboard',
+      description: 'Real-time finansal verileri görselleştiren interaktif dashboard',
+      tech: ['React', 'D3.js', 'Python API'],
       gradient: 'from-purple-500 to-indigo-500',
-      github: 'https://github.com/username/portfolio'
+      github: 'https://github.com/barkinceliker/financial-dashboard'
     }
   ];
 
@@ -103,6 +103,13 @@ const Index = () => {
               className="border-blue-400 text-blue-200 hover:bg-blue-400/20 px-8 py-3 rounded-full transition-all duration-300"
             >
               Blog & Makaleler
+            </Button>
+            <Button 
+              variant="outline" 
+              onClick={() => window.open('/admin', '_self')}
+              className="border-green-400 text-green-200 hover:bg-green-400/20 px-8 py-3 rounded-full transition-all duration-300"
+            >
+              Admin Paneli
             </Button>
             <Button 
               variant="outline" 
@@ -220,10 +227,10 @@ const Index = () => {
             {skillCategories.map((category, categoryIndex) => (
               <Card key={category.title} className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300">
                 <CardContent className="p-6">
-                  <div className="text-center mb-6">
-                    <div className="text-4xl mb-3">{category.icon}</div>
-                    <h3 className="text-xl font-bold text-purple-300">{category.title}</h3>
-                  </div>
+                 <div className="text-center mb-6">
+                   <div className="text-4xl mb-3">{category.icon}</div>
+                   <h3 className="text-xl font-bold text-purple-300">{category.title}</h3>
+                 </div>
                   
                   <div className="space-y-2">
                     {category.skills.map((skill, skillIndex) => (
@@ -260,16 +267,16 @@ const Index = () => {
                 onClick={() => window.open(project.github, '_blank')}
               >
                 <CardContent className="p-6">
-                  <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${project.gradient} mb-6 flex items-center justify-center relative overflow-hidden`}>
-                    <Code className="w-16 h-16 text-white opacity-80" />
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Github className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
+                 <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${project.gradient} mb-6 flex items-center justify-center relative overflow-hidden`}>
+                   <Code className="w-16 h-16 text-white opacity-80" />
+                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                     <Github className="w-6 h-6 text-white" />
+                   </div>
+                 </div>
                   
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-300 transition-colors">
-                    {project.title}
-                  </h3>
+                   <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-300 transition-colors">
+                     {project.title}
+                   </h3>
                   <p className="text-gray-300 mb-4 text-sm leading-relaxed">
                     {project.description}
                   </p>
