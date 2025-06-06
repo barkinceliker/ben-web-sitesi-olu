@@ -4,13 +4,36 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Navbar from '@/components/Navbar';
+import { supabase } from '@/integrations/supabase/client';
+import type { Tables } from '@/integrations/supabase/types';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [projects, setProjects] = useState<Tables<'projects'>[]>([]);
 
   useEffect(() => {
     setIsVisible(true);
+    fetchProjects();
   }, []);
+
+  const fetchProjects = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('projects')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(3);
+
+      if (error) {
+        console.error('Error fetching projects:', error);
+        return;
+      }
+
+      setProjects(data || []);
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    }
+  };
 
   const skillCategories = [
     {
@@ -35,28 +58,13 @@ const Index = () => {
     }
   ];
 
-  const projects = [
-    {
-      title: 'Müşteri Segmentasyonu AI',
-      description: 'Machine learning ile müşteri davranışlarını analiz eden segmentasyon sistemi',
-      tech: ['Python', 'Scikit-learn', 'PostgreSQL'],
-      gradient: 'from-pink-500 to-rose-500',
-      github: 'https://github.com/barkinceliker/customer-segmentation'
-    },
-    {
-      title: 'Satış Tahmin Modeli',
-      description: 'Time series analizi ile gelecek satış tahminleri yapan veri modeli',
-      tech: ['Python', 'TensorFlow', 'Pandas'],
-      gradient: 'from-blue-500 to-cyan-500',
-      github: 'https://github.com/barkinceliker/sales-forecasting'
-    },
-    {
-      title: 'Finansal Dashboard',
-      description: 'Real-time finansal verileri görselleştiren interaktif dashboard',
-      tech: ['React', 'D3.js', 'Python API'],
-      gradient: 'from-purple-500 to-indigo-500',
-      github: 'https://github.com/barkinceliker/financial-dashboard'
-    }
+  const gradients = [
+    'from-pink-500 to-rose-500',
+    'from-blue-500 to-cyan-500',
+    'from-purple-500 to-indigo-500',
+    'from-green-500 to-emerald-500',
+    'from-yellow-500 to-orange-500',
+    'from-cyan-500 to-blue-500'
   ];
 
   const scrollToSection = (id: string) => {
@@ -247,43 +255,57 @@ const Index = () => {
             Projelerim
           </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card 
-                key={index} 
-                className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
-                onClick={() => window.open(project.github, '_blank')}
-              >
-                <CardContent className="p-6">
-                 <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${project.gradient} mb-6 flex items-center justify-center relative overflow-hidden`}>
-                   <Code className="w-16 h-16 text-white opacity-80" />
-                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                     <Github className="w-6 h-6 text-white" />
-                   </div>
-                 </div>
-                  
-                   <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-300 transition-colors">
-                     {project.title}
-                   </h3>
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <Badge key={tech} className="bg-purple-500/20 text-purple-200 text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                  
-                  <div className="text-xs text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                    GitHub'da görüntüle →
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+             {projects.length === 0 ? (
+               <div className="col-span-full text-center text-gray-400 py-12">
+                 <p>Henüz proje eklenmemiş. Admin panelinden proje ekleyebilirsiniz.</p>
+               </div>
+             ) : (
+               projects.map((project, index) => (
+                 <Card 
+                   key={project.id} 
+                   className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+                   onClick={() => project.github && window.open(project.github, '_blank')}
+                 >
+                   <CardContent className="p-6">
+                    <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${gradients[index % gradients.length]} mb-6 flex items-center justify-center relative overflow-hidden`}>
+                      <Code className="w-16 h-16 text-white opacity-80" />
+                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Github className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                     
+                      <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-300 transition-colors">
+                        {project.title}
+                      </h3>
+                     <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                       {project.description || 'Açıklama eklenmemiş'}
+                     </p>
+                     
+                     <div className="flex flex-wrap gap-2 mb-4">
+                       {project.tech && project.tech.length > 0 ? (
+                         project.tech.map((tech) => (
+                           <Badge key={tech} className="bg-purple-500/20 text-purple-200 text-xs">
+                             {tech}
+                           </Badge>
+                         ))
+                       ) : (
+                         <Badge className="bg-gray-500/20 text-gray-300 text-xs">
+                           Teknoloji belirtilmemiş
+                         </Badge>
+                       )}
+                     </div>
+                     
+                     {project.github && (
+                       <div className="text-xs text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                         GitHub'da görüntüle →
+                       </div>
+                     )}
+                   </CardContent>
+                 </Card>
+               ))
+             )}
+           </div>
         </div>
       </section>
 
