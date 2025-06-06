@@ -34,8 +34,10 @@ const Admin = () => {
 
   const [projects, setProjects] = useState([]);
   const [blogPosts, setBlogPosts] = useState([]);
+  const [aboutContent, setAboutContent] = useState([]);
   const [editingProject, setEditingProject] = useState(null);
   const [editingBlog, setEditingBlog] = useState(null);
+  const [editingAbout, setEditingAbout] = useState(null);
 
   // Form states
   const [projectForm, setProjectForm] = useState({
@@ -54,6 +56,12 @@ const Admin = () => {
     tags: '',
     is_published: false,
     publish_date: ''
+  });
+
+  const [aboutForm, setAboutForm] = useState({
+    title: '',
+    content: '',
+    subtitle: ''
   });
 
   // Fetch data from Supabase
@@ -75,10 +83,20 @@ const Admin = () => {
     }
   };
 
+  const fetchAboutContent = async () => {
+    const { data, error } = await supabase.from('about').select('*').order('section_key', { ascending: true });
+    if (error) {
+      toast({ title: "Hata", description: "Hakkımda içeriği yüklenemedi", variant: "destructive" });
+    } else {
+      setAboutContent(data || []);
+    }
+  };
+
   useEffect(() => {
     if (isLoggedIn) {
       fetchProjects();
       fetchBlogPosts();
+      fetchAboutContent();
     }
   }, [isLoggedIn]);
 
@@ -194,6 +212,35 @@ const Admin = () => {
       tags: Array.isArray(post.tags) ? post.tags.join(', ') : '',
       is_published: post.is_published || false,
       publish_date: post.publish_date || ''
+    });
+  };
+
+  // About CRUD operations
+  const saveAboutContent = async () => {
+    setLoading(true);
+    const result = await supabase.from('about').update({
+      title: aboutForm.title,
+      content: aboutForm.content,
+      subtitle: aboutForm.subtitle
+    }).eq('id', editingAbout.id);
+
+    if (result.error) {
+      toast({ title: "Hata", description: "Hakkımda içeriği kaydedilemedi", variant: "destructive" });
+    } else {
+      toast({ title: "Başarılı", description: "Hakkımda içeriği kaydedildi!" });
+      setEditingAbout(null);
+      setAboutForm({ title: '', content: '', subtitle: '' });
+      fetchAboutContent();
+    }
+    setLoading(false);
+  };
+
+  const editAboutContent = (content) => {
+    setEditingAbout(content);
+    setAboutForm({
+      title: content.title || '',
+      content: content.content || '',
+      subtitle: content.subtitle || ''
     });
   };
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, ChevronDown, Code, Palette, Zap } from 'lucide-react';
+import { Github, Linkedin, ChevronDown, Code, Palette, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -10,10 +10,12 @@ import type { Tables } from '@/integrations/supabase/types';
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [projects, setProjects] = useState<Tables<'projects'>[]>([]);
+  const [aboutContent, setAboutContent] = useState<{[key: string]: Tables<'about'>}>({});
 
   useEffect(() => {
     setIsVisible(true);
     fetchProjects();
+    fetchAboutContent();
   }, []);
 
   const fetchProjects = async () => {
@@ -32,6 +34,27 @@ const Index = () => {
       setProjects(data || []);
     } catch (error) {
       console.error('Error fetching projects:', error);
+    }
+  };
+
+  const fetchAboutContent = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('about')
+        .select('*');
+
+      if (error) {
+        console.error('Error fetching about content:', error);
+        return;
+      }
+
+      const contentMap: {[key: string]: Tables<'about'>} = {};
+      data?.forEach(item => {
+        contentMap[item.section_key] = item;
+      });
+      setAboutContent(contentMap);
+    } catch (error) {
+      console.error('Error fetching about content:', error);
     }
   };
 
@@ -81,23 +104,14 @@ const Index = () => {
         <div className={`relative z-10 text-center px-6 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="mb-8">
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 p-1">
-              <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center">
-                <span className="text-4xl">👋</span>
-              </div>
-            </div>
-          </div>
-          
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
-            Merhaba, Ben Barkın
+            {aboutContent.hero_title?.title || 'Merhaba, Ben Barkın'}
           </h1>
           <p className="text-xl md:text-2xl text-purple-200 mb-6">
-            YBS Öğrencisi & Developer
+            {aboutContent.hero_subtitle?.title || 'YBS Öğrencisi & Veri Analisti'}
           </p>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            Yaşar Üniversitesi Yönetim Bilişim Sistemleri 3. sınıf öğrencisiyim. 
-            Modern web teknolojileri ile kullanıcı dostu çözümler geliştiriyorum.
+            {aboutContent.hero_description?.title || 'Yaşar Üniversitesi Yönetim Bilişim Sistemleri 3. sınıf öğrencisiyim. Modern veri analizi teknolojileri ile işletmelere değer katan içgörüler üretiyorum.'}
           </p>
           
           <div className="flex flex-wrap gap-4 justify-center mb-12">
@@ -123,9 +137,6 @@ const Index = () => {
             <a href="https://www.linkedin.com/in/celikerbarkin/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
               <Linkedin size={24} />
             </a>
-            <a href="mailto:barkinclkr@gmail.com" className="text-gray-400 hover:text-purple-400 transition-colors">
-              <Mail size={24} />
-            </a>
           </div>
         </div>
         
@@ -148,18 +159,16 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-6 rounded-2xl border border-purple-500/20">
-                <h3 className="text-2xl font-bold mb-4 text-purple-300">🚀 Tutkum</h3>
+                <h3 className="text-2xl font-bold mb-4 text-purple-300">{aboutContent.passion?.subtitle || '🚀'} {aboutContent.passion?.title || 'Tutkum'}</h3>
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  5+ yıllık deneyimle modern web teknolojileri alanında uzmanlaşmış bir yazılım geliştiricisiyim. 
-                  Kullanıcı deneyimini ön planda tutarak, performanslı ve ölçeklenebilir çözümler üretiyorum.
+                  {aboutContent.passion?.content || 'Veri bilimi ve analitik alanında 3+ yıllık deneyimle modern veri teknolojileri konusunda uzmanlaşmış bir analiz uzmanıyım. Verileri anlamlı içgörülere dönüştürerek, karar verme süreçlerini optimize eden çözümler üretiyorum.'}
                 </p>
               </div>
               
               <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 p-6 rounded-2xl border border-blue-500/20">
-                <h3 className="text-2xl font-bold mb-4 text-blue-300">💡 Yaklaşımım</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-300">{aboutContent.approach?.subtitle || '💡'} {aboutContent.approach?.title || 'Yaklaşımım'}</h3>
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  Frontend'den backend'e, tasarımdan deployment'a kadar yazılım geliştirme sürecinin her aşamasında 
-                  deneyim sahibiyim. Sürekli öğrenmeyi seven ve teknolojiyi hayatımızı kolaylaştırmak için kullanan biriyim.
+                  {aboutContent.approach?.content || 'Veri toplama ve temizlemeden görselleştirme ve makine öğrenmesine kadar veri analizi sürecinin her aşamasında deneyim sahibiyim. Sürekli öğrenmeyi seven ve veriyi iş değerine dönüştürmek için kullanan biriyim.'}
                 </p>
               </div>
               
@@ -187,24 +196,24 @@ const Index = () => {
               <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20">
                 <CardContent className="p-6 text-center">
                   <Code className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Frontend Development</h3>
-                  <p className="text-gray-300">React, Vue.js, TypeScript ile modern kullanıcı arayüzleri</p>
+                  <h3 className="text-xl font-semibold mb-2">Veri Analizi</h3>
+                  <p className="text-gray-300">Python, Pandas, NumPy ile kapsamlı veri analizi ve istatistiksel modelleme</p>
                 </CardContent>
               </Card>
               
               <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20">
                 <CardContent className="p-6 text-center">
                   <Zap className="w-12 h-12 text-pink-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Backend Development</h3>
-                  <p className="text-gray-300">Node.js, Python, PostgreSQL ile güçlü backend sistemleri</p>
+                  <h3 className="text-xl font-semibold mb-2">Machine Learning</h3>
+                  <p className="text-gray-300">Scikit-learn, TensorFlow ile tahmin modelleri ve makine öğrenmesi</p>
                 </CardContent>
               </Card>
               
               <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20">
                 <CardContent className="p-6 text-center">
                   <Palette className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">UI/UX Design</h3>
-                  <p className="text-gray-300">Kullanıcı odaklı, modern ve etkileyici tasarımlar</p>
+                  <h3 className="text-xl font-semibold mb-2">Veri Görselleştirme</h3>
+                  <p className="text-gray-300">Tableau, Power BI, Matplotlib ile etkili veri görselleştirme</p>
                 </CardContent>
               </Card>
             </div>
@@ -319,18 +328,13 @@ const Index = () => {
             Bir projeniz mi var? Hadi birlikte konuşalım!
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
-              <Mail className="w-5 h-5 mr-2" />
-              Email Gönder
-            </Button>
-            <Button 
-              variant="outline" 
-              className="border-purple-400 text-purple-200 hover:bg-purple-400/20 px-8 py-3 rounded-full transition-all duration-300"
-            >
-              <Linkedin className="w-5 h-5 mr-2" />
-              LinkedIn
-            </Button>
+          <div className="flex gap-6 justify-center">
+            <a href="https://github.com/barkinceliker" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors p-3 rounded-full bg-white/5 hover:bg-white/10">
+              <Github size={24} />
+            </a>
+            <a href="https://www.linkedin.com/in/celikerbarkin/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors p-3 rounded-full bg-white/5 hover:bg-white/10">
+              <Linkedin size={24} />
+            </a>
           </div>
         </div>
       </section>
