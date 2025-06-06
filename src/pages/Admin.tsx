@@ -84,7 +84,7 @@ const Admin = () => {
   };
 
   const fetchAboutContent = async () => {
-    const { data, error } = await supabase.from('about').select('*').order('section_key', { ascending: true });
+    const { data, error } = await supabase.from('about').select('*').order('section_key');
     if (error) {
       toast({ title: "Hata", description: "Hakkımda içeriği yüklenemedi", variant: "destructive" });
     } else {
@@ -117,6 +117,7 @@ const Admin = () => {
     setPassword('');
     setProjects([]);
     setBlogPosts([]);
+    setAboutContent([]);
   };
 
   // Project CRUD operations
@@ -340,6 +341,10 @@ const Admin = () => {
             <TabsTrigger value="blog" className="data-[state=active]:bg-purple-500/30">
               <FileText className="w-4 h-4 mr-2" />
               Blog Yazıları
+            </TabsTrigger>
+            <TabsTrigger value="about" className="data-[state=active]:bg-purple-500/30">
+              <User className="w-4 h-4 mr-2" />
+              Hakkımda
             </TabsTrigger>
           </TabsList>
 
@@ -642,6 +647,108 @@ const Admin = () => {
                             className="border-red-400 text-red-200 hover:bg-red-400/20"
                           >
                             <Trash2 className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
+              )}
+            </div>
+          </TabsContent>
+
+          {/* About Tab */}
+          <TabsContent value="about" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-3xl font-bold">Hakkımda İçeriği</h2>
+            </div>
+
+            {/* About Form */}
+            {editingAbout && (
+              <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    <span>İçerik Düzenle: {editingAbout.section_key}</span>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setEditingAbout(null)}
+                      className="text-gray-400 hover:text-white"
+                    >
+                      <X className="w-4 h-4" />
+                    </Button>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <Label className="text-gray-200">Başlık</Label>
+                    <Input
+                      value={aboutForm.title}
+                      onChange={(e) => setAboutForm({ ...aboutForm, title: e.target.value })}
+                      className="bg-white/10 border-purple-500/20 text-white"
+                      placeholder="Başlık"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-gray-200">Alt Başlık/Emoji</Label>
+                    <Input
+                      value={aboutForm.subtitle}
+                      onChange={(e) => setAboutForm({ ...aboutForm, subtitle: e.target.value })}
+                      className="bg-white/10 border-purple-500/20 text-white"
+                      placeholder="🚀"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-gray-200">İçerik</Label>
+                    <Textarea
+                      value={aboutForm.content}
+                      onChange={(e) => setAboutForm({ ...aboutForm, content: e.target.value })}
+                      className="bg-white/10 border-purple-500/20 text-white min-h-32"
+                      placeholder="İçerik açıklaması"
+                    />
+                  </div>
+                  <Button 
+                    onClick={saveAboutContent}
+                    disabled={loading}
+                    className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
+                  >
+                    <Save className="w-4 h-4 mr-2" />
+                    {loading ? 'Kaydediliyor...' : 'Kaydet'}
+                  </Button>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* About Content List */}
+            <div className="space-y-4">
+              {aboutContent.length === 0 ? (
+                <div className="text-center py-12">
+                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-400">Henüz içerik eklenmemiş</p>
+                </div>
+              ) : (
+                aboutContent.map((content) => (
+                  <Card key={content.id} className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold mb-2">{content.section_key}</h3>
+                          <p className="text-purple-300 mb-2">{content.title}</p>
+                          <p className="text-gray-300 text-sm mb-2">{content.content}</p>
+                          {content.subtitle && (
+                            <Badge className="bg-purple-500/20 text-purple-200 text-xs">
+                              {content.subtitle}
+                            </Badge>
+                          )}
+                        </div>
+                        <div className="flex gap-2 ml-4">
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => editAboutContent(content)}
+                            className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
+                          >
+                            <Edit3 className="w-4 h-4" />
                           </Button>
                         </div>
                       </div>
