@@ -180,7 +180,7 @@ const Contact = () => {
                   
                   <div className="flex gap-4">
                     <a 
-                      href="https://github.com/barkinceliker" 
+                      href="https://github.com/barkinceliker?tab=repositories" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-12 h-12 rounded-lg bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"

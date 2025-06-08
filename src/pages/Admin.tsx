@@ -35,9 +35,16 @@ const Admin = () => {
   const [projects, setProjects] = useState([]);
   const [blogPosts, setBlogPosts] = useState([]);
   const [aboutContent, setAboutContent] = useState([]);
+  const [skills, setSkills] = useState([]);
+  const [experiences, setExperiences] = useState([]);
+  const [resume, setResume] = useState([]);
+  const [contactSubmissions, setContactSubmissions] = useState([]);
   const [editingProject, setEditingProject] = useState(null);
   const [editingBlog, setEditingBlog] = useState(null);
   const [editingAbout, setEditingAbout] = useState(null);
+  const [editingSkill, setEditingSkill] = useState(null);
+  const [editingExperience, setEditingExperience] = useState(null);
+  const [editingResume, setEditingResume] = useState(null);
 
   // Form states
   const [projectForm, setProjectForm] = useState({
@@ -62,6 +69,31 @@ const Admin = () => {
     title: '',
     content: '',
     subtitle: ''
+  });
+
+  const [skillForm, setSkillForm] = useState({
+    name: '',
+    category: '',
+    description: '',
+    level: 80,
+    icon: ''
+  });
+
+  const [experienceForm, setExperienceForm] = useState({
+    position: '',
+    company: '',
+    location: '',
+    start_date: '',
+    end_date: '',
+    is_current: false,
+    description: ''
+  });
+
+  const [resumeForm, setResumeForm] = useState({
+    section_key: '',
+    title: '',
+    content: '',
+    file_url: ''
   });
 
   // Fetch data from Supabase
@@ -92,11 +124,51 @@ const Admin = () => {
     }
   };
 
+  const fetchSkills = async () => {
+    const { data, error } = await supabase.from('skills').select('*').order('category', { ascending: true });
+    if (error) {
+      toast({ title: "Hata", description: "Beceriler yüklenemedi", variant: "destructive" });
+    } else {
+      setSkills(data || []);
+    }
+  };
+
+  const fetchExperiences = async () => {
+    const { data, error } = await supabase.from('experience').select('*').order('start_date', { ascending: false });
+    if (error) {
+      toast({ title: "Hata", description: "Deneyimler yüklenemedi", variant: "destructive" });
+    } else {
+      setExperiences(data || []);
+    }
+  };
+
+  const fetchResume = async () => {
+    const { data, error } = await supabase.from('resume').select('*').order('section_key');
+    if (error) {
+      toast({ title: "Hata", description: "CV içeriği yüklenemedi", variant: "destructive" });
+    } else {
+      setResume(data || []);
+    }
+  };
+
+  const fetchContactSubmissions = async () => {
+    const { data, error } = await supabase.from('contact_submissions').select('*').order('created_at', { ascending: false });
+    if (error) {
+      toast({ title: "Hata", description: "İletişim mesajları yüklenemedi", variant: "destructive" });
+    } else {
+      setContactSubmissions(data || []);
+    }
+  };
+
   useEffect(() => {
     if (isLoggedIn) {
       fetchProjects();
       fetchBlogPosts();
       fetchAboutContent();
+      fetchSkills();
+      fetchExperiences();
+      fetchResume();
+      fetchContactSubmissions();
     }
   }, [isLoggedIn]);
 
@@ -118,6 +190,10 @@ const Admin = () => {
     setProjects([]);
     setBlogPosts([]);
     setAboutContent([]);
+    setSkills([]);
+    setExperiences([]);
+    setResume([]);
+    setContactSubmissions([]);
   };
 
   // Project CRUD operations
@@ -245,6 +321,144 @@ const Admin = () => {
     });
   };
 
+  // Skills CRUD operations
+  const saveSkill = async () => {
+    setLoading(true);
+    let result;
+    if (editingSkill?.id) {
+      result = await supabase.from('skills').update(skillForm).eq('id', editingSkill.id);
+    } else {
+      result = await supabase.from('skills').insert([skillForm]);
+    }
+
+    if (result.error) {
+      toast({ title: "Hata", description: "Beceri kaydedilemedi", variant: "destructive" });
+    } else {
+      toast({ title: "Başarılı", description: "Beceri kaydedildi!" });
+      setEditingSkill(null);
+      setSkillForm({ name: '', category: '', description: '', level: 80, icon: '' });
+      fetchSkills();
+    }
+    setLoading(false);
+  };
+
+  const deleteSkill = async (id) => {
+    const { error } = await supabase.from('skills').delete().eq('id', id);
+    if (error) {
+      toast({ title: "Hata", description: "Beceri silinemedi", variant: "destructive" });
+    } else {
+      toast({ title: "Başarılı", description: "Beceri silindi!" });
+      fetchSkills();
+    }
+  };
+
+  const editSkill = (skill) => {
+    setEditingSkill(skill);
+    setSkillForm({
+      name: skill.name || '',
+      category: skill.category || '',
+      description: skill.description || '',
+      level: skill.level || 80,
+      icon: skill.icon || ''
+    });
+  };
+
+  // Experience CRUD operations
+  const saveExperience = async () => {
+    setLoading(true);
+    let result;
+    if (editingExperience?.id) {
+      result = await supabase.from('experience').update(experienceForm).eq('id', editingExperience.id);
+    } else {
+      result = await supabase.from('experience').insert([experienceForm]);
+    }
+
+    if (result.error) {
+      toast({ title: "Hata", description: "Deneyim kaydedilemedi", variant: "destructive" });
+    } else {
+      toast({ title: "Başarılı", description: "Deneyim kaydedildi!" });
+      setEditingExperience(null);
+      setExperienceForm({ position: '', company: '', location: '', start_date: '', end_date: '', is_current: false, description: '' });
+      fetchExperiences();
+    }
+    setLoading(false);
+  };
+
+  const deleteExperience = async (id) => {
+    const { error } = await supabase.from('experience').delete().eq('id', id);
+    if (error) {
+      toast({ title: "Hata", description: "Deneyim silinemedi", variant: "destructive" });
+    } else {
+      toast({ title: "Başarılı", description: "Deneyim silindi!" });
+      fetchExperiences();
+    }
+  };
+
+  const editExperience = (experience) => {
+    setEditingExperience(experience);
+    setExperienceForm({
+      position: experience.position || '',
+      company: experience.company || '',
+      location: experience.location || '',
+      start_date: experience.start_date || '',
+      end_date: experience.end_date || '',
+      is_current: experience.is_current || false,
+      description: experience.description || ''
+    });
+  };
+
+  // Resume CRUD operations
+  const saveResume = async () => {
+    setLoading(true);
+    let result;
+    if (editingResume?.id) {
+      result = await supabase.from('resume').update(resumeForm).eq('id', editingResume.id);
+    } else {
+      result = await supabase.from('resume').insert([resumeForm]);
+    }
+
+    if (result.error) {
+      toast({ title: "Hata", description: "CV kaydedilemedi", variant: "destructive" });
+    } else {
+      toast({ title: "Başarılı", description: "CV kaydedildi!" });
+      setEditingResume(null);
+      setResumeForm({ section_key: '', title: '', content: '', file_url: '' });
+      fetchResume();
+    }
+    setLoading(false);
+  };
+
+  const deleteResume = async (id) => {
+    const { error } = await supabase.from('resume').delete().eq('id', id);
+    if (error) {
+      toast({ title: "Hata", description: "CV silinemedi", variant: "destructive" });
+    } else {
+      toast({ title: "Başarılı", description: "CV silindi!" });
+      fetchResume();
+    }
+  };
+
+  const editResume = (resume) => {
+    setEditingResume(resume);
+    setResumeForm({
+      section_key: resume.section_key || '',
+      title: resume.title || '',
+      content: resume.content || '',
+      file_url: resume.file_url || ''
+    });
+  };
+
+  // Contact submissions operations
+  const deleteContactSubmission = async (id) => {
+    const { error } = await supabase.from('contact_submissions').delete().eq('id', id);
+    if (error) {
+      toast({ title: "Hata", description: "Mesaj silinemedi", variant: "destructive" });
+    } else {
+      toast({ title: "Başarılı", description: "Mesaj silindi!" });
+      fetchContactSubmissions();
+    }
+  };
+
   if (!isLoggedIn) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 flex items-center justify-center px-6">
@@ -292,11 +506,6 @@ const Admin = () => {
                 Giriş Yap
               </Button>
             </form>
-            <div className="mt-4 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
-              <p className="text-yellow-200 text-xs">
-                Demo: barkinclkr@gmail.com / admin123
-              </p>
-            </div>
           </CardContent>
         </Card>
       </div>
@@ -345,6 +554,22 @@ const Admin = () => {
             <TabsTrigger value="about" className="data-[state=active]:bg-purple-500/30">
               <User className="w-4 h-4 mr-2" />
               Hakkımda
+            </TabsTrigger>
+            <TabsTrigger value="skills" className="data-[state=active]:bg-purple-500/30">
+              <Code className="w-4 h-4 mr-2" />
+              Beceriler
+            </TabsTrigger>
+            <TabsTrigger value="experience" className="data-[state=active]:bg-purple-500/30">
+              <User className="w-4 h-4 mr-2" />
+              Deneyim
+            </TabsTrigger>
+            <TabsTrigger value="resume" className="data-[state=active]:bg-purple-500/30">
+              <FileText className="w-4 h-4 mr-2" />
+              CV
+            </TabsTrigger>
+            <TabsTrigger value="contact" className="data-[state=active]:bg-purple-500/30">
+              <Settings className="w-4 h-4 mr-2" />
+              İletişim
             </TabsTrigger>
           </TabsList>
 
@@ -749,6 +974,496 @@ const Admin = () => {
                             className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
                           >
                             <Edit3 className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
+              )}
+            </div>
+          </TabsContent>
+
+          {/* Skills Tab */}
+          <TabsContent value="skills" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-3xl font-bold">Beceriler</h2>
+              <Button 
+                onClick={() => {
+                  setEditingSkill({ id: null });
+                  setSkillForm({ name: '', category: '', description: '', level: 80, icon: '' });
+                }}
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                Yeni Beceri
+              </Button>
+            </div>
+
+            {/* Skills Form */}
+            {editingSkill && (
+              <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    <span>{editingSkill.id ? 'Beceri Düzenle' : 'Yeni Beceri'}</span>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setEditingSkill(null)}
+                      className="text-gray-400 hover:text-white"
+                    >
+                      <X className="w-4 h-4" />
+                    </Button>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label className="text-gray-200">Beceri Adı</Label>
+                      <Input
+                        value={skillForm.name}
+                        onChange={(e) => setSkillForm({ ...skillForm, name: e.target.value })}
+                        className="bg-white/10 border-purple-500/20 text-white"
+                        placeholder="Python, React, etc."
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label className="text-gray-200">Kategori</Label>
+                      <Input
+                        value={skillForm.category}
+                        onChange={(e) => setSkillForm({ ...skillForm, category: e.target.value })}
+                        className="bg-white/10 border-purple-500/20 text-white"
+                        placeholder="Programming, Design, etc."
+                      />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label className="text-gray-200">Seviye (0-100)</Label>
+                      <Input
+                        type="number"
+                        min="0"
+                        max="100"
+                        value={skillForm.level}
+                        onChange={(e) => setSkillForm({ ...skillForm, level: parseInt(e.target.value) })}
+                        className="bg-white/10 border-purple-500/20 text-white"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label className="text-gray-200">İkon/Emoji</Label>
+                      <Input
+                        value={skillForm.icon}
+                        onChange={(e) => setSkillForm({ ...skillForm, icon: e.target.value })}
+                        className="bg-white/10 border-purple-500/20 text-white"
+                        placeholder="🐍, ⚛️, etc."
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-gray-200">Açıklama</Label>
+                    <Textarea
+                      value={skillForm.description}
+                      onChange={(e) => setSkillForm({ ...skillForm, description: e.target.value })}
+                      className="bg-white/10 border-purple-500/20 text-white min-h-20"
+                      placeholder="Beceri açıklaması"
+                    />
+                  </div>
+                  <Button 
+                    onClick={saveSkill}
+                    disabled={loading}
+                    className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
+                  >
+                    <Save className="w-4 h-4 mr-2" />
+                    {loading ? 'Kaydediliyor...' : 'Kaydet'}
+                  </Button>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Skills List */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {skills.length === 0 ? (
+                <div className="col-span-full text-center py-12">
+                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-400">Henüz beceri eklenmemiş</p>
+                </div>
+              ) : (
+                skills.map((skill) => (
+                  <Card key={skill.id} className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-xl">{skill.icon}</span>
+                        <h3 className="text-xl font-semibold">{skill.name}</h3>
+                      </div>
+                      <Badge className="bg-purple-500/20 text-purple-200 mb-2">{skill.category}</Badge>
+                      <p className="text-gray-300 text-sm mb-4">{skill.description}</p>
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-sm text-gray-400">Seviye</span>
+                        <Badge className="bg-green-500/20 text-green-200">{skill.level}%</Badge>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          onClick={() => editSkill(skill)}
+                          className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
+                        >
+                          <Edit3 className="w-4 h-4" />
+                        </Button>
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          onClick={() => deleteSkill(skill.id)}
+                          className="border-red-400 text-red-200 hover:bg-red-400/20"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
+              )}
+            </div>
+          </TabsContent>
+
+          {/* Experience Tab */}
+          <TabsContent value="experience" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-3xl font-bold">Deneyim</h2>
+              <Button 
+                onClick={() => {
+                  setEditingExperience({ id: null });
+                  setExperienceForm({ position: '', company: '', location: '', start_date: '', end_date: '', is_current: false, description: '' });
+                }}
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                Yeni Deneyim
+              </Button>
+            </div>
+
+            {/* Experience Form */}
+            {editingExperience && (
+              <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    <span>{editingExperience.id ? 'Deneyim Düzenle' : 'Yeni Deneyim'}</span>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setEditingExperience(null)}
+                      className="text-gray-400 hover:text-white"
+                    >
+                      <X className="w-4 h-4" />
+                    </Button>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label className="text-gray-200">Pozisyon</Label>
+                      <Input
+                        value={experienceForm.position}
+                        onChange={(e) => setExperienceForm({ ...experienceForm, position: e.target.value })}
+                        className="bg-white/10 border-purple-500/20 text-white"
+                        placeholder="Senior Developer"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label className="text-gray-200">Şirket</Label>
+                      <Input
+                        value={experienceForm.company}
+                        onChange={(e) => setExperienceForm({ ...experienceForm, company: e.target.value })}
+                        className="bg-white/10 border-purple-500/20 text-white"
+                        placeholder="Tech Company"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-gray-200">Konum</Label>
+                    <Input
+                      value={experienceForm.location}
+                      onChange={(e) => setExperienceForm({ ...experienceForm, location: e.target.value })}
+                      className="bg-white/10 border-purple-500/20 text-white"
+                      placeholder="İstanbul, Türkiye"
+                    />
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label className="text-gray-200">Başlangıç Tarihi</Label>
+                      <Input
+                        type="date"
+                        value={experienceForm.start_date}
+                        onChange={(e) => setExperienceForm({ ...experienceForm, start_date: e.target.value })}
+                        className="bg-white/10 border-purple-500/20 text-white"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label className="text-gray-200">Bitiş Tarihi</Label>
+                      <Input
+                        type="date"
+                        value={experienceForm.end_date}
+                        onChange={(e) => setExperienceForm({ ...experienceForm, end_date: e.target.value })}
+                        className="bg-white/10 border-purple-500/20 text-white"
+                        disabled={experienceForm.is_current}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      id="is_current"
+                      checked={experienceForm.is_current}
+                      onChange={(e) => setExperienceForm({ ...experienceForm, is_current: e.target.checked, end_date: e.target.checked ? '' : experienceForm.end_date })}
+                      className="w-4 h-4 text-purple-600 bg-white/10 border-purple-500/20 rounded"
+                    />
+                    <Label htmlFor="is_current" className="text-gray-200">Şu anda çalışıyorum</Label>
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-gray-200">Açıklama</Label>
+                    <Textarea
+                      value={experienceForm.description}
+                      onChange={(e) => setExperienceForm({ ...experienceForm, description: e.target.value })}
+                      className="bg-white/10 border-purple-500/20 text-white min-h-32"
+                      placeholder="İş tanımı ve sorumluluklar"
+                    />
+                  </div>
+                  <Button 
+                    onClick={saveExperience}
+                    disabled={loading}
+                    className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
+                  >
+                    <Save className="w-4 h-4 mr-2" />
+                    {loading ? 'Kaydediliyor...' : 'Kaydet'}
+                  </Button>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Experience List */}
+            <div className="space-y-4">
+              {experiences.length === 0 ? (
+                <div className="text-center py-12">
+                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-400">Henüz deneyim eklenmemiş</p>
+                </div>
+              ) : (
+                experiences.map((exp) => (
+                  <Card key={exp.id} className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <h3 className="text-xl font-semibold">{exp.position}</h3>
+                            {exp.is_current && (
+                              <Badge className="bg-green-500/20 text-green-200">Devam Ediyor</Badge>
+                            )}
+                          </div>
+                          <p className="text-purple-300 mb-2">{exp.company}</p>
+                          <p className="text-gray-400 text-sm mb-2">{exp.location}</p>
+                          <p className="text-gray-400 text-sm mb-4">
+                            {new Date(exp.start_date).toLocaleDateString('tr-TR')} - {exp.end_date ? new Date(exp.end_date).toLocaleDateString('tr-TR') : 'Devam Ediyor'}
+                          </p>
+                          <p className="text-gray-300 text-sm">{exp.description}</p>
+                        </div>
+                        <div className="flex gap-2 ml-4">
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => editExperience(exp)}
+                            className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
+                          >
+                            <Edit3 className="w-4 h-4" />
+                          </Button>
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => deleteExperience(exp.id)}
+                            className="border-red-400 text-red-200 hover:bg-red-400/20"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
+              )}
+            </div>
+          </TabsContent>
+
+          {/* Resume Tab */}
+          <TabsContent value="resume" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-3xl font-bold">CV İçeriği</h2>
+              <Button 
+                onClick={() => {
+                  setEditingResume({ id: null });
+                  setResumeForm({ section_key: '', title: '', content: '', file_url: '' });
+                }}
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                Yeni Bölüm
+              </Button>
+            </div>
+
+            {/* Resume Form */}
+            {editingResume && (
+              <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    <span>{editingResume.id ? 'CV Düzenle' : 'Yeni CV Bölümü'}</span>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setEditingResume(null)}
+                      className="text-gray-400 hover:text-white"
+                    >
+                      <X className="w-4 h-4" />
+                    </Button>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label className="text-gray-200">Bölüm Anahtarı</Label>
+                      <Input
+                        value={resumeForm.section_key}
+                        onChange={(e) => setResumeForm({ ...resumeForm, section_key: e.target.value })}
+                        className="bg-white/10 border-purple-500/20 text-white"
+                        placeholder="education, work_experience, etc."
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label className="text-gray-200">Başlık</Label>
+                      <Input
+                        value={resumeForm.title}
+                        onChange={(e) => setResumeForm({ ...resumeForm, title: e.target.value })}
+                        className="bg-white/10 border-purple-500/20 text-white"
+                        placeholder="Eğitim, İş Deneyimi, etc."
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-gray-200">İçerik</Label>
+                    <Textarea
+                      value={resumeForm.content}
+                      onChange={(e) => setResumeForm({ ...resumeForm, content: e.target.value })}
+                      className="bg-white/10 border-purple-500/20 text-white min-h-32"
+                      placeholder="CV bölümü içeriği"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-gray-200">Dosya URL (Opsiyonel)</Label>
+                    <Input
+                      value={resumeForm.file_url}
+                      onChange={(e) => setResumeForm({ ...resumeForm, file_url: e.target.value })}
+                      className="bg-white/10 border-purple-500/20 text-white"
+                      placeholder="https://example.com/resume.pdf"
+                    />
+                  </div>
+                  <Button 
+                    onClick={saveResume}
+                    disabled={loading}
+                    className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
+                  >
+                    <Save className="w-4 h-4 mr-2" />
+                    {loading ? 'Kaydediliyor...' : 'Kaydet'}
+                  </Button>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Resume List */}
+            <div className="space-y-4">
+              {resume.length === 0 ? (
+                <div className="text-center py-12">
+                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-400">Henüz CV bölümü eklenmemiş</p>
+                </div>
+              ) : (
+                resume.map((item) => (
+                  <Card key={item.id} className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold mb-2">{item.section_key}</h3>
+                          <p className="text-purple-300 mb-2">{item.title}</p>
+                          <p className="text-gray-300 text-sm mb-4">{item.content}</p>
+                          {item.file_url && (
+                            <Badge className="bg-blue-500/20 text-blue-200">
+                              <a href={item.file_url} target="_blank" rel="noopener noreferrer">
+                                Dosya Bağlantısı
+                              </a>
+                            </Badge>
+                          )}
+                        </div>
+                        <div className="flex gap-2 ml-4">
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => editResume(item)}
+                            className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
+                          >
+                            <Edit3 className="w-4 h-4" />
+                          </Button>
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => deleteResume(item.id)}
+                            className="border-red-400 text-red-200 hover:bg-red-400/20"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
+              )}
+            </div>
+          </TabsContent>
+
+          {/* Contact Tab */}
+          <TabsContent value="contact" className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-3xl font-bold">İletişim Mesajları</h2>
+            </div>
+
+            {/* Contact Submissions List */}
+            <div className="space-y-4">
+              {contactSubmissions.length === 0 ? (
+                <div className="text-center py-12">
+                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-400">Henüz mesaj yok</p>
+                </div>
+              ) : (
+                contactSubmissions.map((submission) => (
+                  <Card key={submission.id} className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <h3 className="text-xl font-semibold">{submission.name}</h3>
+                            {!submission.is_read && (
+                              <Badge className="bg-blue-500/20 text-blue-200">Yeni</Badge>
+                            )}
+                          </div>
+                          <p className="text-purple-300 mb-2">{submission.email}</p>
+                          <p className="text-gray-300 text-sm mb-4">{submission.message}</p>
+                          <p className="text-gray-400 text-xs">
+                            {new Date(submission.created_at).toLocaleString('tr-TR')}
+                          </p>
+                        </div>
+                        <div className="flex gap-2 ml-4">
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => deleteContactSubmission(submission.id)}
+                            className="border-red-400 text-red-200 hover:bg-red-400/20"
+                          >
+                            <Trash2 className="w-4 h-4" />
                           </Button>
                         </div>
                       </div>

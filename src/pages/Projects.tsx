@@ -80,12 +80,12 @@ const Projects = () => {
                         <Code className="w-16 h-16 text-white opacity-80" />
                       )}
                       <div className="absolute top-4 right-4 flex gap-2">
-                        {project.github && (
+                         {project.github && (
                           <div 
                             className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/20 backdrop-blur-sm rounded-full p-2 cursor-pointer hover:bg-white/30"
                             onClick={(e) => {
                               e.stopPropagation();
-                              window.open(project.github, '_blank');
+                              window.open(`https://github.com/barkinceliker?tab=repositories`, '_blank');
                             }}
                           >
                             <Github className="w-4 h-4 text-white" />
