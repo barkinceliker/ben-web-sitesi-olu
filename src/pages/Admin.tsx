@@ -480,7 +480,7 @@ const Admin = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="bg-white/10 border-purple-500/20 text-white"
-                  placeholder="barkinclkr@gmail.com"
+                  placeholder="E-posta adresiniz"
                   required
                 />
               </div>
@@ -492,7 +492,7 @@ const Admin = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="bg-white/10 border-purple-500/20 text-white"
-                  placeholder="••••••••"
+                  placeholder="Şifreniz"
                   required
                 />
               </div>
