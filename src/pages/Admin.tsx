@@ -23,6 +23,7 @@ import {
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
+import AdminResumeSection from '@/components/admin/AdminResumeSection';
 
 const Admin = () => {
   const { toast } = useToast();
@@ -472,37 +473,37 @@ const Admin = () => {
 
   if (!isLoggedIn) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center px-6">
+      <div className="min-h-screen bg-background flex items-center justify-center px-6">
         <Navbar />
-        <Card className="w-full max-w-md bg-white/10 backdrop-blur-lg border-purple-500/20 shadow-2xl">
+        <Card className="w-full max-w-md bg-card border shadow-lg">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold text-white mb-2">
+            <CardTitle className="text-2xl font-bold text-foreground mb-2">
               Admin Paneli
             </CardTitle>
-            <p className="text-gray-300">Giriş yapın</p>
+            <p className="text-muted-foreground">Giriş yapın</p>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-gray-200">Email</Label>
+                <Label htmlFor="email" className="text-foreground">Email</Label>
                 <Input
                   id="email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-white/10 border-purple-500/20 text-white"
+                  className="bg-background border-border text-foreground"
                   placeholder="E-posta adresiniz"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-gray-200">Şifre</Label>
+                <Label htmlFor="password" className="text-foreground">Şifre</Label>
                 <Input
                   id="password"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="bg-white/10 border-purple-500/20 text-white"
+                  className="bg-background border-border text-foreground"
                   placeholder="Şifreniz"
                   required
                 />
@@ -574,9 +575,9 @@ const Admin = () => {
               <Settings className="w-4 h-4 mr-2" />
               Deneyim
             </TabsTrigger>
-            <TabsTrigger value="resume" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
-              <Settings className="w-4 h-4 mr-2" />
-              Resume
+            <TabsTrigger value="resume" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300">
+              <FileText className="w-4 h-4 mr-2" />
+              CV
             </TabsTrigger>
             <TabsTrigger value="contact" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
               <Settings className="w-4 h-4 mr-2" />
@@ -1306,135 +1307,12 @@ const Admin = () => {
 
           {/* Resume Tab */}
           <TabsContent value="resume" className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-3xl font-bold">Resume Content</h2>
-              <Button 
-                onClick={() => {
-                  setEditingResume({ id: null });
-                  setResumeForm({ section_key: '', title: '', content: '', file_url: '' });
-                }}
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-              >
-                <Plus className="w-4 h-4 mr-2" />
-                Yeni Bölüm
-              </Button>
-            </div>
-
-            {/* Resume Form */}
-            {editingResume && (
-              <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20">
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    <span>{editingResume.id ? 'Edit Resume' : 'New Resume Section'}</span>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => setEditingResume(null)}
-                      className="text-gray-400 hover:text-white"
-                    >
-                      <X className="w-4 h-4" />
-                    </Button>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label className="text-gray-200">Bölüm Anahtarı</Label>
-                      <Input
-                        value={resumeForm.section_key}
-                        onChange={(e) => setResumeForm({ ...resumeForm, section_key: e.target.value })}
-                        className="bg-white/10 border-purple-500/20 text-white"
-                        placeholder="education, work_experience, etc."
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label className="text-gray-200">Başlık</Label>
-                      <Input
-                        value={resumeForm.title}
-                        onChange={(e) => setResumeForm({ ...resumeForm, title: e.target.value })}
-                        className="bg-white/10 border-purple-500/20 text-white"
-                        placeholder="Eğitim, İş Deneyimi, etc."
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label className="text-gray-200">İçerik</Label>
-                    <Textarea
-                      value={resumeForm.content}
-                      onChange={(e) => setResumeForm({ ...resumeForm, content: e.target.value })}
-                      className="bg-white/10 border-purple-500/20 text-white min-h-32"
-                      placeholder="CV bölümü içeriği"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label className="text-gray-200">Dosya URL (Opsiyonel)</Label>
-                    <Input
-                      value={resumeForm.file_url}
-                      onChange={(e) => setResumeForm({ ...resumeForm, file_url: e.target.value })}
-                      className="bg-white/10 border-purple-500/20 text-white"
-                      placeholder="https://example.com/resume.pdf"
-                    />
-                  </div>
-                  <Button 
-                    onClick={saveResume}
-                    disabled={loading}
-                    className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
-                  >
-                    <Save className="w-4 h-4 mr-2" />
-                    {loading ? 'Kaydediliyor...' : 'Kaydet'}
-                  </Button>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Resume List */}
-            <div className="space-y-4">
-              {resume.length === 0 ? (
-                <div className="text-center py-12">
-                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-400">No resume sections added yet</p>
-                </div>
-              ) : (
-                resume.map((item) => (
-                  <Card key={item.id} className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <h3 className="text-xl font-semibold mb-2">{item.section_key}</h3>
-                          <p className="text-purple-300 mb-2">{item.title}</p>
-                          <p className="text-gray-300 text-sm mb-4">{item.content}</p>
-                          {item.file_url && (
-                            <Badge className="bg-blue-500/20 text-blue-200">
-                              <a href={item.file_url} target="_blank" rel="noopener noreferrer">
-                                Dosya Bağlantısı
-                              </a>
-                            </Badge>
-                          )}
-                        </div>
-                        <div className="flex gap-2 ml-4">
-                          <Button 
-                            size="sm" 
-                            variant="outline"
-                            onClick={() => editResume(item)}
-                            className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
-                          >
-                            <Edit3 className="w-4 h-4" />
-                          </Button>
-                          <Button 
-                            size="sm" 
-                            variant="outline"
-                            onClick={() => deleteResume(item.id)}
-                            className="border-red-400 text-red-200 hover:bg-red-400/20"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))
-              )}
-            </div>
+            <AdminResumeSection 
+              resume={resume}
+              setResume={setResume}
+              loading={loading}
+              setLoading={setLoading}
+            />
           </TabsContent>
 
           {/* Contact Tab */}
