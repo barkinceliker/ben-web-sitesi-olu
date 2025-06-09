@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 210 8% 12%;
-    --foreground: 210 15% 85%;
+    --background: 220 15% 8%;
+    --foreground: 210 20% 92%;
 
-    --card: 210 10% 15%;
-    --card-foreground: 210 15% 85%;
+    --card: 215 12% 12%;
+    --card-foreground: 210 20% 90%;
 
-    --popover: 210 10% 15%;
-    --popover-foreground: 210 15% 85%;
+    --popover: 215 12% 12%;
+    --popover-foreground: 210 20% 90%;
 
-    --primary: 210 8% 25%;
-    --primary-foreground: 210 15% 90%;
+    --primary: 220 25% 20%;
+    --primary-foreground: 210 25% 95%;
 
-    --secondary: 210 6% 18%;
-    --secondary-foreground: 210 15% 80%;
+    --secondary: 215 15% 15%;
+    --secondary-foreground: 210 20% 85%;
 
-    --muted: 210 6% 18%;
-    --muted-foreground: 210 10% 60%;
+    --muted: 215 15% 15%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 210 8% 22%;
-    --accent-foreground: 210 15% 85%;
+    --accent: 220 20% 18%;
+    --accent-foreground: 210 20% 88%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 8% 25%;
-    --input: 210 8% 20%;
-    --ring: 210 15% 45%;
+    --border: 220 15% 22%;
+    --input: 220 12% 16%;
+    --ring: 220 25% 45%;
 
     --radius: 0.5rem;
 
@@ -102,55 +102,55 @@
 
 @layer utilities {
   .gradient-masculine {
-    background: linear-gradient(135deg, hsl(210 15% 8%) 0%, hsl(210 12% 15%) 30%, hsl(210 10% 25%) 70%, hsl(210 8% 35%) 100%);
+    background: linear-gradient(135deg, hsl(220 25% 6%) 0%, hsl(215 20% 12%) 30%, hsl(210 15% 18%) 70%, hsl(205 12% 25%) 100%);
   }
   
   .gradient-masculine-subtle {
-    background: linear-gradient(135deg, hsl(210 15% 10%) 0%, hsl(210 12% 18%) 100%);
+    background: linear-gradient(135deg, hsl(220 20% 8%) 0%, hsl(215 15% 14%) 100%);
   }
   
   .gradient-primary {
-    background: linear-gradient(135deg, hsl(210 15% 20%) 0%, hsl(210 12% 30%) 50%, hsl(210 10% 40%) 100%);
+    background: linear-gradient(135deg, hsl(220 30% 15%) 0%, hsl(215 25% 25%) 50%, hsl(210 20% 35%) 100%);
   }
   
   .gradient-secondary {
-    background: linear-gradient(135deg, hsl(210 15% 15%) 0%, hsl(210 12% 25%) 100%);
+    background: linear-gradient(135deg, hsl(220 25% 10%) 0%, hsl(215 20% 20%) 100%);
   }
   
   .gradient-accent {
-    background: linear-gradient(135deg, hsl(210 15% 25%) 0%, hsl(210 12% 35%) 100%);
+    background: linear-gradient(135deg, hsl(220 20% 18%) 0%, hsl(215 15% 28%) 100%);
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, hsl(210 20% 60%) 0%, hsl(210 15% 75%) 50%, hsl(210 10% 85%) 100%);
+    background: linear-gradient(135deg, hsl(220 30% 65%) 0%, hsl(215 25% 78%) 50%, hsl(210 20% 88%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   
   .text-gradient-primary {
-    background: linear-gradient(135deg, hsl(210 20% 70%) 0%, hsl(210 15% 85%) 100%);
+    background: linear-gradient(135deg, hsl(220 35% 72%) 0%, hsl(215 30% 85%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   
   .text-gradient-secondary {
-    background: linear-gradient(135deg, hsl(210 25% 65%) 0%, hsl(210 20% 80%) 100%);
+    background: linear-gradient(135deg, hsl(220 30% 68%) 0%, hsl(215 25% 82%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   
   .text-gradient-accent {
-    background: linear-gradient(135deg, hsl(210 15% 75%) 0%, hsl(210 12% 85%) 100%);
+    background: linear-gradient(135deg, hsl(220 25% 75%) 0%, hsl(215 20% 85%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   
   .text-gradient-steel {
-    background: linear-gradient(135deg, hsl(200 25% 60%) 0%, hsl(210 20% 70%) 50%, hsl(220 15% 80%) 100%);
+    background: linear-gradient(135deg, hsl(205 30% 62%) 0%, hsl(215 25% 72%) 50%, hsl(225 20% 82%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -172,115 +172,135 @@
   }
   
   .card-masculine {
-    background: linear-gradient(135deg, hsl(210 12% 18%) 0%, hsl(210 10% 22%) 100%);
-    border: 1px solid hsl(210 12% 25%);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, hsl(220 15% 14%) 0%, hsl(215 12% 18%) 100%);
+    border: 1px solid hsl(220 15% 25%);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3), 0 2px 6px -1px rgba(66, 153, 225, 0.1);
   }
   
   .card-masculine:hover {
-    background: linear-gradient(135deg, hsl(210 12% 20%) 0%, hsl(210 10% 24%) 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, hsl(220 15% 16%) 0%, hsl(215 12% 20%) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.4), 0 4px 12px -2px rgba(66, 153, 225, 0.15);
   }
 
   /* EMOJI GRADIENTS & EFFECTS */
   .emoji-gradient-home {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: inline-block;
+    color: transparent;
+    background: linear-gradient(135deg, #4299e1 0%, #667eea 50%, #805ad5 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.3));
-    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 12px rgba(66, 153, 225, 0.4));
+    transition: all 0.4s ease;
+    text-shadow: none;
   }
 
   .emoji-gradient-home:hover {
-    transform: scale(1.2);
-    background: linear-gradient(225deg, #667eea 0%, #764ba2 100%);
-    filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.6));
+    transform: scale(1.15) rotate(5deg);
+    background: linear-gradient(225deg, #4299e1 0%, #667eea 50%, #805ad5 100%);
+    filter: drop-shadow(0 0 20px rgba(128, 90, 213, 0.6));
   }
 
   .emoji-gradient-about {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    display: inline-block;
+    color: transparent;
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 50%, #2c5aa0 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    filter: drop-shadow(0 0 10px rgba(240, 147, 251, 0.4)) blur(0.5px);
-    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(66, 153, 225, 0.5));
+    transition: all 0.4s ease;
+    text-shadow: none;
   }
 
   .emoji-gradient-about:hover {
-    transform: scale(1.15) rotateY(10deg);
-    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-    filter: drop-shadow(0 0 20px rgba(245, 87, 108, 0.7));
+    transform: scale(1.12) rotateY(8deg);
+    background: linear-gradient(45deg, #4299e1 0%, #3182ce 50%, #2c5aa0 100%);
+    filter: drop-shadow(0 0 18px rgba(44, 90, 160, 0.7));
   }
 
   .emoji-gradient-projects {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    display: inline-block;
+    color: transparent;
+    background: linear-gradient(135deg, #5a67d8 0%, #4c51bf 50%, #434190 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    filter: drop-shadow(0 0 12px rgba(79, 172, 254, 0.5));
-    transition: all 0.3s ease;
-    text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+    filter: drop-shadow(0 0 12px rgba(90, 103, 216, 0.5));
+    transition: all 0.4s ease;
+    text-shadow: none;
   }
 
   .emoji-gradient-projects:hover {
-    transform: scale(1.18) translateZ(10px);
-    background: linear-gradient(315deg, #4facfe 0%, #00f2fe 100%);
-    filter: drop-shadow(0 0 25px rgba(0, 242, 254, 0.8));
+    transform: scale(1.16) translateZ(8px);
+    background: linear-gradient(315deg, #5a67d8 0%, #4c51bf 50%, #434190 100%);
+    filter: drop-shadow(0 0 22px rgba(67, 65, 144, 0.8));
   }
 
   .emoji-gradient-skills {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    display: inline-block;
+    color: transparent;
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 50%, #718096 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    filter: drop-shadow(0 0 8px rgba(67, 233, 123, 0.4));
-    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(113, 128, 150, 0.5));
+    transition: all 0.4s ease;
+    text-shadow: none;
   }
 
   .emoji-gradient-skills:hover {
-    transform: scale(1.12) skew(-2deg);
-    background: linear-gradient(225deg, #43e97b 0%, #38f9d7 100%);
-    filter: drop-shadow(0 0 18px rgba(56, 249, 215, 0.6));
+    transform: scale(1.10) skew(-1deg);
+    background: linear-gradient(225deg, #2d3748 0%, #4a5568 50%, #718096 100%);
+    filter: drop-shadow(0 0 16px rgba(74, 85, 104, 0.7));
   }
 
   .emoji-gradient-experience {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    display: inline-block;
+    color: transparent;
+    background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 50%, #4299e1 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    filter: drop-shadow(0 0 10px rgba(250, 112, 154, 0.3));
-    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(43, 108, 176, 0.4));
+    transition: all 0.4s ease;
+    text-shadow: none;
   }
 
   .emoji-gradient-experience:hover {
-    transform: scale(1.14);
-    background: linear-gradient(45deg, #fa709a 0%, #fee140 100%);
-    filter: drop-shadow(0 0 22px rgba(254, 225, 64, 0.7));
+    transform: scale(1.12) rotate(-2deg);
+    background: linear-gradient(45deg, #2b6cb0 0%, #3182ce 50%, #4299e1 100%);
+    filter: drop-shadow(0 0 20px rgba(66, 153, 225, 0.7));
   }
 
   .emoji-gradient-contact {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    display: inline-block;
+    color: transparent;
+    background: linear-gradient(135deg, #553c9a 0%, #667eea 50%, #764ba2 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    filter: drop-shadow(0 0 6px rgba(168, 237, 234, 0.4));
-    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(85, 60, 154, 0.5));
+    transition: all 0.4s ease;
+    text-shadow: none;
   }
 
   .emoji-gradient-contact:hover {
-    transform: scale(1.16) rotateZ(5deg);
-    background: linear-gradient(315deg, #a8edea 0%, #fed6e3 100%);
-    filter: drop-shadow(0 0 16px rgba(254, 214, 227, 0.6));
+    transform: scale(1.14) rotateZ(3deg);
+    background: linear-gradient(315deg, #553c9a 0%, #667eea 50%, #764ba2 100%);
+    filter: drop-shadow(0 0 18px rgba(118, 75, 162, 0.7));
   }
 
   .emoji-gradient-admin {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: inline-block;
+    color: transparent;
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #4a5568 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    filter: drop-shadow(0 0 8px rgba(118, 75, 162, 0.5));
-    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(26, 32, 44, 0.6));
+    transition: all 0.4s ease;
+    text-shadow: none;
   }
 
   .emoji-gradient-admin:hover {
-    transform: scale(1.13);
-    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-    filter: drop-shadow(0 0 20px rgba(118, 75, 162, 0.8));
+    transform: scale(1.11) rotate(2deg);
+    background: linear-gradient(180deg, #1a202c 0%, #2d3748 50%, #4a5568 100%);
+    filter: drop-shadow(0 0 16px rgba(74, 85, 104, 0.8));
   }
 
   /* ICON GRADIENTS & EFFECTS */
