@@ -150,18 +150,6 @@ const Contact = () => {
                   
                   <div className="space-y-6">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                        <Mail className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-gray-900">Email</p>
-                        <a href="mailto:barkinclkr@gmail.com" className="text-purple-600 hover:text-purple-800">
-                          barkinclkr@gmail.com
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
                         <MapPin className="w-6 h-6 text-white" />
                       </div>

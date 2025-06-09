@@ -576,7 +576,7 @@ const Admin = () => {
             </TabsTrigger>
             <TabsTrigger value="resume" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
               <Settings className="w-4 h-4 mr-2" />
-              CV
+              Resume
             </TabsTrigger>
             <TabsTrigger value="contact" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
               <Settings className="w-4 h-4 mr-2" />
@@ -1201,12 +1201,13 @@ const Admin = () => {
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label className="text-gray-200">Başlangıç Tarihi</Label>
+                      <Label className="text-gray-200">Başlangıç Tarihi *</Label>
                       <Input
                         type="date"
                         value={experienceForm.start_date}
                         onChange={(e) => setExperienceForm({ ...experienceForm, start_date: e.target.value })}
                         className="bg-white/10 border-purple-500/20 text-white"
+                        required
                       />
                     </div>
                     <div className="space-y-2">
@@ -1306,7 +1307,7 @@ const Admin = () => {
           {/* Resume Tab */}
           <TabsContent value="resume" className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-3xl font-bold">CV İçeriği</h2>
+              <h2 className="text-3xl font-bold">Resume Content</h2>
               <Button 
                 onClick={() => {
                   setEditingResume({ id: null });
@@ -1324,7 +1325,7 @@ const Admin = () => {
               <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20">
                 <CardHeader>
                   <CardTitle className="flex items-center justify-between">
-                    <span>{editingResume.id ? 'CV Düzenle' : 'Yeni CV Bölümü'}</span>
+                    <span>{editingResume.id ? 'Edit Resume' : 'New Resume Section'}</span>
                     <Button
                       variant="ghost"
                       size="sm"
@@ -1391,7 +1392,7 @@ const Admin = () => {
               {resume.length === 0 ? (
                 <div className="text-center py-12">
                   <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-400">Henüz CV bölümü eklenmemiş</p>
+                  <p className="text-gray-400">No resume sections added yet</p>
                 </div>
               ) : (
                 resume.map((item) => (

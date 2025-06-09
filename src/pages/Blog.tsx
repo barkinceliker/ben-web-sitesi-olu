@@ -1,12 +1,40 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import { supabase } from '@/integrations/supabase/client';
+import type { Tables } from '@/integrations/supabase/types';
 
 const Blog = () => {
-  const blogPosts = [
+  const [blogPosts, setBlogPosts] = useState<Tables<'blog_posts'>[]>([]);
+
+  useEffect(() => {
+    fetchBlogPosts();
+  }, []);
+
+  const fetchBlogPosts = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .eq('is_published', true)
+        .order('publish_date', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching blog posts:', error);
+        return;
+      }
+
+      setBlogPosts(data || []);
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+    }
+  };
+
+  const defaultBlogPosts = [
     {
       id: 1,
       title: 'React 18 ile Yeni Özellikler',
@@ -42,6 +70,16 @@ const Blog = () => {
     }
   ];
 
+  const postsToShow = blogPosts.length > 0 ? blogPosts : defaultBlogPosts;
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
@@ -74,13 +112,13 @@ const Blog = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
+            {postsToShow.map((post, index) => (
               <Card 
-                key={post.id} 
+                key={('id' in post ? post.id : index) as string}
                 className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
               >
                 <CardContent className="p-6">
-                  <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${post.gradient} mb-6 flex items-center justify-center relative overflow-hidden`}>
+                  <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${post.gradient || 'from-purple-500 to-pink-500'} mb-6 flex items-center justify-center relative overflow-hidden`}>
                     <div className="text-6xl opacity-80">📝</div>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
                   </div>
@@ -88,15 +126,15 @@ const Blog = () => {
                   <div className="flex items-center gap-4 text-xs text-gray-600 mb-4">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
-                      {post.date}
+                      {post.publish_date ? formatDate(post.publish_date) : (post.date || 'No date')}
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
-                      {post.readTime}
+                      {'readTime' in post ? post.readTime : '5 min'}
                     </div>
                     <div className="flex items-center gap-1">
                       <User className="w-3 h-3" />
-                      {post.author}
+                      {'author' in post ? post.author : 'Barkın Çeliker'}
                     </div>
                   </div>
                   
@@ -108,8 +146,8 @@ const Blog = () => {
                   </p>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {post.tags.map((tag) => (
-                      <Badge key={tag} className="bg-purple-100 text-purple-800 text-xs">
+                    {(post.tags || []).map((tag, tagIndex) => (
+                      <Badge key={tagIndex} className="bg-purple-100 text-purple-800 text-xs">
                         {tag}
                       </Badge>
                     ))}

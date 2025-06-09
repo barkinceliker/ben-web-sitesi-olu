@@ -108,12 +108,6 @@ const Index = () => {
             >
               <Linkedin className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
             </a>
-            <a 
-              href="mailto:barkinclkr@gmail.com"
-              className="p-4 rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:scale-110 group"
-            >
-              <Mail className="w-6 h-6 text-gray-600 group-hover:text-green-600" />
-            </a>
           </div>
 
           {/* Quick Navigation Cards */}
