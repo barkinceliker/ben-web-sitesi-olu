@@ -47,7 +47,7 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
-              <span className="text-5xl emoji-gradient-projects">⚙️</span> Projelerim
+              <span className="text-5xl">⚙️</span> Projelerim
             </h2>
             <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
               Veri analizi ve veri bilimi alanında tamamladığım projeler
@@ -56,7 +56,7 @@ const Projects = () => {
 
           {projects.length === 0 ? (
             <div className="text-center py-12 animate-fade-in">
-              <div className="text-6xl mb-4"><span className="emoji-gradient-projects">🛠️</span></div>
+              <div className="text-6xl mb-4"><span>🛠️</span></div>
               <p className="text-gradient-accent text-lg">
                 Henüz proje eklenmemiş. Admin panelinden proje ekleyebilirsiniz.
               </p>
@@ -77,7 +77,7 @@ const Projects = () => {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <span className="text-6xl opacity-80 emoji-gradient-projects">⚙️</span>
+                      <span className="text-6xl opacity-80">⚙️</span>
                     )}
                     <div className="absolute top-4 right-4 flex gap-2">
                        {project.github && (

@@ -74,7 +74,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
-              <span className="text-5xl emoji-gradient-about">⚡</span> Hakkımda
+              <span className="text-5xl">⚡</span> Hakkımda
             </h2>
             <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
               Veri bilimi dünyasında sürekli yaratıcı çözümler geliştiren bir uzman
@@ -86,7 +86,7 @@ const About = () => {
             <div className="space-y-6">
               <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 <h3 className="text-2xl font-semibold mb-4 text-gradient-steel flex items-center gap-2">
-                  <span className="text-3xl emoji-gradient-about">🛠️</span> {aboutContent.passion?.title || 'Hikayem'}
+                  <span className="text-3xl">🛠️</span> {aboutContent.passion?.title || 'Hikayem'}
                 </h3>
                 <p className="text-gradient-accent leading-relaxed">
                   {aboutContent.passion?.content || 'Veri bilimi ve analitik alanında 3+ yıl deneyime sahip, modern veri teknolojilerinde uzmanlaşmış bir veri analiz uzmanıyım. Veriyi anlamlı içgörülere dönüştürüyor ve karar verme süreçlerini optimize eden çözümler üretiyorum.'}
@@ -95,7 +95,7 @@ const About = () => {
 
               <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.4s' }}>
                 <h3 className="text-2xl font-semibold mb-4 text-gradient-primary flex items-center gap-2">
-                  <span className="text-3xl emoji-gradient-about">⚙️</span> {aboutContent.approach?.title || 'Yaklaşımım'}
+                  <span className="text-3xl">⚙️</span> {aboutContent.approach?.title || 'Yaklaşımım'}
                 </h3>
                 <p className="text-gradient-accent leading-relaxed">
                   {aboutContent.approach?.content || 'Veri toplama ve temizleme aşamasından görselleştirme ve makine öğrenmesine kadar veri analizi sürecinin her aşamasında deneyim sahibiyim. Sürekli öğrenmeyi seviyorum ve veriyi iş değerine dönüştürme konusunda tutkulu bir yaklaşım sergiliyorum.'}
@@ -107,7 +107,7 @@ const About = () => {
             <div className="space-y-6">
               <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.6s' }}>
                 <h3 className="text-2xl font-semibold mb-4 text-gradient-steel flex items-center gap-2">
-                  <span className="text-3xl emoji-gradient-about">🔧</span> Değerlerim
+                  <span className="text-3xl">🔧</span> Değerlerim
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
@@ -127,19 +127,19 @@ const About = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 card-masculine rounded-xl border border-border animate-scale-in" style={{ animationDelay: '0.8s' }}>
-                  <div className="text-3xl mb-2"><span className="emoji-gradient-about">📊</span></div>
+                  <div className="text-3xl mb-2"><span>📊</span></div>
                   <div className="text-sm text-gradient-primary font-medium">Hedef Odaklı</div>
                 </div>
                 <div className="text-center p-4 card-masculine rounded-xl border border-border animate-scale-in" style={{ animationDelay: '1s' }}>
-                  <div className="text-3xl mb-2"><span className="emoji-gradient-about">⚡</span></div>
+                  <div className="text-3xl mb-2"><span>⚡</span></div>
                   <div className="text-sm text-gradient-steel font-medium">Hızlı Çözümler</div>
                 </div>
                 <div className="text-center p-4 card-masculine rounded-xl border border-border animate-scale-in" style={{ animationDelay: '1.2s' }}>
-                  <div className="text-3xl mb-2"><span className="emoji-gradient-about">🛠️</span></div>
+                  <div className="text-3xl mb-2"><span>🛠️</span></div>
                   <div className="text-sm text-gradient-accent font-medium">Takım Çalışması</div>
                 </div>
                 <div className="text-center p-4 card-masculine rounded-xl border border-border animate-scale-in" style={{ animationDelay: '1.4s' }}>
-                  <div className="text-3xl mb-2"><span className="emoji-gradient-about">📈</span></div>
+                  <div className="text-3xl mb-2"><span>📈</span></div>
                   <div className="text-sm text-gradient-secondary font-medium">Sürekli Gelişim</div>
                 </div>
               </div>

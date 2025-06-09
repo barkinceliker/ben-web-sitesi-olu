@@ -60,7 +60,7 @@ const Index = () => {
           <div className="mb-8 relative">
             <div className="w-32 h-32 mx-auto rounded-full gradient-primary p-1 shadow-2xl">
               <div className="w-full h-full rounded-full gradient-masculine-subtle flex items-center justify-center text-5xl">
-                <span className="emoji-gradient-home">⚡</span>
+                <span>⚡</span>
               </div>
             </div>
             <div className="absolute inset-0 w-32 h-32 mx-auto rounded-full gradient-primary blur-lg opacity-30 animate-pulse"></div>
@@ -83,10 +83,10 @@ const Index = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <Button 
               onClick={() => window.location.href = '/projects'}
-              className="btn-home px-8 py-4 text-lg font-medium animate-fade-in-up"
+              className="btn-masculine px-8 py-4 text-lg font-medium animate-fade-in-up"
               style={{ animationDelay: '0.8s' }}
             >
-              <ArrowRight className="w-5 h-5 mr-2 icon-gradient-home" />
+              <ArrowRight className="w-5 h-5 mr-2" />
               View My Projects
             </Button>
           </div>
@@ -119,7 +119,7 @@ const Index = () => {
               style={{ animationDelay: '1.2s' }}
             >
               <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-xl emoji-gradient-home">🛠️</span>
+                <span className="text-primary-foreground text-xl">🛠️</span>
               </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-primary transition-colors">About Me</h3>
                 <p className="text-sm text-gradient-accent">My educational background and personal approach</p>
@@ -131,7 +131,7 @@ const Index = () => {
               style={{ animationDelay: '1.4s' }}
             >
               <div className="w-12 h-12 gradient-secondary rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-xl emoji-gradient-home">⚙️</span>
+                <span className="text-primary-foreground text-xl">⚙️</span>
               </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-steel transition-colors">Skills</h3>
                 <p className="text-sm text-gradient-accent">My technical abilities and areas of expertise</p>
@@ -143,7 +143,7 @@ const Index = () => {
               style={{ animationDelay: '1.6s' }}
             >
               <div className="w-12 h-12 gradient-accent rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-xl emoji-gradient-home">🔧</span>
+                <span className="text-primary-foreground text-xl">🔧</span>
               </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-accent transition-colors">Experience</h3>
                 <p className="text-sm text-gradient-secondary">My professional work experiences</p>

@@ -478,7 +478,7 @@ const Admin = () => {
         <div className="w-full max-w-md card-masculine shadow-lg rounded-2xl p-8 animate-fade-in">
           <div className="text-center mb-6">
             <h2 className="text-2xl font-bold text-gradient-primary mb-2 flex items-center justify-center gap-2">
-              <span className="text-3xl emoji-gradient-admin">⚙️</span> Admin Paneli
+              <span className="text-3xl">⚙️</span> Admin Paneli
             </h2>
             <p className="text-gradient-accent">Giriş yapın</p>
           </div>
@@ -512,9 +512,9 @@ const Admin = () => {
             )}
             <Button 
               type="submit" 
-              className="w-full btn-admin"
+              className="w-full btn-masculine"
             >
-              <span className="emoji-gradient-admin">🔐</span> Giriş Yap
+              <span>🔐</span> Giriş Yap
             </Button>
           </form>
         </div>

@@ -75,7 +75,7 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
-              <span className="text-5xl emoji-gradient-contact">📧</span> İletişim
+              <span className="text-5xl">📧</span> İletişim
             </h2>
             <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
               Benimle iletişime geçin. Proje tekliflerinizi veya sorularınızı bekliyorum!
@@ -133,9 +133,9 @@ const Contact = () => {
                 <Button 
                   type="submit"
                   disabled={loading}
-                  className="w-full btn-contact text-lg font-medium"
+                  className="w-full btn-masculine text-lg font-medium"
                 >
-                  <Send className="w-4 h-4 mr-2 icon-gradient-contact" />
+                  <Send className="w-4 h-4 mr-2" />
                   {loading ? 'Gönderiliyor...' : '📧 Mesaj Gönder'}
                 </Button>
               </form>
@@ -145,7 +145,7 @@ const Contact = () => {
             <div className="space-y-8">
               <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 <h3 className="text-2xl font-bold mb-6 text-gradient-primary flex items-center gap-2">
-                  <span className="text-3xl emoji-gradient-contact">📍</span> İletişim Bilgileri
+                  <span className="text-3xl">📍</span> İletişim Bilgileri
                 </h3>
                 
                 <div className="space-y-6">
@@ -163,7 +163,7 @@ const Contact = () => {
 
               <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.4s' }}>
                 <h3 className="text-2xl font-bold mb-6 text-gradient-steel flex items-center gap-2">
-                  <span className="text-3xl emoji-gradient-contact">🔗</span> Sosyal Medya
+                  <span className="text-3xl">🔗</span> Sosyal Medya
                 </h3>
                 
                 <div className="flex gap-4">
@@ -188,7 +188,7 @@ const Contact = () => {
 
               <div className="gradient-masculine-subtle p-8 text-center rounded-2xl border border-border animate-fade-in" style={{ animationDelay: '0.6s' }}>
                 <h3 className="text-xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-2">
-                  <span className="text-3xl emoji-gradient-contact">🚀</span> Proje Teklifleri
+                  <span className="text-3xl">🚀</span> Proje Teklifleri
                 </h3>
                 <p className="text-gradient-accent mb-4">
                   Veri analizi, iş zekası veya dashboard geliştirme projeleriniz için benimle iletişime geçebilirsiniz. Her türlü işbirliği teklifine açığım!
