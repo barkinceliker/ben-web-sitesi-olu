@@ -68,7 +68,7 @@ const Experience = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
-              <span className="text-5xl">🏢</span> Deneyim
+              <span className="text-5xl emoji-gradient-experience">🏢</span> Deneyim
             </h2>
             <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
               Profesyonel gelişimim ve iş deneyimlerim
@@ -123,7 +123,7 @@ const Experience = () => {
 
           {experiences.length === 0 && (
             <div className="text-center mt-12 animate-fade-in">
-              <div className="text-6xl mb-4">⚡</div>
+              <div className="text-6xl mb-4"><span className="emoji-gradient-experience">⚡</span></div>
               <p className="text-gradient-accent">
                 Daha fazla deneyim veritabanından yüklenecek. Admin panelinden deneyim ekleyebilirsiniz.
               </p>

@@ -72,7 +72,7 @@ const Skills = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
-              <span className="text-5xl">📊</span> Beceriler & Teknolojiler
+              <span className="text-5xl emoji-gradient-skills">📊</span> Beceriler & Teknolojiler
             </h2>
             <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
               Veri analizi ve veri biliminde kullandığım teknolojiler ve uzmanlık seviyelerim
@@ -154,7 +154,7 @@ const Skills = () => {
           {/* Skills Summary */}
           <div className="gradient-masculine-subtle p-8 text-center rounded-2xl border border-border animate-fade-in">
             <h3 className="text-2xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-2">
-              <span className="text-3xl">🚀</span> Sürekli Öğrenme
+              <span className="text-3xl emoji-gradient-skills">🚀</span> Sürekli Öğrenme
             </h3>
             <p className="text-gradient-accent mb-6 max-w-2xl mx-auto">
               Veri bilimi dünyasının hızla değişen doğasına ayak uydurabilmek için sürekli yeni teknolojiler öğreniyor ve mevcut becerilerimi geliştiriyorum. Her projede öğrendiğim yeni şeyler beni daha iyi bir analiz uzmanı yapıyor.
