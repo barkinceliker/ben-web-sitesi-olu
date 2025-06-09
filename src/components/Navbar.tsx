@@ -31,7 +31,7 @@ const Navbar = () => {
               <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center">
                 <User size={16} className="text-primary-foreground" />
               </div>
-              <span className="text-foreground font-bold text-lg">Barkın Çeliker</span>
+              <span className="font-bold text-lg text-gradient">Barkın Çeliker</span>
             </a>
           </div>
 

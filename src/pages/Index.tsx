@@ -60,7 +60,7 @@ const Index = () => {
           <div className="mb-8 relative">
             <div className="w-32 h-32 mx-auto rounded-full gradient-primary p-1 shadow-2xl">
               <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-5xl">
-                👨‍💻
+                🧑‍💼
               </div>
             </div>
             <div className="absolute inset-0 w-32 h-32 mx-auto rounded-full gradient-primary blur-lg opacity-50 animate-pulse"></div>
@@ -70,20 +70,20 @@ const Index = () => {
             {aboutContent.hero_title?.title || 'Hello, I\'m Barkın Çeliker'}
           </h1>
           
-          <p className="text-2xl md:text-4xl text-muted-foreground mb-6 font-medium animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <span className="text-gradient">
+          <p className="text-2xl md:text-4xl mb-6 font-medium animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <span className="text-gradient-secondary">
               {aboutContent.hero_subtitle?.title || 'MIS Student & Data Analyst'}
             </span>
           </p>
           
-          <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <p className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up text-gradient-accent" style={{ animationDelay: '0.4s' }}>
             {aboutContent.hero_description?.title || 'I\'m a 3rd year Management Information Systems student at Yasar University. I create value-added insights for businesses using modern data analysis technologies.'}
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <Button 
               onClick={() => window.location.href = '/projects'}
-              className="gradient-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl btn-animate animate-fade-in-up"
+              className="btn-masculine text-primary-foreground px-8 py-4 rounded-full text-lg font-medium animate-fade-in-up"
               style={{ animationDelay: '0.8s' }}
             >
               <ArrowRight className="w-5 h-5 mr-2" />
@@ -119,10 +119,10 @@ const Index = () => {
               style={{ animationDelay: '1.2s' }}
             >
               <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-xl">👨‍🎓</span>
+                <span className="text-primary-foreground text-xl">🎯</span>
               </div>
-                <h3 className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors">About Me</h3>
-                <p className="text-muted-foreground text-sm">My educational background and personal approach</p>
+                <h3 className="text-lg font-semibold mb-2 text-gradient-primary transition-colors">About Me</h3>
+                <p className="text-sm text-gradient-accent">My educational background and personal approach</p>
             </div>
             
             <div 
@@ -130,11 +130,11 @@ const Index = () => {
               className="p-6 bg-card rounded-2xl shadow-lg border border-border hover:shadow-xl transition-all duration-300 cursor-pointer group hover-lift animate-scale-in"
               style={{ animationDelay: '1.4s' }}
             >
-              <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
+              <div className="w-12 h-12 gradient-secondary rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
                 <span className="text-primary-foreground text-xl">⚡</span>
               </div>
-                <h3 className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors">Skills</h3>
-                <p className="text-muted-foreground text-sm">My technical abilities and areas of expertise</p>
+                <h3 className="text-lg font-semibold mb-2 text-gradient-secondary transition-colors">Skills</h3>
+                <p className="text-sm text-gradient-accent">My technical abilities and areas of expertise</p>
             </div>
             
             <div 
@@ -142,11 +142,11 @@ const Index = () => {
               className="p-6 bg-card rounded-2xl shadow-lg border border-border hover:shadow-xl transition-all duration-300 cursor-pointer group hover-lift animate-scale-in"
               style={{ animationDelay: '1.6s' }}
             >
-              <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-xl">💼</span>
+              <div className="w-12 h-12 gradient-accent rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
+                <span className="text-primary-foreground text-xl">🏆</span>
               </div>
-                <h3 className="text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors">Experience</h3>
-                <p className="text-muted-foreground text-sm">My professional work experiences</p>
+                <h3 className="text-lg font-semibold mb-2 text-gradient-accent transition-colors">Experience</h3>
+                <p className="text-sm text-gradient-primary">My professional work experiences</p>
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="py-8 text-center border-t border-border bg-muted">
-        <p className="text-muted-foreground text-sm">
+        <p className="text-sm text-gradient-accent">
           © 2024 Barkın Çeliker. All rights reserved.
         </p>
       </footer>
