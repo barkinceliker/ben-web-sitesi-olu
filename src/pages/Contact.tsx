@@ -74,8 +74,8 @@ const Contact = () => {
       <section className="py-20 px-6 pt-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
-              <span className="text-5xl">📞</span> İletişim
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary text-center">
+              İletişim
             </h2>
             <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
               Benimle iletişime geçin. Proje tekliflerinizi veya sorularınızı bekliyorum!
@@ -86,9 +86,8 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="card-masculine p-8 rounded-2xl animate-fade-in">
               <div className="mb-6">
-                <h3 className="flex items-center gap-2 text-2xl text-gradient-primary font-semibold">
-                  <span className="text-2xl">📤</span>
-                  ⚡ Mesaj Gönder
+                <h3 className="text-2xl text-gradient-primary font-semibold">
+                  Mesaj Gönder
                 </h3>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -135,8 +134,7 @@ const Contact = () => {
                   disabled={loading}
                   className="w-full btn-masculine text-lg font-medium"
                 >
-                  <span className="mr-2">📤</span>
-                  {loading ? 'Gönderiliyor...' : '📧 Mesaj Gönder'}
+                  {loading ? 'Gönderiliyor...' : 'Mesaj Gönder'}
                 </Button>
               </form>
             </div>
@@ -144,14 +142,14 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <h3 className="text-2xl font-bold mb-6 text-gradient-primary flex items-center gap-2">
-                  <span className="text-3xl">📍</span> İletişim Bilgileri
+                <h3 className="text-2xl font-bold mb-6 text-gradient-primary">
+                  İletişim Bilgileri
                 </h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center">
-                      <span className="text-xl">📍</span>
+                      <span className="text-xl">K</span>
                     </div>
                     <div>
                       <p className="font-semibold text-gradient-steel">Konum</p>
@@ -162,8 +160,8 @@ const Contact = () => {
               </div>
 
               <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                <h3 className="text-2xl font-bold mb-6 text-gradient-steel flex items-center gap-2">
-                  <span className="text-3xl">🔗</span> Sosyal Medya
+                <h3 className="text-2xl font-bold mb-6 text-gradient-steel">
+                  Sosyal Medya
                 </h3>
                 
                 <div className="flex gap-4">
@@ -173,7 +171,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-lg gradient-secondary hover:gradient-accent flex items-center justify-center transition-all duration-300 hover:scale-110"
                   >
-                    <span className="text-xl">🐙</span>
+                    <span className="text-xl">GH</span>
                   </a>
                   <a 
                     href="https://www.linkedin.com/in/celikerbarkin/" 
@@ -181,14 +179,14 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-lg gradient-secondary hover:gradient-accent flex items-center justify-center transition-all duration-300 hover:scale-110"
                   >
-                    <span className="text-xl">💼</span>
+                    <span className="text-xl">LI</span>
                   </a>
                 </div>
               </div>
 
               <div className="gradient-masculine-subtle p-8 text-center rounded-2xl border border-border animate-fade-in" style={{ animationDelay: '0.6s' }}>
-                <h3 className="text-xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-2">
-                  <span className="text-3xl">🚀</span> Proje Teklifleri
+                <h3 className="text-xl font-bold mb-4 text-gradient-primary text-center">
+                  Proje Teklifleri
                 </h3>
                 <p className="text-gradient-accent mb-4">
                   Veri analizi, iş zekası veya dashboard geliştirme projeleriniz için benimle iletişime geçebilirsiniz. Her türlü işbirliği teklifine açığım!

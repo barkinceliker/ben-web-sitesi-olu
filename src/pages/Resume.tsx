@@ -74,7 +74,7 @@ const Resume = () => {
               className="btn-masculine px-8 py-4 rounded-full text-lg font-medium"
             >
               <Download className="w-5 h-5 mr-2" />
-              📋 CV'mi PDF Olarak İndir
+              CV'mi PDF Olarak İndir
             </Button>
           ) : (
             <p className="text-gradient-accent text-sm">
@@ -90,12 +90,11 @@ const Resume = () => {
           <div className="gradient-primary text-primary-foreground p-8">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-4xl font-bold mb-2 flex items-center gap-3">
-                  <span className="text-5xl">📋</span>
+                <h1 className="text-4xl font-bold mb-2">
                   {contact.name || 'Barkın Çeliker'}
                 </h1>
                 <p className="text-xl opacity-90">
-                  {resumeContent.personal_info?.title || '🛠️ YBS Öğrencisi & Veri Analisti'}
+                  {resumeContent.personal_info?.title || 'YBS Öğrencisi & Veri Analisti'}
                 </p>
               </div>
               <div className="text-right space-y-2 text-sm">
@@ -131,8 +130,8 @@ const Resume = () => {
             
             {/* Summary Section */}
             <section className="animate-fade-in">
-              <h2 className="text-2xl font-bold text-gradient-primary mb-4 border-b-2 border-ring pb-2 flex items-center gap-2">
-                <span className="text-3xl">📊</span> ÖZET
+              <h2 className="text-2xl font-bold text-gradient-primary mb-4 border-b-2 border-ring pb-2">
+                ÖZET
               </h2>
               <p className="text-gradient-accent leading-relaxed">
                 {resumeContent.summary?.content || 
@@ -186,8 +185,7 @@ const Resume = () => {
                       </div>
                     </div>
                     <div className="md:col-span-3">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Building className="w-5 h-5 text-primary" />
+                      <div className="mb-2">
                         <h3 className="font-semibold text-lg">Freelance Veri Analisti</h3>
                       </div>
                       <div className="whitespace-pre-line text-muted-foreground">
