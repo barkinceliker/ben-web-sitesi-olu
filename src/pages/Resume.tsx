@@ -63,7 +63,7 @@ const Resume = () => {
   const contact = getContactInfo();
 
   return (
-    <div className="min-h-screen gradient-masculine">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-20">
         {/* Download Button - More Visible */}
@@ -71,7 +71,7 @@ const Resume = () => {
           {resumeContent.download_link?.file_url ? (
             <Button 
               onClick={() => window.open(resumeContent.download_link.file_url, '_blank')}
-              className="btn-masculine px-8 py-4 rounded-full text-lg font-medium"
+              className="btn-light px-8 py-4 rounded-full text-lg font-medium"
             >
               <Download className="w-5 h-5 mr-2" />
               CV'mi PDF Olarak İndir
@@ -84,7 +84,7 @@ const Resume = () => {
         </div>
 
         {/* Professional CV Layout */}
-        <div className="max-w-4xl mx-auto card-masculine shadow-xl rounded-2xl overflow-hidden">
+        <div className="max-w-4xl mx-auto card-light shadow-xl rounded-2xl overflow-hidden">
           
           {/* Header Section */}
           <div className="gradient-primary text-primary-foreground p-8">

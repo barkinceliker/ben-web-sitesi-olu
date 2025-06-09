@@ -64,10 +64,10 @@ const About = () => {
     <section className="py-20 px-6" id="about">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-rainbow hover:text-gradient-primary transition-all duration-500">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary">
             Hakkımda
           </h2>
-          <p className="text-xl text-gradient-accent max-w-3xl mx-auto hover:text-gradient-blue transition-all duration-300">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Teknoloji dünyasında kendimi sürekli geliştiren, yaratıcı çözümler üreten bir yazılım geliştiricisi
           </p>
         </div>
