@@ -9,13 +9,13 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Ana Sayfa', href: '/', emoji: '🏠' },
-    { name: 'Hakkımda', href: '/about', emoji: '👤' },
-    { name: 'Projelerim', href: '/projects', emoji: '💼' },
-    { name: 'Beceriler', href: '/skills', emoji: '⚡' },
-    { name: 'Deneyim', href: '/experience', emoji: '🏢' },
-    { name: 'CV', href: '/resume', emoji: '📄' },
-    { name: 'İletişim', href: '/contact', emoji: '📧' },
-    { name: 'Blog', href: '/blog', emoji: '📝' },
+    { name: 'Hakkımda', href: '/about', emoji: '🧑‍💼' },
+    { name: 'Projelerim', href: '/projects', emoji: '💻' },
+    { name: 'Beceriler', href: '/skills', emoji: '🛠️' },
+    { name: 'Deneyim', href: '/experience', emoji: '💼' },
+    { name: 'CV', href: '/resume', emoji: '📋' },
+    { name: 'İletişim', href: '/contact', emoji: '📞' },
+    { name: 'Blog', href: '/blog', emoji: '✍️' },
     { name: 'Admin', href: '/admin', emoji: '⚙️' },
   ];
 
@@ -44,8 +44,8 @@ const Navbar = () => {
                     href={item.href}
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
                       isActive(item.href)
-                        ? 'gradient-accent text-foreground border border-ring'
-                        : 'text-gradient-accent hover:gradient-secondary hover:text-foreground'
+                        ? 'bg-accent text-foreground border border-ring'
+                        : 'text-gradient-accent hover:bg-secondary hover:text-foreground'
                     }`}
                   >
                     <span>{item.emoji}</span>
@@ -78,8 +78,8 @@ const Navbar = () => {
                     href={item.href}
                     className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 flex items-center space-x-2 ${
                       isActive(item.href)
-                        ? 'gradient-accent text-foreground border border-ring'
-                        : 'text-gradient-accent hover:gradient-secondary hover:text-foreground'
+                        ? 'bg-accent text-foreground border border-ring'
+                        : 'text-gradient-accent hover:bg-secondary hover:text-foreground'
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
