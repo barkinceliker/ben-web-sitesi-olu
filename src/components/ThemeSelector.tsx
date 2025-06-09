@@ -28,14 +28,14 @@ const ThemeSelector: React.FC = () => {
               key={theme.id}
               className={`relative p-4 rounded-lg border-2 cursor-pointer transition-all duration-300 hover:scale-105 ${
                 currentTheme?.id === theme.id 
-                  ? 'border-purple-500 bg-purple-50' 
-                  : 'border-gray-200 hover:border-gray-300'
+                  ? 'border-primary bg-accent' 
+                  : 'border-border hover:border-ring'
               }`}
               onClick={() => handleThemeSelect(theme)}
             >
               {currentTheme?.id === theme.id && (
                 <div className="absolute top-2 right-2">
-                  <Check className="w-4 h-4 text-purple-600" />
+                  <Check className="w-4 h-4 text-primary" />
                 </div>
               )}
               
@@ -66,7 +66,7 @@ const ThemeSelector: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+        <div className="mt-6 p-4 bg-muted rounded-lg">
           <h4 className="font-medium mb-2">Current Theme</h4>
           {currentTheme ? (
             <div className="flex items-center gap-2">
@@ -79,7 +79,7 @@ const ThemeSelector: React.FC = () => {
               />
             </div>
           ) : (
-            <p className="text-gray-600">No theme selected</p>
+            <p className="text-muted-foreground">No theme selected</p>
           )}
         </div>
       </CardContent>
