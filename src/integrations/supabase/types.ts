@@ -149,6 +149,7 @@ export type Database = {
           github: string | null
           id: string
           image_url: string | null
+          project_url: string | null
           tech: string[] | null
           title: string
           updated_at: string
@@ -160,6 +161,7 @@ export type Database = {
           github?: string | null
           id?: string
           image_url?: string | null
+          project_url?: string | null
           tech?: string[] | null
           title: string
           updated_at?: string
@@ -171,6 +173,7 @@ export type Database = {
           github?: string | null
           id?: string
           image_url?: string | null
+          project_url?: string | null
           tech?: string[] | null
           title?: string
           updated_at?: string
@@ -235,6 +238,33 @@ export type Database = {
           icon?: string | null
           id?: string
           level?: number | null
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      themes: {
+        Row: {
+          colors: Json
+          created_at: string
+          id: string
+          is_active: boolean | null
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          colors: Json
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          colors?: Json
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
           name?: string
           updated_at?: string
         }

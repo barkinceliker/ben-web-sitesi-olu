@@ -66,24 +66,25 @@ const Index = () => {
             <div className="absolute inset-0 w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-purple-500 to-pink-500 blur-lg opacity-50 animate-pulse"></div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent leading-tight animate-fade-in-up">
             {aboutContent.hero_title?.title || 'Hello, I\'m Barkın Çeliker'}
           </h1>
           
-          <p className="text-2xl md:text-3xl text-gray-600 mb-4 font-medium">
+          <p className="text-2xl md:text-4xl text-gray-600 mb-6 font-medium animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               {aboutContent.hero_subtitle?.title || 'MIS Student & Data Analyst'}
             </span>
           </p>
           
-          <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             {aboutContent.hero_description?.title || 'I\'m a 3rd year Management Information Systems student at Yasar University. I create value-added insights for businesses using modern data analysis technologies.'}
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <Button 
               onClick={() => window.location.href = '/projects'}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl btn-animate animate-fade-in-up"
+              style={{ animationDelay: '0.8s' }}
             >
               <ArrowRight className="w-5 h-5 mr-2" />
               View My Projects
@@ -111,37 +112,40 @@ const Index = () => {
           </div>
 
           {/* Quick Navigation Cards */}
-          <div className="grid md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '1s' }}>
             <div 
               onClick={() => window.location.href = '/about'}
-              className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer group hover:scale-105"
+              className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer group hover-lift animate-scale-in"
+              style={{ animationDelay: '1.2s' }}
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
                 <span className="text-white text-xl">👨‍🎓</span>
               </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">About Me</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">About Me</h3>
                 <p className="text-gray-600 text-sm">My educational background and personal approach</p>
             </div>
             
             <div 
               onClick={() => window.location.href = '/skills'}
-              className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer group hover:scale-105"
+              className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer group hover-lift animate-scale-in"
+              style={{ animationDelay: '1.4s' }}
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
                 <span className="text-white text-xl">⚡</span>
               </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Skills</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Skills</h3>
                 <p className="text-gray-600 text-sm">My technical abilities and areas of expertise</p>
             </div>
             
             <div 
               onClick={() => window.location.href = '/experience'}
-              className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer group hover:scale-105"
+              className="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer group hover-lift animate-scale-in"
+              style={{ animationDelay: '1.6s' }}
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
                 <span className="text-white text-xl">💼</span>
               </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Experience</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">Experience</h3>
                 <p className="text-gray-600 text-sm">My professional work experiences</p>
             </div>
           </div>
