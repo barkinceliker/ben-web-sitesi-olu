@@ -60,7 +60,7 @@ const Index = () => {
           <div className="mb-8 relative">
             <div className="w-32 h-32 mx-auto rounded-full gradient-primary p-1 shadow-2xl">
               <div className="w-full h-full rounded-full gradient-masculine-subtle flex items-center justify-center text-5xl">
-                <span>⚡</span>
+                <span className="text-lg font-bold">BC</span>
               </div>
             </div>
             <div className="absolute inset-0 w-32 h-32 mx-auto rounded-full gradient-primary blur-lg opacity-30 animate-pulse"></div>
@@ -86,7 +86,6 @@ const Index = () => {
               className="btn-masculine px-8 py-4 text-lg font-medium animate-fade-in-up"
               style={{ animationDelay: '0.8s' }}
             >
-              <span className="mr-2">▶️</span>
               View My Projects
             </Button>
           </div>
@@ -99,7 +98,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="p-4 rounded-full gradient-secondary hover:gradient-accent border border-border hover:border-ring transition-all duration-300 transform hover:scale-110 group"
             >
-              <span className="text-xl">🐙</span>
+              <span className="text-lg font-bold">Git</span>
             </a>
             <a 
               href="https://www.linkedin.com/in/celikerbarkin/" 
@@ -107,7 +106,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="p-4 rounded-full gradient-secondary hover:gradient-accent border border-border hover:border-ring transition-all duration-300 transform hover:scale-110 group"
             >
-              <span className="text-xl">💼</span>
+              <span className="text-lg font-bold">In</span>
             </a>
           </div>
 
@@ -119,7 +118,7 @@ const Index = () => {
               style={{ animationDelay: '1.2s' }}
             >
               <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-xl">🛠️</span>
+                <span className="text-primary-foreground text-sm font-bold">ABOUT</span>
               </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-primary transition-colors">About Me</h3>
                 <p className="text-sm text-gradient-accent">My educational background and personal approach</p>
@@ -131,7 +130,7 @@ const Index = () => {
               style={{ animationDelay: '1.4s' }}
             >
               <div className="w-12 h-12 gradient-secondary rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-xl">⚙️</span>
+                <span className="text-primary-foreground text-sm font-bold">SKILL</span>
               </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-steel transition-colors">Skills</h3>
                 <p className="text-sm text-gradient-accent">My technical abilities and areas of expertise</p>
@@ -143,7 +142,7 @@ const Index = () => {
               style={{ animationDelay: '1.6s' }}
             >
               <div className="w-12 h-12 gradient-accent rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-xl">🔧</span>
+                <span className="text-primary-foreground text-sm font-bold">EXP</span>
               </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-accent transition-colors">Experience</h3>
                 <p className="text-sm text-gradient-secondary">My professional work experiences</p>

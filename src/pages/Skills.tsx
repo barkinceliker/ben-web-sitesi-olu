@@ -43,8 +43,6 @@ const Skills = () => {
   const defaultSkillCategories = [
     {
       title: "Data Analysis & Statistics",
-      icon: "📊",
-      gradient: "from-blue-500 to-purple-500",
       skills: [
         { name: "Python", level: 95, description: "Pandas, NumPy, SciPy" },
         { name: "R", level: 85, description: "Statistical analysis, ggplot2" },
@@ -54,8 +52,6 @@ const Skills = () => {
     },
     {
       title: "Machine Learning & AI",
-      icon: "🤖",
-      gradient: "from-green-500 to-blue-500",
       skills: [
         { name: "Scikit-learn", level: 90, description: "Classification, Regression" },
         { name: "TensorFlow", level: 85, description: "Deep learning, Neural networks" },
@@ -71,8 +67,8 @@ const Skills = () => {
       <section className="py-20 px-6 pt-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
-              <span className="text-5xl">🛠️</span> Beceriler & Teknolojiler
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary">
+              Beceriler & Teknolojiler
             </h2>
             <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
               Veri analizi ve veri biliminde kullandığım teknolojiler ve uzmanlık seviyelerim
@@ -85,9 +81,6 @@ const Skills = () => {
               {Object.entries(skillsByCategory).map(([category, categorySkills], index) => (
                 <div key={category} className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-2xl">
-                      {categorySkills[0]?.icon || '🛠️'}
-                    </div>
                     <h3 className="text-xl font-semibold text-gradient-primary">{category}</h3>
                   </div>
                   
@@ -121,9 +114,6 @@ const Skills = () => {
               {defaultSkillCategories.map((category, index) => (
                 <div key={index} className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-2xl">
-                      {category.icon}
-                    </div>
                     <h3 className="text-xl font-semibold text-gradient-primary">{category.title}</h3>
                   </div>
                   
@@ -153,8 +143,8 @@ const Skills = () => {
 
           {/* Skills Summary */}
           <div className="gradient-masculine-subtle p-8 text-center rounded-2xl border border-border animate-fade-in">
-            <h3 className="text-2xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-2">
-              <span className="text-3xl">🚀</span> Sürekli Öğrenme
+            <h3 className="text-2xl font-bold mb-4 text-gradient-primary">
+              Sürekli Öğrenme
             </h3>
             <p className="text-gradient-accent mb-6 max-w-2xl mx-auto">
               Veri bilimi dünyasının hızla değişen doğasına ayak uydurabilmek için sürekli yeni teknolojiler öğreniyor ve mevcut becerilerimi geliştiriyorum. Her projede öğrendiğim yeni şeyler beni daha iyi bir analiz uzmanı yapıyor.

@@ -8,15 +8,15 @@ const Navbar = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Ana Sayfa', href: '/', emoji: '🏠' },
-    { name: 'Hakkımda', href: '/about', emoji: '🧑‍💼' },
-    { name: 'Projelerim', href: '/projects', emoji: '💻' },
-    { name: 'Beceriler', href: '/skills', emoji: '🛠️' },
-    { name: 'Deneyim', href: '/experience', emoji: '💼' },
-    { name: 'CV', href: '/resume', emoji: '📋' },
-    { name: 'İletişim', href: '/contact', emoji: '📞' },
-    { name: 'Blog', href: '/blog', emoji: '✍️' },
-    { name: 'Admin', href: '/admin', emoji: '⚙️' },
+    { name: 'Ana Sayfa', href: '/' },
+    { name: 'Hakkımda', href: '/about' },
+    { name: 'Projelerim', href: '/projects' },
+    { name: 'Beceriler', href: '/skills' },
+    { name: 'Deneyim', href: '/experience' },
+    { name: 'CV', href: '/resume' },
+    { name: 'İletişim', href: '/contact' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Admin', href: '/admin' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -29,7 +29,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center">
-                <span className="text-lg">👨‍💻</span>
+                <span className="text-lg font-bold">BC</span>
               </div>
               <span className="font-bold text-lg text-gradient-steel">Barkın Çeliker</span>
             </a>
@@ -42,13 +42,12 @@ const Navbar = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                       isActive(item.href)
                         ? 'bg-accent text-foreground border border-ring'
                         : 'text-gradient-accent hover:bg-secondary hover:text-foreground'
                     }`}
                   >
-                    <span>{item.emoji}</span>
                     <span>{item.name}</span>
                   </a>
                 ))}
@@ -63,7 +62,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-gradient-accent hover:text-gradient-primary"
             >
-              <span className="text-xl">{isOpen ? '✕' : '☰'}</span>
+              <span className="text-xl">{isOpen ? '×' : '≡'}</span>
             </Button>
           </div>
         </div>
@@ -76,14 +75,13 @@ const Navbar = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 flex items-center space-x-2 ${
+                    className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
                       isActive(item.href)
                         ? 'bg-accent text-foreground border border-ring'
                         : 'text-gradient-accent hover:bg-secondary hover:text-foreground'
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
-                    <span>{item.emoji}</span>
                     <span>{item.name}</span>
                   </a>
                 ))}

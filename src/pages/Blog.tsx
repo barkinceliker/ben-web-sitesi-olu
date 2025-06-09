@@ -88,12 +88,11 @@ const Blog = () => {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link to="/">
             <Button className="btn-masculine">
-              <span className="mr-2">⬅️</span>
-              🏠 Ana Sayfa
+              Ana Sayfa
             </Button>
           </Link>
-          <h1 className="text-3xl font-bold text-gradient-primary flex items-center gap-2">
-            <span className="text-4xl">📝</span> Blog & Makaleler
+          <h1 className="text-3xl font-bold text-gradient-primary">
+            Blog & Makaleler
           </h1>
           <div></div>
         </div>
@@ -103,8 +102,8 @@ const Blog = () => {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4 text-gradient-steel flex items-center justify-center gap-3">
-              <span className="text-5xl">📝</span> Teknoloji & Geliştirme
+            <h2 className="text-4xl font-bold mb-4 text-gradient-steel">
+              Teknoloji & Geliştirme
             </h2>
             <p className="text-xl text-gradient-accent max-w-2xl mx-auto">
               Web geliştirme, yeni teknolojiler ve en iyi uygulamalar hakkındaki makalelerim
@@ -119,21 +118,18 @@ const Blog = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="w-full h-48 rounded-lg gradient-primary mb-6 flex items-center justify-center relative overflow-hidden">
-                  <div className="text-6xl opacity-80">📝</div>
+                  <div className="text-gradient-accent">Blog Görseli</div>
                   <div className="absolute inset-0 bg-background/20 group-hover:bg-background/30 transition-colors"></div>
                 </div>
                 
                 <div className="flex items-center gap-4 text-xs text-gradient-accent mb-4">
-                  <div className="flex items-center gap-1">
-                    <span className="text-xs">📅</span>
+                  <div>
                     {post.publish_date ? formatDate(post.publish_date) : (post.date || 'Tarih yok')}
                   </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-xs">⏰</span>
+                  <div>
                     {'readTime' in post ? post.readTime : '5 dk'}
                   </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-xs">👤</span>
+                  <div>
                     {'author' in post ? post.author : 'Barkın Çeliker'}
                   </div>
                 </div>
@@ -163,14 +159,14 @@ const Blog = () => {
           {/* Call to Action */}
           <div className="text-center mt-16">
             <div className="gradient-masculine-subtle p-8 rounded-2xl border border-border animate-fade-in">
-              <h3 className="text-2xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-2">
-                <span className="text-3xl">🚀</span> Yeni İçerikler İçin Takipte Kalın
+              <h3 className="text-2xl font-bold mb-4 text-gradient-primary">
+                Yeni İçerikler İçin Takipte Kalın
               </h3>
               <p className="text-gradient-accent mb-6">
                 Web geliştirme dünyasındaki en son trendler ve en iyi uygulamalar hakkında düzenli olarak makaleler paylaşıyorum.
               </p>
               <Button className="btn-masculine px-8 py-3 rounded-full">
-                📧 Email Bildirimleri
+                Email Bildirimleri
               </Button>
             </div>
           </div>

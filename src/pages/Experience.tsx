@@ -67,8 +67,8 @@ const Experience = () => {
       <section className="py-20 px-6 pt-24">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
-              <span className="text-5xl">🏢</span> Deneyim
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary">
+              Deneyim
             </h2>
             <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
               Profesyonel gelişimim ve iş deneyimlerim
@@ -80,7 +80,7 @@ const Experience = () => {
               <div key={('id' in exp ? exp.id : index) as string} className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="flex items-start gap-6">
                   <div className="w-16 h-16 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-bold text-lg shrink-0">
-                    <span className="text-2xl">🏢</span>
+                    <span className="text-sm font-bold">WORK</span>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
@@ -99,14 +99,12 @@ const Experience = () => {
                     
                     <div className="flex flex-wrap gap-4 mb-4 text-sm text-gradient-accent">
                       <div className="flex items-center gap-2">
-                        <span className="text-sm">📅</span>
                         <span>
                           {formatDate(exp.start_date)} - {exp.end_date ? formatDate(exp.end_date) : 'Güncel'}
                         </span>
                       </div>
                       {exp.location && (
                         <div className="flex items-center gap-2">
-                          <span className="text-sm">📍</span>
                           <span>{exp.location}</span>
                         </div>
                       )}
@@ -123,7 +121,6 @@ const Experience = () => {
 
           {experiences.length === 0 && (
             <div className="text-center mt-12 animate-fade-in">
-              <div className="text-6xl mb-4"><span>⚡</span></div>
               <p className="text-gradient-accent">
                 Daha fazla deneyim veritabanından yüklenecek. Admin panelinden deneyim ekleyebilirsiniz.
               </p>
