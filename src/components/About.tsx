@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Code, Coffee, Lightbulb, Users, Target, Heart } from 'lucide-react';
+import { Code, Coffee, Lightbulb, Users, Target, Heart, Paintbrush, GraduationCap, Star, Award, Clock } from 'lucide-react';
 
 const About = () => {
   const highlights = [
@@ -41,19 +41,22 @@ const About = () => {
       year: "2023-2024",
       title: "Senior Full Stack Developer",
       company: "Tech Startup",
-      description: "React, Node.js ve PostgreSQL kullanarak ölçeklenebilir web uygulamaları geliştirdim."
+      description: "React, Node.js ve PostgreSQL kullanarak ölçeklenebilir web uygulamaları geliştirdim.",
+      icon: Code
     },
     {
       year: "2021-2023",
       title: "Frontend Developer",
       company: "Digital Agency",
-      description: "Modern frontend teknolojileri ile kullanıcı deneyimini optimize eden projeler yürüttüm."
+      description: "Modern frontend teknolojileri ile kullanıcı deneyimini optimize eden projeler yürüttüm.",
+      icon: Paintbrush
     },
     {
       year: "2020-2021",
       title: "Junior Developer",
       company: "Software Company",
-      description: "Web geliştirme kariyerime başladığım ilk profesyonel deneyimim."
+      description: "Web geliştirme kariyerime başladığım ilk profesyonel deneyimim.",
+      icon: GraduationCap
     }
   ];
 
@@ -74,7 +77,10 @@ const About = () => {
           <div className="space-y-6">
             <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold mb-4 text-purple-300">Hikayem</h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <Star className="w-6 h-6 text-purple-300" />
+                  <h3 className="text-2xl font-semibold text-purple-300">Hikayem</h3>
+                </div>
                 <p className="text-gray-300 leading-relaxed mb-4">
                   Web geliştirme dünyasına olan tutkum, küçük yaşlarda bilgisayarlarla tanışmamla başladı. 
                   İlk kodlarımı yazdığım günden bu yana, teknolojinin insanların hayatını nasıl 
@@ -89,7 +95,10 @@ const About = () => {
 
             <Card className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold mb-4 text-purple-300">Değerlerim</h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <Award className="w-6 h-6 text-purple-300" />
+                  <h3 className="text-2xl font-semibold text-purple-300">Değerlerim</h3>
+                </div>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Badge className="bg-purple-500/20 text-purple-200">Kalite</Badge>
@@ -110,14 +119,17 @@ const About = () => {
 
           {/* Experience Timeline */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold mb-6 text-purple-300">Profesyonel Deneyim</h3>
+            <div className="flex items-center gap-3 mb-6">
+              <Clock className="w-6 h-6 text-purple-300" />
+              <h3 className="text-2xl font-semibold text-purple-300">Profesyonel Deneyim</h3>
+            </div>
             <div className="space-y-6">
               {experience.map((exp, index) => (
                 <Card key={index} className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300 hover-scale">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
-                        {exp.year.split('-')[0]}
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white">
+                        <exp.icon className="w-6 h-6" />
                       </div>
                       <div className="flex-1">
                         <h4 className="text-lg font-semibold text-white mb-1">{exp.title}</h4>
