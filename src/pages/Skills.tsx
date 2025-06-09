@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
+import { Database, Code, Award } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -81,6 +82,11 @@ const Skills = () => {
               {Object.entries(skillsByCategory).map(([category, categorySkills], index) => (
                 <div key={category} className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                   <div className="flex items-center gap-3 mb-6">
+                    <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
+                      {category.toLowerCase().includes('data') ? <Database className="w-5 h-5" /> : 
+                       category.toLowerCase().includes('machine') ? <Code className="w-5 h-5" /> : 
+                       <Award className="w-5 h-5" />}
+                    </div>
                     <h3 className="text-xl font-semibold text-gradient-primary">{category}</h3>
                   </div>
                   
@@ -114,6 +120,11 @@ const Skills = () => {
               {defaultSkillCategories.map((category, index) => (
                 <div key={index} className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                   <div className="flex items-center gap-3 mb-6">
+                    <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
+                      {category.title.toLowerCase().includes('data') ? <Database className="w-5 h-5" /> : 
+                       category.title.toLowerCase().includes('machine') ? <Code className="w-5 h-5" /> : 
+                       <Award className="w-5 h-5" />}
+                    </div>
                     <h3 className="text-xl font-semibold text-gradient-primary">{category.title}</h3>
                   </div>
                   

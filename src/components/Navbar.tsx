@@ -1,22 +1,22 @@
 import { useState } from 'react';
-
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'react-router-dom';
+import { Home, User, Briefcase, Award, Calendar, FileText, Mail, Book, Settings, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
-    { name: 'Ana Sayfa', href: '/' },
-    { name: 'Hakkımda', href: '/about' },
-    { name: 'Projelerim', href: '/projects' },
-    { name: 'Beceriler', href: '/skills' },
-    { name: 'Deneyim', href: '/experience' },
-    { name: 'CV', href: '/resume' },
-    { name: 'İletişim', href: '/contact' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Admin', href: '/admin' },
+    { name: 'Ana Sayfa', href: '/', icon: Home },
+    { name: 'Hakkımda', href: '/about', icon: User },
+    { name: 'Projelerim', href: '/projects', icon: Briefcase },
+    { name: 'Beceriler', href: '/skills', icon: Award },
+    { name: 'Deneyim', href: '/experience', icon: Calendar },
+    { name: 'CV', href: '/resume', icon: FileText },
+    { name: 'İletişim', href: '/contact', icon: Mail },
+    { name: 'Blog', href: '/blog', icon: Book },
+    { name: 'Admin', href: '/admin', icon: Settings },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -42,12 +42,13 @@ const Navbar = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
                       isActive(item.href)
                         ? 'bg-accent text-foreground border border-ring'
                         : 'text-gradient-accent hover:bg-secondary hover:text-foreground'
                     }`}
                   >
+                    <item.icon className="w-4 h-4" />
                     <span>{item.name}</span>
                   </a>
                 ))}
@@ -62,7 +63,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-gradient-accent hover:text-gradient-primary"
             >
-              <span className="text-xl">{isOpen ? '×' : '≡'}</span>
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
           </div>
         </div>
@@ -75,13 +76,14 @@ const Navbar = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
+                    className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 flex items-center gap-2 ${
                       isActive(item.href)
                         ? 'bg-accent text-foreground border border-ring'
                         : 'text-gradient-accent hover:bg-secondary hover:text-foreground'
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
+                    <item.icon className="w-4 h-4" />
                     <span>{item.name}</span>
                   </a>
                 ))}

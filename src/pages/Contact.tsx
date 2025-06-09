@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-
+import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -86,9 +86,12 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="card-masculine p-8 rounded-2xl animate-fade-in">
               <div className="mb-6">
-                <h3 className="text-2xl text-gradient-primary font-semibold">
-                  Mesaj Gönder
-                </h3>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-6 h-6 text-primary" />
+                  <h3 className="text-2xl text-gradient-primary font-semibold">
+                    Mesaj Gönder
+                  </h3>
+                </div>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
@@ -132,8 +135,9 @@ const Contact = () => {
                 <Button 
                   type="submit"
                   disabled={loading}
-                  className="w-full btn-masculine text-lg font-medium"
+                  className="w-full btn-masculine text-lg font-medium flex items-center gap-2"
                 >
+                  <Send className="w-5 h-5" />
                   {loading ? 'Gönderiliyor...' : 'Mesaj Gönder'}
                 </Button>
               </form>
@@ -149,7 +153,7 @@ const Contact = () => {
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center">
-                      <span className="text-xl">K</span>
+                      <MapPin className="w-6 h-6" />
                     </div>
                     <div>
                       <p className="font-semibold text-gradient-steel">Konum</p>
@@ -171,7 +175,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-lg gradient-secondary hover:gradient-accent flex items-center justify-center transition-all duration-300 hover:scale-110"
                   >
-                    <span className="text-xl">GH</span>
+                    <Github className="w-6 h-6" />
                   </a>
                   <a 
                     href="https://www.linkedin.com/in/celikerbarkin/" 
@@ -179,7 +183,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-lg gradient-secondary hover:gradient-accent flex items-center justify-center transition-all duration-300 hover:scale-110"
                   >
-                    <span className="text-xl">LI</span>
+                    <Linkedin className="w-6 h-6" />
                   </a>
                 </div>
               </div>

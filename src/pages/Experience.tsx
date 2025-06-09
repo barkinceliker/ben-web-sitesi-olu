@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
+import { Building, Calendar, MapPin } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -79,8 +79,8 @@ const Experience = () => {
             {experiencesToShow.map((exp, index) => (
               <div key={('id' in exp ? exp.id : index) as string} className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-bold text-lg shrink-0">
-                    <span className="text-sm font-bold">WORK</span>
+                  <div className="w-16 h-16 rounded-full gradient-primary flex items-center justify-center text-primary-foreground shrink-0">
+                    <Building className="w-8 h-8" />
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
@@ -99,12 +99,14 @@ const Experience = () => {
                     
                     <div className="flex flex-wrap gap-4 mb-4 text-sm text-gradient-accent">
                       <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
                         <span>
                           {formatDate(exp.start_date)} - {exp.end_date ? formatDate(exp.end_date) : 'Güncel'}
                         </span>
                       </div>
                       {exp.location && (
                         <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4" />
                           <span>{exp.location}</span>
                         </div>
                       )}

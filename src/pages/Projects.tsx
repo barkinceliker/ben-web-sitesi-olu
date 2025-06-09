@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
+import { Github, ExternalLink } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -87,7 +87,7 @@ const Projects = () => {
                             window.open(`https://github.com/barkinceliker?tab=repositories`, '_blank');
                           }}
                         >
-                          <span className="text-sm">Git</span>
+                          <Github className="w-4 h-4" />
                         </div>
                       )}
                       {project.demo_url && (
@@ -98,7 +98,7 @@ const Projects = () => {
                             window.open(project.demo_url, '_blank');
                           }}
                         >
-                          <span className="text-sm">Demo</span>
+                          <ExternalLink className="w-4 h-4" />
                         </div>
                       )}
                     </div>

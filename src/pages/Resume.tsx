@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Download, Mail, Phone, MapPin, Globe, Github, Linkedin, Calendar, Building } from 'lucide-react';
+import { Download, Mail, Phone, MapPin, Globe, Github, Linkedin, Calendar, Building, GraduationCap } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -149,7 +149,8 @@ const Resume = () => {
               <Card className="border-l-4 border-l-primary">
                 <CardContent className="p-4">
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div className="md:col-span-1">
+                    <div className="md:col-span-1 flex items-center gap-2">
+                      <GraduationCap className="w-8 h-8 text-primary" />
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Calendar className="w-4 h-4" />
                         <span>2022 - 2026</span>
@@ -178,7 +179,8 @@ const Resume = () => {
               <Card className="border-l-4 border-l-secondary">
                 <CardContent className="p-4">
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div className="md:col-span-1">
+                    <div className="md:col-span-1 flex items-center gap-2">
+                      <Building className="w-8 h-8 text-secondary" />
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Calendar className="w-4 h-4" />
                         <span>2023 - Devam</span>

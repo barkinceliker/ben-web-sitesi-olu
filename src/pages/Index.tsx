@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { Button } from '@/components/ui/button';
+import { Github, Linkedin, User, Award, Calendar, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -83,10 +84,11 @@ const Index = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <Button 
               onClick={() => window.location.href = '/projects'}
-              className="btn-masculine px-8 py-4 text-lg font-medium animate-fade-in-up"
+              className="btn-masculine px-8 py-4 text-lg font-medium animate-fade-in-up flex items-center gap-2"
               style={{ animationDelay: '0.8s' }}
             >
               View My Projects
+              <ArrowRight className="w-5 h-5" />
             </Button>
           </div>
           
@@ -98,7 +100,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="p-4 rounded-full gradient-secondary hover:gradient-accent border border-border hover:border-ring transition-all duration-300 transform hover:scale-110 group"
             >
-              <span className="text-lg font-bold">Git</span>
+              <Github className="w-6 h-6" />
             </a>
             <a 
               href="https://www.linkedin.com/in/celikerbarkin/" 
@@ -106,7 +108,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="p-4 rounded-full gradient-secondary hover:gradient-accent border border-border hover:border-ring transition-all duration-300 transform hover:scale-110 group"
             >
-              <span className="text-lg font-bold">In</span>
+              <Linkedin className="w-6 h-6" />
             </a>
           </div>
 
@@ -118,7 +120,7 @@ const Index = () => {
               style={{ animationDelay: '1.2s' }}
             >
               <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-sm font-bold">ABOUT</span>
+                <User className="w-6 h-6 text-primary-foreground" />
               </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-primary transition-colors">About Me</h3>
                 <p className="text-sm text-gradient-accent">My educational background and personal approach</p>
@@ -130,7 +132,7 @@ const Index = () => {
               style={{ animationDelay: '1.4s' }}
             >
               <div className="w-12 h-12 gradient-secondary rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-sm font-bold">SKILL</span>
+                <Award className="w-6 h-6 text-primary-foreground" />
               </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-steel transition-colors">Skills</h3>
                 <p className="text-sm text-gradient-accent">My technical abilities and areas of expertise</p>
@@ -142,7 +144,7 @@ const Index = () => {
               style={{ animationDelay: '1.6s' }}
             >
               <div className="w-12 h-12 gradient-accent rounded-lg flex items-center justify-center mb-4 mx-auto transform transition-transform duration-300 group-hover:rotate-6">
-                <span className="text-primary-foreground text-sm font-bold">EXP</span>
+                <Calendar className="w-6 h-6 text-primary-foreground" />
               </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-accent transition-colors">Experience</h3>
                 <p className="text-sm text-gradient-secondary">My professional work experiences</p>

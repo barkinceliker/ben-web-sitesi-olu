@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-
+import { Book, Calendar, Clock, User, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -118,18 +118,21 @@ const Blog = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="w-full h-48 rounded-lg gradient-primary mb-6 flex items-center justify-center relative overflow-hidden">
-                  <div className="text-gradient-accent">Blog Görseli</div>
+                  <Book className="w-16 h-16 text-primary-foreground" />
                   <div className="absolute inset-0 bg-background/20 group-hover:bg-background/30 transition-colors"></div>
                 </div>
                 
                 <div className="flex items-center gap-4 text-xs text-gradient-accent mb-4">
-                  <div>
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
                     {post.publish_date ? formatDate(post.publish_date) : (post.date || 'Tarih yok')}
                   </div>
-                  <div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
                     {'readTime' in post ? post.readTime : '5 dk'}
                   </div>
-                  <div>
+                  <div className="flex items-center gap-1">
+                    <User className="w-3 h-3" />
                     {'author' in post ? post.author : 'Barkın Çeliker'}
                   </div>
                 </div>
@@ -149,8 +152,9 @@ const Blog = () => {
                   ))}
                 </div>
                 
-                  <div className="text-xs text-gradient-steel opacity-0 group-hover:opacity-100 transition-opacity">
-                    Devamını oku →
+                  <div className="flex items-center gap-1 text-xs text-gradient-steel opacity-0 group-hover:opacity-100 transition-opacity">
+                    Devamını oku
+                    <ArrowRight className="w-3 h-3" />
                   </div>
               </div>
             ))}

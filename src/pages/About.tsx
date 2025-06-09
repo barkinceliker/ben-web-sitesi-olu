@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
+import { Target, Star, Lightbulb, Users, TrendingUp, Heart } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -37,27 +37,33 @@ const About = () => {
   const highlights = [
     {
       title: "Data Analysis",
-      description: "Comprehensive data analysis and statistical modeling with Python, R and SQL"
+      description: "Comprehensive data analysis and statistical modeling with Python, R and SQL",
+      icon: Target
     },
     {
       title: "Problem Solving",
-      description: "Ability to transform complex data problems into simple and effective solutions"
+      description: "Ability to transform complex data problems into simple and effective solutions",
+      icon: Star
     },
     {
       title: "Innovation",
-      description: "Passion for learning new data technologies and applying them in my projects"
+      description: "Passion for learning new data technologies and applying them in my projects",
+      icon: Lightbulb
     },
     {
       title: "Team Work",
-      description: "Efficient project management with teamwork and agile methodologies"
+      description: "Efficient project management with teamwork and agile methodologies",
+      icon: Users
     },
     {
       title: "Goal-Oriented",
-      description: "Goal-oriented approach and success in meeting deadlines"
+      description: "Goal-oriented approach and success in meeting deadlines",
+      icon: TrendingUp
     },
     {
       title: "Passion",
-      description: "Continuous development thanks to my passion for data science"
+      description: "Continuous development thanks to my passion for data science",
+      icon: Heart
     }
   ];
 
@@ -140,6 +146,9 @@ const About = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {highlights.map((item, index) => (
               <div key={index} className="card-masculine p-6 text-center rounded-2xl group cursor-pointer animate-scale-in" style={{ animationDelay: `${1.6 + index * 0.1}s` }}>
+                <div className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <item.icon className="w-6 h-6 text-primary-foreground" />
+                </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-primary">{item.title}</h3>
                 <p className="text-gradient-accent text-sm leading-relaxed">{item.description}</p>
               </div>
