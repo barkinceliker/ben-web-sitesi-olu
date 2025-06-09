@@ -537,6 +537,23 @@ export const predefinedThemes: Theme[] = [
       border: '207 31.8% 91.4%',
       gradient: 'linear-gradient(135deg, hsl(207 44% 49%) 0%, hsl(220 100% 76%) 100%)'
     }
+  },
+  {
+    id: 'masculine-gray',
+    name: 'Masculine Gray',
+    colors: {
+      primary: '210 10% 35%',
+      secondary: '210 10% 96%',
+      accent: '210 10% 90%',
+      background: '0 0% 100%',
+      foreground: '210 20% 15%',
+      card: '0 0% 100%',
+      cardForeground: '210 20% 15%',
+      muted: '210 10% 96%',
+      mutedForeground: '210 10% 45%',
+      border: '210 10% 88%',
+      gradient: 'linear-gradient(135deg, hsl(210 10% 35%) 0%, hsl(210 8% 50%) 50%, hsl(210 12% 65%) 100%)'
+    }
   }
 ];
 
