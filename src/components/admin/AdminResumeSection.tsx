@@ -127,12 +127,12 @@ const AdminResumeSection = ({ resume, setResume, loading, setLoading }: AdminRes
                   className="w-full bg-background border border-border text-foreground p-2 rounded-md"
                 >
                   <option value="">Seçiniz...</option>
-                  <option value="personal_info">Kişisel Bilgiler</option>
-                  <option value="summary">Özet</option>
-                  <option value="education">Eğitim</option>
-                  <option value="experience">Deneyim</option>
-                  <option value="skills">Yetenekler</option>
-                  <option value="download_link">İndirme Linki</option>
+                  <option value="personal_info">📋 Kişisel Bilgiler (İletişim)</option>
+                  <option value="summary">📝 Özet (Hakkımda açıklaması)</option>
+                  <option value="education">🎓 Eğitim (Okul/Üniversite bilgileri)</option>
+                  <option value="experience">💼 Deneyim (İş tecrübeleri)</option>
+                  <option value="skills">⚡ Yetenekler (Teknik/Kişisel becerileri)</option>
+                  <option value="download_link">📥 PDF İndirme Linki</option>
                 </select>
               </div>
               <div className="space-y-2">

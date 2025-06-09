@@ -66,18 +66,23 @@ const Resume = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-20">
-        {/* Download Button - Floating */}
-        {resumeContent.download_link?.file_url && (
-          <div className="fixed top-24 right-6 z-10">
+        {/* Download Button - More Visible */}
+        <div className="text-center mb-6">
+          {resumeContent.download_link?.file_url ? (
             <Button 
               onClick={() => window.open(resumeContent.download_link.file_url, '_blank')}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg px-6 py-3"
+              size="lg"
             >
-              <Download className="w-4 h-4 mr-2" />
-              PDF İndir
+              <Download className="w-5 h-5 mr-2" />
+              CV'mi PDF Olarak İndir
             </Button>
-          </div>
-        )}
+          ) : (
+            <p className="text-muted-foreground text-sm">
+              PDF indirme linki admin panelinden eklenebilir
+            </p>
+          )}
+        </div>
 
         {/* Professional CV Layout */}
         <div className="max-w-4xl mx-auto bg-card shadow-xl">
