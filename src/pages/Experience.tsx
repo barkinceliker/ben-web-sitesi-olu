@@ -40,21 +40,21 @@ const Experience = () => {
 
   const defaultExperiences = [
     {
-      company: "Yaşar Üniversitesi",
-      position: "YBS Öğrencisi",
+      company: "Yasar University",
+      position: "MIS Student",
       start_date: "2022-09-01",
       end_date: null,
       is_current: true,
-      description: "Yönetim Bilişim Sistemleri alanında eğitim alıyorum. Veri analizi, iş zekası ve sistem analizi konularında uzmanlaşıyorum.",
-      location: "İzmir, Türkiye"
+      description: "I am studying in the field of Management Information Systems. I specialize in data analysis, business intelligence and system analysis.",
+      location: "Izmir, Turkey"
     },
     {
       company: "Freelance",
-      position: "Veri Analisti",
+      position: "Data Analyst",
       start_date: "2023-01-01",
       end_date: null,
       is_current: true,
-      description: "Küçük ve orta ölçekli işletmeler için veri analizi projeleri yürütüyorum. Excel, Python ve Tableau kullanarak veri görselleştirme ve raporlama hizmetleri sağlıyorum.",
+      description: "I conduct data analysis projects for small and medium-sized businesses. I provide data visualization and reporting services using Excel, Python and Tableau.",
       location: "Remote"
     }
   ];
@@ -68,10 +68,10 @@ const Experience = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Deneyim
+              Experience
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Profesyonel gelişimim ve çalışma deneyimlerim
+              My professional development and work experiences
             </p>
           </div>
 
@@ -92,7 +92,7 @@ const Experience = () => {
                         <div className="flex flex-col gap-2">
                           {exp.is_current && (
                             <Badge className="bg-green-100 text-green-800 self-start">
-                              Devam Ediyor
+                              Current
                             </Badge>
                           )}
                         </div>
@@ -102,7 +102,7 @@ const Experience = () => {
                         <div className="flex items-center gap-2">
                           <CalendarDays className="w-4 h-4" />
                           <span>
-                            {formatDate(exp.start_date)} - {exp.end_date ? formatDate(exp.end_date) : 'Devam Ediyor'}
+                            {formatDate(exp.start_date)} - {exp.end_date ? formatDate(exp.end_date) : 'Current'}
                           </span>
                         </div>
                         {exp.location && (
@@ -126,7 +126,7 @@ const Experience = () => {
           {experiences.length === 0 && (
             <div className="text-center mt-12">
               <p className="text-gray-600">
-                Daha fazla deneyim veritabanından yüklenecek. Admin panelinden deneyim ekleyebilirsiniz.
+                More experience will be loaded from the database. You can add experience from the admin panel.
               </p>
             </div>
           )}

@@ -51,11 +51,11 @@ const Blog = () => {
           <Link to="/">
             <Button variant="outline" className="border-purple-400 text-purple-600 hover:bg-purple-50">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Ana Sayfa
+              Home
             </Button>
           </Link>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Blog & Makaleler
+            Blog & Articles
           </h1>
           <div></div>
         </div>
@@ -66,10 +66,10 @@ const Blog = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Teknoloji & Geliştirme
+              Technology & Development
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Web geliştirme, yeni teknolojiler ve en iyi pratikler hakkında yazılarım
+              My articles about web development, new technologies and best practices
             </p>
           </div>
 
@@ -115,9 +115,9 @@ const Blog = () => {
                     ))}
                   </div>
                   
-                  <div className="text-xs text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Devamını oku →
-                  </div>
+                    <div className="text-xs text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                      Read more →
+                    </div>
                 </CardContent>
               </Card>
             ))}
@@ -126,12 +126,12 @@ const Blog = () => {
           {/* Call to Action */}
           <div className="text-center mt-16">
             <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-8 rounded-2xl border border-purple-200">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Yeni İçerikler İçin Takipte Kalın</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Stay Tuned for New Content</h3>
               <p className="text-gray-600 mb-6">
-                Web geliştirme dünyasındaki son trendler ve en iyi pratikler hakkında düzenli yazılar paylaşıyorum.
+                I regularly share articles about the latest trends and best practices in the web development world.
               </p>
               <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full">
-                E-posta Bildirimleri
+                Email Notifications
               </Button>
             </div>
           </div>

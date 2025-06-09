@@ -42,7 +42,7 @@ const Skills = () => {
 
   const defaultSkillCategories = [
     {
-      title: "Veri Analizi & İstatistik",
+      title: "Data Analysis & Statistics",
       icon: "📊",
       gradient: "from-blue-500 to-purple-500",
       skills: [
@@ -72,10 +72,10 @@ const Skills = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Beceriler & Teknolojiler
+              Skills & Technologies
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Veri analizi ve bilimi alanında kullandığım teknolojiler ve uzmanlık seviyelerim
+              Technologies I use in data analysis and data science and my expertise levels
             </p>
           </div>
 
@@ -158,17 +158,15 @@ const Skills = () => {
           {/* Skills Summary */}
           <Card className="bg-gradient-to-r from-purple-100 to-pink-100 border-purple-200">
             <CardContent className="p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Sürekli Öğrenme</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Continuous Learning</h3>
               <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-                Veri bilimi dünyasının hızla değişen doğasına ayak uydurmak için sürekli yeni teknolojiler 
-                öğreniyor ve mevcut becerilerimi geliştiriyorum. Her projede öğrendiğim yeni şeyler 
-                beni daha iyi bir analiz uzmanı yapıyor.
+                I continuously learn new technologies and improve my existing skills to keep up with the rapidly changing nature of the data science world. The new things I learn in each project make me a better analysis specialist.
               </p>
               <div className="flex flex-wrap justify-center gap-2">
-                <Badge className="bg-purple-200 text-purple-800">Öğrenmeye Açık</Badge>
-                <Badge className="bg-blue-200 text-blue-800">Problem Çözme</Badge>
-                <Badge className="bg-pink-200 text-pink-800">Takım Çalışması</Badge>
-                <Badge className="bg-green-200 text-green-800">Adaptasyon</Badge>
+                <Badge className="bg-purple-200 text-purple-800">Open to Learning</Badge>
+                <Badge className="bg-blue-200 text-blue-800">Problem Solving</Badge>
+                <Badge className="bg-pink-200 text-pink-800">Team Work</Badge>
+                <Badge className="bg-green-200 text-green-800">Adaptation</Badge>
               </div>
             </CardContent>
           </Card>

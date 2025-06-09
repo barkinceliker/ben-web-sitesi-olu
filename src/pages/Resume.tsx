@@ -39,26 +39,26 @@ const Resume = () => {
     {
       key: 'personal_info',
       icon: User,
-      title: 'Kişisel Bilgiler',
-      defaultContent: 'Ad: Barkın Çeliker\nE-posta: barkinclkr@gmail.com\nTelefon: +90 XXX XXX XX XX\nLinkedIn: linkedin.com/in/celikerbarkin\nGitHub: github.com/barkinceliker'
+      title: 'Personal Information',
+      defaultContent: 'Name: Barkın Çeliker\nEmail: barkinclkr@gmail.com\nPhone: +90 XXX XXX XX XX\nLinkedIn: linkedin.com/in/celikerbarkin\nGitHub: github.com/barkinceliker'
     },
     {
       key: 'education',
       icon: GraduationCap,
-      title: 'Eğitim',
-      defaultContent: 'Yaşar Üniversitesi\nYönetim Bilişim Sistemleri\n2022 - 2026 (Devam Ediyor)\nİzmir, Türkiye'
+      title: 'Education',
+      defaultContent: 'Yasar University\nManagement Information Systems\n2022 - 2026 (Current)\nIzmir, Turkey'
     },
     {
       key: 'experience',
       icon: Briefcase,
-      title: 'Deneyim',
-      defaultContent: 'Freelance Veri Analisti\n2023 - Devam Ediyor\n• Python, Excel ve Tableau ile veri analizi\n• İş zekası raporları hazırlama\n• KPI dashboard geliştirme'
+      title: 'Experience',
+      defaultContent: 'Freelance Data Analyst\n2023 - Current\n• Data analysis with Python, Excel and Tableau\n• Preparing business intelligence reports\n• KPI dashboard development'
     },
     {
       key: 'skills',
       icon: Award,
-      title: 'Beceriler',
-      defaultContent: 'Teknik Beceriler:\n• Python (Pandas, NumPy, Matplotlib)\n• SQL (PostgreSQL, MySQL)\n• Excel (VBA, Pivot Tables)\n• Tableau, Power BI\n• R, SPSS\n\nKişisel Beceriler:\n• Analitik düşünme\n• Problem çözme\n• Takım çalışması\n• İletişim becerileri'
+      title: 'Skills',
+      defaultContent: 'Technical Skills:\n• Python (Pandas, NumPy, Matplotlib)\n• SQL (PostgreSQL, MySQL)\n• Excel (VBA, Pivot Tables)\n• Tableau, Power BI\n• R, SPSS\n\nPersonal Skills:\n• Analytical thinking\n• Problem solving\n• Team work\n• Communication skills'
     }
   ];
 
@@ -69,10 +69,10 @@ const Resume = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              CV / Özgeçmiş
+              CV / Resume
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Profesyonel deneyimlerim ve becerilerim hakkında detaylı bilgiler
+              Detailed information about my professional experiences and skills
             </p>
             
             {resumeContent.download_link?.file_url && (
@@ -81,7 +81,7 @@ const Resume = () => {
                 onClick={() => window.open(resumeContent.download_link.file_url, '_blank')}
               >
                 <Download className="w-4 h-4 mr-2" />
-                CV İndir
+                Download CV
               </Button>
             )}
           </div>
@@ -116,16 +116,16 @@ const Resume = () => {
             <CardContent className="p-8 text-center">
               <FileText className="w-12 h-12 text-purple-600 mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4 text-gray-900">
-                {resumeContent.summary?.title || 'Özet'}
+                {resumeContent.summary?.title || 'Summary'}
               </h3>
               <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-                {resumeContent.summary?.content || 'Veri analizi ve bilimi alanında uzmanlaşan, yaratıcı çözümler üreten ve sürekli öğrenmeyi seven bir öğrenciyim. Modern veri teknolojileri ile işletmelere değer katan içgörüler üretme konusunda tutkulu bir yaklaşım sergilerim.'}
+                {resumeContent.summary?.content || 'I am a student who specializes in data analysis and data science, produces creative solutions and loves continuous learning. I take a passionate approach to generating valuable insights for businesses with modern data technologies.'}
               </p>
               <div className="flex flex-wrap justify-center gap-2">
-                <Badge className="bg-purple-200 text-purple-800">Veri Analizi</Badge>
+                <Badge className="bg-purple-200 text-purple-800">Data Analysis</Badge>
                 <Badge className="bg-blue-200 text-blue-800">Business Intelligence</Badge>
                 <Badge className="bg-pink-200 text-pink-800">Machine Learning</Badge>
-                <Badge className="bg-green-200 text-green-800">Veri Görselleştirme</Badge>
+                <Badge className="bg-green-200 text-green-800">Data Visualization</Badge>
               </div>
             </CardContent>
           </Card>

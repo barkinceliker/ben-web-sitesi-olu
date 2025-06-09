@@ -47,10 +47,10 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Projelerim
+              My Projects
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Veri analizi ve bilimi alanında gerçekleştirdiğim projeler
+              Projects I have completed in the field of data analysis and data science
             </p>
           </div>
 
@@ -58,7 +58,7 @@ const Projects = () => {
             <div className="text-center py-12">
               <Code className="w-16 h-16 text-gray-400 mx-auto mb-4" />
               <p className="text-gray-600 text-lg">
-                Henüz proje eklenmemiş. Admin panelinden proje ekleyebilirsiniz.
+                No projects have been added yet. You can add projects from the admin panel.
               </p>
             </div>
           ) : (
@@ -109,7 +109,7 @@ const Projects = () => {
                       {project.title}
                     </h3>
                     <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                      {project.description || 'Açıklama eklenmemiş'}
+                      {project.description || 'No description added'}
                     </p>
                     
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -121,7 +121,7 @@ const Projects = () => {
                         ))
                       ) : (
                         <Badge className="bg-gray-200 text-gray-600 text-xs">
-                          Teknoloji belirtilmemiş
+                          No technology specified
                         </Badge>
                       )}
                     </div>

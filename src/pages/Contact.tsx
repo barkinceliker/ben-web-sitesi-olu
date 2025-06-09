@@ -23,8 +23,8 @@ const Contact = () => {
     
     if (!formData.name || !formData.email || !formData.message) {
       toast({
-        title: "Hata",
-        description: "Lütfen tüm alanları doldurun",
+        title: "Error",
+        description: "Please fill in all fields",
         variant: "destructive"
       });
       return;
@@ -46,16 +46,16 @@ const Contact = () => {
       }
 
       toast({
-        title: "Başarılı",
-        description: "Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağım."
+        title: "Success",
+        description: "Your message has been sent successfully! I will get back to you as soon as possible."
       });
 
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Error submitting contact form:', error);
       toast({
-        title: "Hata",
-        description: "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
+        title: "Error",
+        description: "Message could not be sent. Please try again.",
         variant: "destructive"
       });
     } finally {
@@ -74,10 +74,10 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              İletişim
+              Contact
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Benimle iletişime geçin. Proje teklifleriniz veya sorularınız için bekliyorum!
+              Get in touch with me. I'm waiting for your project proposals or questions!
             </p>
           </div>
 
@@ -87,45 +87,45 @@ const Contact = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-2xl">
                   <Send className="w-6 h-6 text-purple-600" />
-                  Mesaj Gönder
+                  Send Message
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-gray-700">Adınız</Label>
+                    <Label htmlFor="name" className="text-gray-700">Your Name</Label>
                     <Input
                       id="name"
                       type="text"
                       value={formData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       className="bg-white border-gray-300 focus:border-purple-500"
-                      placeholder="Adınızı yazın"
+                      placeholder="Enter your name"
                       required
                     />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-gray-700">E-posta</Label>
+                    <Label htmlFor="email" className="text-gray-700">Email</Label>
                     <Input
                       id="email"
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       className="bg-white border-gray-300 focus:border-purple-500"
-                      placeholder="E-posta adresinizi yazın"
+                      placeholder="Enter your email address"
                       required
                     />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-gray-700">Mesajınız</Label>
+                    <Label htmlFor="message" className="text-gray-700">Your Message</Label>
                     <Textarea
                       id="message"
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
                       className="bg-white border-gray-300 focus:border-purple-500 min-h-32"
-                      placeholder="Mesajınızı yazın..."
+                      placeholder="Write your message..."
                       required
                     />
                   </div>
@@ -136,7 +136,7 @@ const Contact = () => {
                     className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
                   >
                     <Send className="w-4 h-4 mr-2" />
-                    {loading ? 'Gönderiliyor...' : 'Mesaj Gönder'}
+                    {loading ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
@@ -146,7 +146,7 @@ const Contact = () => {
             <div className="space-y-8">
               <Card className="bg-gray-50 border-gray-200">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6 text-gray-900">İletişim Bilgileri</h3>
+                  <h3 className="text-2xl font-bold mb-6 text-gray-900">Contact Information</h3>
                   
                   <div className="space-y-6">
                     <div className="flex items-center gap-4">
@@ -154,7 +154,7 @@ const Contact = () => {
                         <Mail className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900">E-posta</p>
+                        <p className="font-semibold text-gray-900">Email</p>
                         <a href="mailto:barkinclkr@gmail.com" className="text-purple-600 hover:text-purple-800">
                           barkinclkr@gmail.com
                         </a>
@@ -166,8 +166,8 @@ const Contact = () => {
                         <MapPin className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900">Konum</p>
-                        <p className="text-gray-600">İzmir, Türkiye</p>
+                        <p className="font-semibold text-gray-900">Location</p>
+                        <p className="text-gray-600">Izmir, Turkey</p>
                       </div>
                     </div>
                   </div>
@@ -176,7 +176,7 @@ const Contact = () => {
 
               <Card className="bg-gray-50 border-gray-200">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6 text-gray-900">Sosyal Medya</h3>
+                  <h3 className="text-2xl font-bold mb-6 text-gray-900">Social Media</h3>
                   
                   <div className="flex gap-4">
                     <a 
@@ -201,15 +201,14 @@ const Contact = () => {
 
               <Card className="bg-gradient-to-r from-purple-100 to-pink-100 border-purple-200">
                 <CardContent className="p-8 text-center">
-                  <h3 className="text-xl font-bold mb-4 text-gray-900">Proje Teklifleri</h3>
+                  <h3 className="text-xl font-bold mb-4 text-gray-900">Project Proposals</h3>
                   <p className="text-gray-700 mb-4">
-                    Veri analizi, business intelligence veya dashboard geliştirme projeleriniz için 
-                    benimle iletişime geçebilirsiniz. Her türlü işbirliği önerisine açığım!
+                    You can contact me for your data analysis, business intelligence or dashboard development projects. I am open to all kinds of collaboration proposals!
                   </p>
                   <div className="flex flex-wrap justify-center gap-2">
-                    <span className="bg-purple-200 text-purple-800 px-3 py-1 rounded-full text-sm">Veri Analizi</span>
+                    <span className="bg-purple-200 text-purple-800 px-3 py-1 rounded-full text-sm">Data Analysis</span>
                     <span className="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">Dashboard</span>
-                    <span className="bg-pink-200 text-pink-800 px-3 py-1 rounded-full text-sm">Raporlama</span>
+                    <span className="bg-pink-200 text-pink-800 px-3 py-1 rounded-full text-sm">Reporting</span>
                   </div>
                 </CardContent>
               </Card>

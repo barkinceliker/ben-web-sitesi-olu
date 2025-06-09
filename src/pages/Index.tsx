@@ -67,17 +67,17 @@ const Index = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent leading-tight">
-            {aboutContent.hero_title?.title || 'Merhaba, Ben Barkın Çeliker'}
+            {aboutContent.hero_title?.title || 'Hello, I\'m Barkın Çeliker'}
           </h1>
           
           <p className="text-2xl md:text-3xl text-gray-600 mb-4 font-medium">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              {aboutContent.hero_subtitle?.title || 'YBS Öğrencisi & Veri Analisti'}
+              {aboutContent.hero_subtitle?.title || 'MIS Student & Data Analyst'}
             </span>
           </p>
           
           <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed">
-            {aboutContent.hero_description?.title || 'Yaşar Üniversitesi Yönetim Bilişim Sistemleri 3. sınıf öğrencisiyim. Modern veri analizi teknolojileri ile işletmelere değer katan içgörüler üretiyorum.'}
+            {aboutContent.hero_description?.title || 'I\'m a 3rd year Management Information Systems student at Yasar University. I create value-added insights for businesses using modern data analysis technologies.'}
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -86,7 +86,7 @@ const Index = () => {
               className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <ArrowRight className="w-5 h-5 mr-2" />
-              Projelerimi Gör
+              View My Projects
             </Button>
           </div>
           
@@ -125,8 +125,8 @@ const Index = () => {
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <span className="text-white text-xl">👨‍🎓</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Hakkımda</h3>
-              <p className="text-gray-600 text-sm">Eğitim geçmişim ve kişisel yaklaşımım</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">About Me</h3>
+                <p className="text-gray-600 text-sm">My educational background and personal approach</p>
             </div>
             
             <div 
@@ -136,8 +136,8 @@ const Index = () => {
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <span className="text-white text-xl">⚡</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Beceriler</h3>
-              <p className="text-gray-600 text-sm">Teknik yetenekler ve uzmanlık alanlarım</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Skills</h3>
+                <p className="text-gray-600 text-sm">My technical abilities and areas of expertise</p>
             </div>
             
             <div 
@@ -147,8 +147,8 @@ const Index = () => {
               <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <span className="text-white text-xl">💼</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Deneyim</h3>
-              <p className="text-gray-600 text-sm">Profesyonel çalışma deneyimlerim</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Experience</h3>
+                <p className="text-gray-600 text-sm">My professional work experiences</p>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 text-center border-t border-gray-200 bg-gray-50">
         <p className="text-gray-600 text-sm">
-          © 2024 Barkın Çeliker. Tüm hakları saklıdır.
+          © 2024 Barkın Çeliker. All rights reserved.
         </p>
       </footer>
     </div>
