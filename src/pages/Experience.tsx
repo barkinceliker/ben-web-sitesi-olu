@@ -62,71 +62,70 @@ const Experience = () => {
   const experiencesToShow = experiences.length > 0 ? experiences : defaultExperiences;
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen gradient-masculine">
       <Navbar />
       <section className="py-20 px-6 pt-24">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Experience
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
+              <span className="text-5xl">🏢</span> Deneyim
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              My professional development and work experiences
+            <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
+              Profesyonel gelişimim ve iş deneyimlerim
             </p>
           </div>
 
           <div className="space-y-8">
             {experiencesToShow.map((exp, index) => (
-              <Card key={('id' in exp ? exp.id : index) as string} className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-lg shrink-0">
-                      <Building className="w-8 h-8" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                        <div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-1">{exp.position}</h3>
-                          <h4 className="text-lg font-semibold text-purple-600 mb-2">{exp.company}</h4>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                          {exp.is_current && (
-                            <Badge className="bg-green-100 text-green-800 self-start">
-                              Current
-                            </Badge>
-                          )}
-                        </div>
+              <div key={('id' in exp ? exp.id : index) as string} className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-bold text-lg shrink-0">
+                    <Building className="w-8 h-8" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                      <div>
+                        <h3 className="text-2xl font-bold text-gradient-primary mb-1">{exp.position}</h3>
+                        <h4 className="text-lg font-semibold text-gradient-steel mb-2">{exp.company}</h4>
                       </div>
-                      
-                      <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-600">
-                        <div className="flex items-center gap-2">
-                          <CalendarDays className="w-4 h-4" />
-                          <span>
-                            {formatDate(exp.start_date)} - {exp.end_date ? formatDate(exp.end_date) : 'Current'}
-                          </span>
-                        </div>
-                        {exp.location && (
-                          <div className="flex items-center gap-2">
-                            <MapPin className="w-4 h-4" />
-                            <span>{exp.location}</span>
-                          </div>
+                      <div className="flex flex-col gap-2">
+                        {exp.is_current && (
+                          <Badge className="gradient-accent text-foreground border-border self-start">
+                            Güncel
+                          </Badge>
                         )}
                       </div>
-                      
-                      {exp.description && (
-                        <p className="text-gray-700 leading-relaxed">{exp.description}</p>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-4 mb-4 text-sm text-gradient-accent">
+                      <div className="flex items-center gap-2">
+                        <CalendarDays className="w-4 h-4" />
+                        <span>
+                          {formatDate(exp.start_date)} - {exp.end_date ? formatDate(exp.end_date) : 'Güncel'}
+                        </span>
+                      </div>
+                      {exp.location && (
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4" />
+                          <span>{exp.location}</span>
+                        </div>
                       )}
                     </div>
+                    
+                    {exp.description && (
+                      <p className="text-gradient-accent leading-relaxed">{exp.description}</p>
+                    )}
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
 
           {experiences.length === 0 && (
-            <div className="text-center mt-12">
-              <p className="text-gray-600">
-                More experience will be loaded from the database. You can add experience from the admin panel.
+            <div className="text-center mt-12 animate-fade-in">
+              <div className="text-6xl mb-4">⚡</div>
+              <p className="text-gradient-accent">
+                Daha fazla deneyim veritabanından yüklenecek. Admin panelinden deneyim ekleyebilirsiniz.
               </p>
             </div>
           )}

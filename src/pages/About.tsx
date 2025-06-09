@@ -68,83 +68,79 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen gradient-masculine">
       <Navbar />
       <section className="py-20 px-6 pt-24">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              About Me
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary">
+              ⚡ Hakkımda
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A data science specialist who continuously develops creative solutions in the data science world
+            <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
+              Veri bilimi dünyasında sürekli yaratıcı çözümler geliştiren bir uzman
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             {/* Personal Story */}
             <div className="space-y-6">
-              <Card className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-300">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-semibold mb-4 text-purple-600">
-                    {aboutContent.passion?.subtitle || '🚀'} {aboutContent.passion?.title || 'My Story'}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    {aboutContent.passion?.content || 'I am a data analysis specialist with 3+ years of experience in data science and analytics, specialized in modern data technologies. I transform data into meaningful insights and produce solutions that optimize decision-making processes.'}
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                <h3 className="text-2xl font-semibold mb-4 text-gradient-steel flex items-center gap-2">
+                  <span className="text-3xl">🛠️</span> {aboutContent.passion?.title || 'Hikayem'}
+                </h3>
+                <p className="text-gradient-accent leading-relaxed">
+                  {aboutContent.passion?.content || 'Veri bilimi ve analitik alanında 3+ yıl deneyime sahip, modern veri teknolojilerinde uzmanlaşmış bir veri analiz uzmanıyım. Veriyi anlamlı içgörülere dönüştürüyor ve karar verme süreçlerini optimize eden çözümler üretiyorum.'}
+                </p>
+              </div>
 
-              <Card className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-300">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-semibold mb-4 text-blue-600">
-                    {aboutContent.approach?.subtitle || '💡'} {aboutContent.approach?.title || 'My Approach'}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    {aboutContent.approach?.content || 'I have experience in every stage of the data analysis process, from data collection and cleaning to visualization and machine learning. I love continuous learning and use data to transform it into business value.'}
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <h3 className="text-2xl font-semibold mb-4 text-gradient-primary flex items-center gap-2">
+                  <span className="text-3xl">⚙️</span> {aboutContent.approach?.title || 'Yaklaşımım'}
+                </h3>
+                <p className="text-gradient-accent leading-relaxed">
+                  {aboutContent.approach?.content || 'Veri toplama ve temizleme aşamasından görselleştirme ve makine öğrenmesine kadar veri analizi sürecinin her aşamasında deneyim sahibiyim. Sürekli öğrenmeyi seviyorum ve veriyi iş değerine dönüştürme konusunda tutkulu bir yaklaşım sergiliyorum.'}
+                </p>
+              </div>
             </div>
 
             {/* Values */}
             <div className="space-y-6">
-              <Card className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-300">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-semibold mb-4 text-purple-600">My Values</h3>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <Badge className="bg-purple-100 text-purple-800">Quality</Badge>
-                      <span className="text-gray-700">Pursuit of excellence in every project</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Badge className="bg-blue-100 text-blue-800">Innovation</Badge>
-                      <span className="text-gray-700">Being open to new technologies</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Badge className="bg-pink-100 text-pink-800">Sustainability</Badge>
-                      <span className="text-gray-700">Creating long-term solutions</span>
-                    </div>
+              <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                <h3 className="text-2xl font-semibold mb-4 text-gradient-steel flex items-center gap-2">
+                  <span className="text-3xl">🔧</span> Değerlerim
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <Badge className="gradient-accent text-foreground border-border">Kalite</Badge>
+                    <span className="text-gradient-accent">Her projede mükemmellik arayışı</span>
                   </div>
-                </CardContent>
-              </Card>
+                  <div className="flex items-center gap-3">
+                    <Badge className="gradient-secondary text-foreground border-border">İnovasyon</Badge>
+                    <span className="text-gradient-accent">Yeni teknolojilere açık olmak</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Badge className="gradient-primary text-foreground border-border">Sürdürülebilirlik</Badge>
+                    <span className="text-gradient-accent">Uzun vadeli çözümler üretmek</span>
+                  </div>
+                </div>
+              </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-gray-50 rounded-xl border border-gray-200">
-                  <div className="text-3xl mb-2">🎯</div>
-                  <div className="text-sm text-purple-600 font-medium">Goal-Oriented</div>
+                <div className="text-center p-4 card-masculine rounded-xl border border-border animate-scale-in" style={{ animationDelay: '0.8s' }}>
+                  <div className="text-3xl mb-2">📊</div>
+                  <div className="text-sm text-gradient-primary font-medium">Hedef Odaklı</div>
                 </div>
-                <div className="text-center p-4 bg-gray-50 rounded-xl border border-gray-200">
+                <div className="text-center p-4 card-masculine rounded-xl border border-border animate-scale-in" style={{ animationDelay: '1s' }}>
                   <div className="text-3xl mb-2">⚡</div>
-                  <div className="text-sm text-purple-600 font-medium">Fast Solutions</div>
+                  <div className="text-sm text-gradient-steel font-medium">Hızlı Çözümler</div>
                 </div>
-                <div className="text-center p-4 bg-gray-50 rounded-xl border border-gray-200">
-                  <div className="text-3xl mb-2">🤝</div>
-                  <div className="text-sm text-purple-600 font-medium">Team Work</div>
+                <div className="text-center p-4 card-masculine rounded-xl border border-border animate-scale-in" style={{ animationDelay: '1.2s' }}>
+                  <div className="text-3xl mb-2">🛠️</div>
+                  <div className="text-sm text-gradient-accent font-medium">Takım Çalışması</div>
                 </div>
-                <div className="text-center p-4 bg-gray-50 rounded-xl border border-gray-200">
+                <div className="text-center p-4 card-masculine rounded-xl border border-border animate-scale-in" style={{ animationDelay: '1.4s' }}>
                   <div className="text-3xl mb-2">📈</div>
-                  <div className="text-sm text-purple-600 font-medium">Continuous Development</div>
+                  <div className="text-sm text-gradient-secondary font-medium">Sürekli Gelişim</div>
                 </div>
               </div>
             </div>
@@ -153,15 +149,13 @@ const About = () => {
           {/* Highlights Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {highlights.map((item, index) => (
-              <Card key={index} className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-300 group">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <item.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2 text-gray-900">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
-                </CardContent>
-              </Card>
+              <div key={index} className="card-masculine p-6 text-center rounded-2xl group cursor-pointer animate-scale-in" style={{ animationDelay: `${1.6 + index * 0.1}s` }}>
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="w-8 h-8 text-primary-foreground" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-gradient-primary">{item.title}</h3>
+                <p className="text-gradient-accent text-sm leading-relaxed">{item.description}</p>
+              </div>
             ))}
           </div>
         </div>

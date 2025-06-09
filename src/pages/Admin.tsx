@@ -473,15 +473,16 @@ const Admin = () => {
 
   if (!isLoggedIn) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center px-6">
+      <div className="min-h-screen gradient-masculine flex items-center justify-center px-6">
         <Navbar />
-        <Card className="w-full max-w-md bg-card border shadow-lg">
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold text-foreground mb-2">
-              Admin Paneli
-            </CardTitle>
-            <p className="text-muted-foreground">Giriş yapın</p>
-          </CardHeader>
+        <div className="w-full max-w-md card-masculine shadow-lg rounded-2xl p-8 animate-fade-in">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-bold text-gradient-primary mb-2 flex items-center justify-center gap-2">
+              <span className="text-3xl">⚙️</span> Admin Paneli
+            </h2>
+            <p className="text-gradient-accent">Giriş yapın</p>
+          </div>
+          <div>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">

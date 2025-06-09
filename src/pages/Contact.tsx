@@ -68,138 +68,136 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen gradient-masculine">
       <Navbar />
       <section className="py-20 px-6 pt-24">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Contact
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
+              <span className="text-5xl">📧</span> İletişim
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Get in touch with me. I'm waiting for your project proposals or questions!
+            <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
+              Benimle iletişime geçin. Proje tekliflerinizi veya sorularınızı bekliyorum!
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="bg-gray-50 border-gray-200">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-2xl">
-                  <Send className="w-6 h-6 text-purple-600" />
-                  Send Message
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-gray-700">Your Name</Label>
-                    <Input
-                      id="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
-                      className="bg-white border-gray-300 focus:border-purple-500"
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-gray-700">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="bg-white border-gray-300 focus:border-purple-500"
-                      placeholder="Enter your email address"
-                      required
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-gray-700">Your Message</Label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => handleInputChange('message', e.target.value)}
-                      className="bg-white border-gray-300 focus:border-purple-500 min-h-32"
-                      placeholder="Write your message..."
-                      required
-                    />
-                  </div>
-                  
-                  <Button 
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
-                  >
-                    <Send className="w-4 h-4 mr-2" />
-                    {loading ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <div className="card-masculine p-8 rounded-2xl animate-fade-in">
+              <div className="mb-6">
+                <h3 className="flex items-center gap-2 text-2xl text-gradient-primary font-semibold">
+                  <Send className="w-6 h-6" />
+                  ⚡ Mesaj Gönder
+                </h3>
+              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-gradient-steel">Adınız</Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange('name', e.target.value)}
+                    className="bg-input border-border focus:border-ring text-foreground"
+                    placeholder="Adınızı girin"
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-gradient-steel">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    className="bg-input border-border focus:border-ring text-foreground"
+                    placeholder="Email adresinizi girin"
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-gradient-steel">Mesajınız</Label>
+                  <Textarea
+                    id="message"
+                    value={formData.message}
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    className="bg-input border-border focus:border-ring min-h-32 text-foreground"
+                    placeholder="Mesajınızı yazın..."
+                    required
+                  />
+                </div>
+                
+                <Button 
+                  type="submit"
+                  disabled={loading}
+                  className="w-full btn-masculine rounded-full text-lg font-medium"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  {loading ? 'Gönderiliyor...' : '📧 Mesaj Gönder'}
+                </Button>
+              </form>
+            </div>
 
             {/* Contact Information */}
             <div className="space-y-8">
-              <Card className="bg-gray-50 border-gray-200">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6 text-gray-900">Contact Information</h3>
-                  
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-                        <MapPin className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-gray-900">Location</p>
-                        <p className="text-gray-600">Izmir, Turkey</p>
-                      </div>
+              <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                <h3 className="text-2xl font-bold mb-6 text-gradient-primary flex items-center gap-2">
+                  <span className="text-3xl">📍</span> İletişim Bilgileri
+                </h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gradient-steel">Konum</p>
+                      <p className="text-gradient-accent">İzmir, Türkiye</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
 
-              <Card className="bg-gray-50 border-gray-200">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-6 text-gray-900">Social Media</h3>
-                  
-                  <div className="flex gap-4">
-                    <a 
-                      href="https://github.com/barkinceliker?tab=repositories" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-lg bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
-                    >
-                      <Github className="w-6 h-6 text-white" />
-                    </a>
-                    <a 
-                      href="https://www.linkedin.com/in/celikerbarkin/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-lg bg-blue-600 hover:bg-blue-700 flex items-center justify-center transition-colors"
-                    >
-                      <Linkedin className="w-6 h-6 text-white" />
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="card-masculine p-8 rounded-2xl animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <h3 className="text-2xl font-bold mb-6 text-gradient-steel flex items-center gap-2">
+                  <span className="text-3xl">🔗</span> Sosyal Medya
+                </h3>
+                
+                <div className="flex gap-4">
+                  <a 
+                    href="https://github.com/barkinceliker?tab=repositories" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-lg gradient-secondary hover:gradient-accent flex items-center justify-center transition-all duration-300 hover:scale-110"
+                  >
+                    <Github className="w-6 h-6 text-foreground" />
+                  </a>
+                  <a 
+                    href="https://www.linkedin.com/in/celikerbarkin/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-lg gradient-secondary hover:gradient-accent flex items-center justify-center transition-all duration-300 hover:scale-110"
+                  >
+                    <Linkedin className="w-6 h-6 text-foreground" />
+                  </a>
+                </div>
+              </div>
 
-              <Card className="bg-gradient-to-r from-purple-100 to-pink-100 border-purple-200">
-                <CardContent className="p-8 text-center">
-                  <h3 className="text-xl font-bold mb-4 text-gray-900">Project Proposals</h3>
-                  <p className="text-gray-700 mb-4">
-                    You can contact me for your data analysis, business intelligence or dashboard development projects. I am open to all kinds of collaboration proposals!
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-2">
-                    <span className="bg-purple-200 text-purple-800 px-3 py-1 rounded-full text-sm">Data Analysis</span>
-                    <span className="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">Dashboard</span>
-                    <span className="bg-pink-200 text-pink-800 px-3 py-1 rounded-full text-sm">Reporting</span>
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="gradient-masculine-subtle p-8 text-center rounded-2xl border border-border animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                <h3 className="text-xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-2">
+                  <span className="text-3xl">🚀</span> Proje Teklifleri
+                </h3>
+                <p className="text-gradient-accent mb-4">
+                  Veri analizi, iş zekası veya dashboard geliştirme projeleriniz için benimle iletişime geçebilirsiniz. Her türlü işbirliği teklifine açığım!
+                </p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  <Badge className="gradient-primary text-foreground border-border">Veri Analizi</Badge>
+                  <Badge className="gradient-secondary text-foreground border-border">Dashboard</Badge>
+                  <Badge className="gradient-accent text-foreground border-border">Raporlama</Badge>
+                </div>
+              </div>
             </div>
           </div>
         </div>

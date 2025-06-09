@@ -63,39 +63,39 @@ const Resume = () => {
   const contact = getContactInfo();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen gradient-masculine">
       <Navbar />
       <div className="pt-20">
         {/* Download Button - More Visible */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-6 animate-fade-in">
           {resumeContent.download_link?.file_url ? (
             <Button 
               onClick={() => window.open(resumeContent.download_link.file_url, '_blank')}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg px-6 py-3"
-              size="lg"
+              className="btn-masculine px-8 py-4 rounded-full text-lg font-medium"
             >
               <Download className="w-5 h-5 mr-2" />
-              CV'mi PDF Olarak İndir
+              📋 CV'mi PDF Olarak İndir
             </Button>
           ) : (
-            <p className="text-muted-foreground text-sm">
+            <p className="text-gradient-accent text-sm">
               PDF indirme linki admin panelinden eklenebilir
             </p>
           )}
         </div>
 
         {/* Professional CV Layout */}
-        <div className="max-w-4xl mx-auto bg-card shadow-xl">
+        <div className="max-w-4xl mx-auto card-masculine shadow-xl rounded-2xl overflow-hidden">
           
           {/* Header Section */}
-          <div className="bg-gradient-to-r from-primary to-secondary text-primary-foreground p-8">
+          <div className="gradient-primary text-primary-foreground p-8">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-4xl font-bold mb-2">
+                <h1 className="text-4xl font-bold mb-2 flex items-center gap-3">
+                  <span className="text-5xl">⚡</span>
                   {contact.name || 'Barkın Çeliker'}
                 </h1>
                 <p className="text-xl opacity-90">
-                  {resumeContent.personal_info?.title || 'YBS Öğrencisi & Veri Analisti'}
+                  {resumeContent.personal_info?.title || '🛠️ YBS Öğrencisi & Veri Analisti'}
                 </p>
               </div>
               <div className="text-right space-y-2 text-sm">
@@ -130,11 +130,11 @@ const Resume = () => {
           <div className="p-8 space-y-8">
             
             {/* Summary Section */}
-            <section>
-              <h2 className="text-2xl font-bold text-foreground mb-4 border-b-2 border-primary pb-2">
-                ÖZET
+            <section className="animate-fade-in">
+              <h2 className="text-2xl font-bold text-gradient-primary mb-4 border-b-2 border-ring pb-2 flex items-center gap-2">
+                <span className="text-3xl">📊</span> ÖZET
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-gradient-accent leading-relaxed">
                 {resumeContent.summary?.content || 
                   'Veri bilimi ve analitik alanında uzmanlaşmış, yaratıcı çözümler üreten ve sürekli öğrenmeyi seven bir öğrenciyim. Modern veri teknolojileri ile işletmeler için değerli içgörüler üretmeye tutkulu bir yaklaşım sergiliyorum.'}
               </p>

@@ -81,19 +81,19 @@ const Blog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen gradient-masculine">
       <Navbar />
       {/* Header */}
-      <header className="py-8 px-6 border-b border-gray-200 pt-24">
+      <header className="py-8 px-6 border-b border-border pt-24">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link to="/">
-            <Button variant="outline" className="border-purple-400 text-purple-600 hover:bg-purple-50">
+            <Button className="btn-masculine">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Home
+              🏠 Ana Sayfa
             </Button>
           </Link>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Blog & Articles
+          <h1 className="text-3xl font-bold text-gradient-primary flex items-center gap-2">
+            <span className="text-4xl">📝</span> Blog & Makaleler
           </h1>
           <div></div>
         </div>
@@ -102,74 +102,75 @@ const Blog = () => {
       {/* Blog Posts */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Technology & Development
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl font-bold mb-4 text-gradient-steel flex items-center justify-center gap-3">
+              <span className="text-5xl">🛠️</span> Teknoloji & Geliştirme
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              My articles about web development, new technologies and best practices
+            <p className="text-xl text-gradient-accent max-w-2xl mx-auto">
+              Web geliştirme, yeni teknolojiler ve en iyi uygulamalar hakkındaki makalelerim
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {postsToShow.map((post, index) => (
-              <Card 
+              <div 
                 key={('id' in post ? post.id : index) as string}
-                className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+                className="card-masculine p-6 rounded-2xl transition-all duration-300 transform hover:scale-105 group cursor-pointer animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardContent className="p-6">
-                  <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${post.gradient || 'from-purple-500 to-pink-500'} mb-6 flex items-center justify-center relative overflow-hidden`}>
-                    <div className="text-6xl opacity-80">📝</div>
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
+                <div className="w-full h-48 rounded-lg gradient-primary mb-6 flex items-center justify-center relative overflow-hidden">
+                  <div className="text-6xl opacity-80">📝</div>
+                  <div className="absolute inset-0 bg-background/20 group-hover:bg-background/30 transition-colors"></div>
+                </div>
+                
+                <div className="flex items-center gap-4 text-xs text-gradient-accent mb-4">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    {post.publish_date ? formatDate(post.publish_date) : (post.date || 'Tarih yok')}
                   </div>
-                  
-                  <div className="flex items-center gap-4 text-xs text-gray-600 mb-4">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      {post.publish_date ? formatDate(post.publish_date) : (post.date || 'No date')}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {'readTime' in post ? post.readTime : '5 min'}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <User className="w-3 h-3" />
-                      {'author' in post ? post.author : 'Barkın Çeliker'}
-                    </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {'readTime' in post ? post.readTime : '5 dk'}
                   </div>
-                  
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-600 transition-colors text-gray-900">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {(post.tags || []).map((tag, tagIndex) => (
-                      <Badge key={tagIndex} className="bg-purple-100 text-purple-800 text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
+                  <div className="flex items-center gap-1">
+                    <User className="w-3 h-3" />
+                    {'author' in post ? post.author : 'Barkın Çeliker'}
                   </div>
-                  
-                    <div className="text-xs text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                      Read more →
-                    </div>
-                </CardContent>
-              </Card>
+                </div>
+                
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-gradient-steel transition-colors text-gradient-primary">
+                  {post.title}
+                </h3>
+                <p className="text-gradient-accent mb-4 text-sm leading-relaxed">
+                  {post.excerpt}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {(post.tags || []).map((tag, tagIndex) => (
+                    <Badge key={tagIndex} className="gradient-secondary text-foreground border-border text-xs">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+                
+                  <div className="text-xs text-gradient-steel opacity-0 group-hover:opacity-100 transition-opacity">
+                    Devamını oku →
+                  </div>
+              </div>
             ))}
           </div>
 
           {/* Call to Action */}
           <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-8 rounded-2xl border border-purple-200">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Stay Tuned for New Content</h3>
-              <p className="text-gray-600 mb-6">
-                I regularly share articles about the latest trends and best practices in the web development world.
+            <div className="gradient-masculine-subtle p-8 rounded-2xl border border-border animate-fade-in">
+              <h3 className="text-2xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-2">
+                <span className="text-3xl">🚀</span> Yeni İçerikler İçin Takipte Kalın
+              </h3>
+              <p className="text-gradient-accent mb-6">
+                Web geliştirme dünyasındaki en son trendler ve en iyi uygulamalar hakkında düzenli olarak makaleler paylaşıyorum.
               </p>
-              <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full">
-                Email Notifications
+              <Button className="btn-masculine px-8 py-3 rounded-full">
+                📧 Email Bildirimleri
               </Button>
             </div>
           </div>
