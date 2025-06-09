@@ -47,7 +47,7 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-primary flex items-center justify-center gap-3">
-              <span className="text-5xl">⚙️</span> Projelerim
+              <span className="text-5xl">💻</span> Projelerim
             </h2>
             <p className="text-xl text-gradient-accent max-w-3xl mx-auto">
               Veri analizi ve veri bilimi alanında tamamladığım projeler

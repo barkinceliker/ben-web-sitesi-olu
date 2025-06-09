@@ -91,7 +91,7 @@ const Resume = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-4xl font-bold mb-2 flex items-center gap-3">
-                  <span className="text-5xl">⚡</span>
+                  <span className="text-5xl">📋</span>
                   {contact.name || 'Barkın Çeliker'}
                 </h1>
                 <p className="text-xl opacity-90">

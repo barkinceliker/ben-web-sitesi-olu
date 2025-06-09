@@ -812,7 +812,7 @@ const Admin = () => {
                     disabled={loading}
                     className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
                   >
-                    <Save className="w-4 h-4 mr-2" />
+                    <span className="mr-2">💾</span>
                     {loading ? 'Kaydediliyor...' : 'Kaydet'}
                   </Button>
                 </CardContent>
@@ -991,7 +991,7 @@ const Admin = () => {
                 }}
                 className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
               >
-                <span className="mr-2">➕</span>
+                    <span className="mr-2">➕</span>
                 Yeni Beceri
               </Button>
             </div>
@@ -1104,7 +1104,7 @@ const Admin = () => {
                           onClick={() => editSkill(skill)}
                           className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
                         >
-                          <Edit3 className="w-4 h-4" />
+                          <span>✏️</span>
                         </Button>
                         <Button 
                           size="sm" 
@@ -1112,7 +1112,7 @@ const Admin = () => {
                           onClick={() => deleteSkill(skill.id)}
                           className="border-red-400 text-red-200 hover:bg-red-400/20"
                         >
-                          <Trash2 className="w-4 h-4" />
+                          <span>🗑️</span>
                         </Button>
                       </div>
                     </CardContent>
@@ -1133,7 +1133,7 @@ const Admin = () => {
                 }}
                 className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
               >
-                <Plus className="w-4 h-4 mr-2" />
+                <span className="mr-2">➕</span>
                 Yeni Deneyim
               </Button>
             </div>
@@ -1150,7 +1150,7 @@ const Admin = () => {
                       onClick={() => setEditingExperience(null)}
                       className="text-gray-400 hover:text-white"
                     >
-                      <X className="w-4 h-4" />
+                      <span>❌</span>
                     </Button>
                   </CardTitle>
                 </CardHeader>
@@ -1230,7 +1230,7 @@ const Admin = () => {
                     disabled={loading}
                     className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
                   >
-                    <Save className="w-4 h-4 mr-2" />
+                    <span className="mr-2">💾</span>
                     {loading ? 'Kaydediliyor...' : 'Kaydet'}
                   </Button>
                 </CardContent>
@@ -1241,7 +1241,7 @@ const Admin = () => {
             <div className="space-y-4">
               {experiences.length === 0 ? (
                 <div className="text-center py-12">
-                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <span className="text-6xl text-gray-400 mx-auto mb-4 block">⚠️</span>
                   <p className="text-gray-400">Henüz deneyim eklenmemiş</p>
                 </div>
               ) : (
@@ -1270,7 +1270,7 @@ const Admin = () => {
                             onClick={() => editExperience(exp)}
                             className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
                           >
-                            <Edit3 className="w-4 h-4" />
+                            <span>✏️</span>
                           </Button>
                           <Button 
                             size="sm" 
@@ -1278,7 +1278,7 @@ const Admin = () => {
                             onClick={() => deleteExperience(exp.id)}
                             className="border-red-400 text-red-200 hover:bg-red-400/20"
                           >
-                            <Trash2 className="w-4 h-4" />
+                            <span>🗑️</span>
                           </Button>
                         </div>
                       </div>
@@ -1309,7 +1309,7 @@ const Admin = () => {
             <div className="space-y-4">
               {contactSubmissions.length === 0 ? (
                 <div className="text-center py-12">
-                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <span className="text-6xl text-gray-400 mx-auto mb-4 block">⚠️</span>
                   <p className="text-gray-400">Henüz mesaj yok</p>
                 </div>
               ) : (
@@ -1337,7 +1337,7 @@ const Admin = () => {
                             onClick={() => deleteContactSubmission(submission.id)}
                             className="border-red-400 text-red-200 hover:bg-red-400/20"
                           >
-                            <Trash2 className="w-4 h-4" />
+                            <span>🗑️</span>
                           </Button>
                         </div>
                       </div>
@@ -1354,7 +1354,7 @@ const Admin = () => {
           <Card className="bg-green-500/10 border border-green-500/20">
             <CardContent className="p-4">
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-400" />
+                <span className="text-green-400">✅</span>
                 <p className="text-green-200 text-xs">
                   Supabase bağlantısı aktif - Gerçek veriler kullanılıyor
                 </p>
