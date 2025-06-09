@@ -482,45 +482,42 @@ const Admin = () => {
             </h2>
             <p className="text-gradient-accent">Giriş yapın</p>
           </div>
-          <div>
-          <CardContent>
-            <form onSubmit={handleLogin} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-background border-border text-foreground"
-                  placeholder="E-posta adresiniz"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password" className="text-foreground">Şifre</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="bg-background border-border text-foreground"
-                  placeholder="Şifreniz"
-                  required
-                />
-              </div>
-              {loginError && (
-                <p className="text-red-400 text-sm">{loginError}</p>
-              )}
-              <Button 
-                type="submit" 
-                className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-              >
-                Giriş Yap
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-gradient-steel">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-input border-border text-foreground focus:border-ring"
+                placeholder="E-posta adresiniz"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-gradient-steel">Şifre</Label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="bg-input border-border text-foreground focus:border-ring"
+                placeholder="Şifreniz"
+                required
+              />
+            </div>
+            {loginError && (
+              <p className="text-red-400 text-sm">{loginError}</p>
+            )}
+            <Button 
+              type="submit" 
+              className="w-full btn-masculine rounded-full"
+            >
+              🔐 Giriş Yap
+            </Button>
+          </form>
+        </div>
       </div>
     );
   }
