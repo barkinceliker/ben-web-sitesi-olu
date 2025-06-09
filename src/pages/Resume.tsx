@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Download, FileText, User, GraduationCap, Briefcase, Award } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { Download, Mail, Phone, MapPin, Globe, Github, Linkedin, Calendar, Building } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -35,102 +36,211 @@ const Resume = () => {
     }
   };
 
-  const resumeSections = [
-    {
-      key: 'personal_info',
-      icon: User,
-      title: 'Personal Information',
-      defaultContent: 'Name: Barkın Çeliker\nEmail: barkinclkr@gmail.com\nPhone: +90 XXX XXX XX XX\nLinkedIn: linkedin.com/in/celikerbarkin\nGitHub: github.com/barkinceliker'
-    },
-    {
-      key: 'education',
-      icon: GraduationCap,
-      title: 'Education',
-      defaultContent: 'Yasar University\nManagement Information Systems\n2022 - 2026 (Current)\nIzmir, Turkey'
-    },
-    {
-      key: 'experience',
-      icon: Briefcase,
-      title: 'Experience',
-      defaultContent: 'Freelance Data Analyst\n2023 - Current\n• Data analysis with Python, Excel and Tableau\n• Preparing business intelligence reports\n• KPI dashboard development'
-    },
-    {
-      key: 'skills',
-      icon: Award,
-      title: 'Skills',
-      defaultContent: 'Technical Skills:\n• Python (Pandas, NumPy, Matplotlib)\n• SQL (PostgreSQL, MySQL)\n• Excel (VBA, Pivot Tables)\n• Tableau, Power BI\n• R, SPSS\n\nPersonal Skills:\n• Analytical thinking\n• Problem solving\n• Team work\n• Communication skills'
-    }
-  ];
+  const getContactInfo = () => {
+    const personalInfo = resumeContent.personal_info?.content || 
+      'Name: Barkın Çeliker\nEmail: barkinclkr@gmail.com\nPhone: +90 XXX XXX XX XX\nLinkedIn: linkedin.com/in/celikerbarkin\nGitHub: github.com/barkinceliker';
+    
+    const lines = personalInfo.split('\n');
+    const contact = {
+      name: '',
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: ''
+    };
+
+    lines.forEach(line => {
+      if (line.includes('Name:')) contact.name = line.replace('Name:', '').trim();
+      if (line.includes('Email:')) contact.email = line.replace('Email:', '').trim();
+      if (line.includes('Phone:')) contact.phone = line.replace('Phone:', '').trim();
+      if (line.includes('LinkedIn:')) contact.linkedin = line.replace('LinkedIn:', '').trim();
+      if (line.includes('GitHub:')) contact.github = line.replace('GitHub:', '').trim();
+    });
+
+    return contact;
+  };
+
+  const contact = getContactInfo();
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-background">
       <Navbar />
-      <section className="py-20 px-6 pt-24">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              CV / Resume
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Detailed information about my professional experiences and skills
-            </p>
-            
-            {resumeContent.download_link?.file_url && (
-              <Button 
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
-                onClick={() => window.open(resumeContent.download_link.file_url, '_blank')}
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Download CV
-              </Button>
-            )}
+      <div className="pt-20">
+        {/* Download Button - Floating */}
+        {resumeContent.download_link?.file_url && (
+          <div className="fixed top-24 right-6 z-10">
+            <Button 
+              onClick={() => window.open(resumeContent.download_link.file_url, '_blank')}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
+            >
+              <Download className="w-4 h-4 mr-2" />
+              PDF İndir
+            </Button>
+          </div>
+        )}
+
+        {/* Professional CV Layout */}
+        <div className="max-w-4xl mx-auto bg-card shadow-xl">
+          
+          {/* Header Section */}
+          <div className="bg-gradient-to-r from-primary to-secondary text-primary-foreground p-8">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-4xl font-bold mb-2">
+                  {contact.name || 'Barkın Çeliker'}
+                </h1>
+                <p className="text-xl opacity-90">
+                  {resumeContent.personal_info?.title || 'YBS Öğrencisi & Veri Analisti'}
+                </p>
+              </div>
+              <div className="text-right space-y-2 text-sm">
+                {contact.email && (
+                  <div className="flex items-center justify-end gap-2">
+                    <Mail className="w-4 h-4" />
+                    <span>{contact.email}</span>
+                  </div>
+                )}
+                {contact.phone && (
+                  <div className="flex items-center justify-end gap-2">
+                    <Phone className="w-4 h-4" />
+                    <span>{contact.phone}</span>
+                  </div>
+                )}
+                {contact.linkedin && (
+                  <div className="flex items-center justify-end gap-2">
+                    <Linkedin className="w-4 h-4" />
+                    <span>{contact.linkedin}</span>
+                  </div>
+                )}
+                {contact.github && (
+                  <div className="flex items-center justify-end gap-2">
+                    <Github className="w-4 h-4" />
+                    <span>{contact.github}</span>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
 
-          <div className="space-y-8">
-            {resumeSections.map((section) => {
-              const content = resumeContent[section.key];
-              const Icon = section.icon;
-              
-              return (
-                <Card key={section.key} className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-300">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-xl">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-white" />
+          <div className="p-8 space-y-8">
+            
+            {/* Summary Section */}
+            <section>
+              <h2 className="text-2xl font-bold text-foreground mb-4 border-b-2 border-primary pb-2">
+                ÖZET
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                {resumeContent.summary?.content || 
+                  'Veri bilimi ve analitik alanında uzmanlaşmış, yaratıcı çözümler üreten ve sürekli öğrenmeyi seven bir öğrenciyim. Modern veri teknolojileri ile işletmeler için değerli içgörüler üretmeye tutkulu bir yaklaşım sergiliyorum.'}
+              </p>
+            </section>
+
+            <Separator />
+
+            {/* Education Section */}
+            <section>
+              <h2 className="text-2xl font-bold text-foreground mb-4 border-b-2 border-primary pb-2">
+                EĞİTİM
+              </h2>
+              <Card className="border-l-4 border-l-primary">
+                <CardContent className="p-4">
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div className="md:col-span-1">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Calendar className="w-4 h-4" />
+                        <span>2022 - 2026</span>
                       </div>
-                      {content?.title || section.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="whitespace-pre-line text-gray-700 leading-relaxed">
-                      {content?.content || section.defaultContent}
+                    </div>
+                    <div className="md:col-span-3">
+                      <h3 className="font-semibold text-lg">
+                        {resumeContent.education?.title || 'Yaşar Üniversitesi'}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {resumeContent.education?.content || 'Yönetim Bilişim Sistemleri\nİzmir, Türkiye'}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+
+            <Separator />
+
+            {/* Experience Section */}
+            <section>
+              <h2 className="text-2xl font-bold text-foreground mb-4 border-b-2 border-primary pb-2">
+                DENEYİM
+              </h2>
+              <Card className="border-l-4 border-l-secondary">
+                <CardContent className="p-4">
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div className="md:col-span-1">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Calendar className="w-4 h-4" />
+                        <span>2023 - Devam</span>
+                      </div>
+                    </div>
+                    <div className="md:col-span-3">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Building className="w-5 h-5 text-primary" />
+                        <h3 className="font-semibold text-lg">Freelance Veri Analisti</h3>
+                      </div>
+                      <div className="whitespace-pre-line text-muted-foreground">
+                        {resumeContent.experience?.content || 
+                          '• Python, Excel ve Tableau ile veri analizi\n• İş zekası raporları hazırlama\n• KPI dashboard geliştirme'}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+
+            <Separator />
+
+            {/* Skills Section */}
+            <section>
+              <h2 className="text-2xl font-bold text-foreground mb-4 border-b-2 border-primary pb-2">
+                YETKİNLİKLER
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Card>
+                  <CardContent className="p-4">
+                    <h3 className="font-semibold mb-3 text-primary">Teknik Yetenekler</h3>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary">Python</Badge>
+                      <Badge variant="secondary">SQL</Badge>
+                      <Badge variant="secondary">Excel</Badge>
+                      <Badge variant="secondary">Tableau</Badge>
+                      <Badge variant="secondary">Power BI</Badge>
+                      <Badge variant="secondary">R</Badge>
+                      <Badge variant="secondary">SPSS</Badge>
                     </div>
                   </CardContent>
                 </Card>
-              );
-            })}
-          </div>
-
-          {/* Additional Resume Info */}
-          <Card className="mt-8 bg-gradient-to-r from-purple-100 to-pink-100 border-purple-200">
-            <CardContent className="p-8 text-center">
-              <FileText className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">
-                {resumeContent.summary?.title || 'Summary'}
-              </h3>
-              <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-                {resumeContent.summary?.content || 'I am a student who specializes in data analysis and data science, produces creative solutions and loves continuous learning. I take a passionate approach to generating valuable insights for businesses with modern data technologies.'}
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                <Badge className="bg-purple-200 text-purple-800">Data Analysis</Badge>
-                <Badge className="bg-blue-200 text-blue-800">Business Intelligence</Badge>
-                <Badge className="bg-pink-200 text-pink-800">Machine Learning</Badge>
-                <Badge className="bg-green-200 text-green-800">Data Visualization</Badge>
+                
+                <Card>
+                  <CardContent className="p-4">
+                    <h3 className="font-semibold mb-3 text-primary">Kişisel Yetenekler</h3>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="outline">Analitik Düşünme</Badge>
+                      <Badge variant="outline">Problem Çözme</Badge>
+                      <Badge variant="outline">Takım Çalışması</Badge>
+                      <Badge variant="outline">İletişim</Badge>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-            </CardContent>
-          </Card>
+              
+              {resumeContent.skills?.content && (
+                <div className="mt-4 whitespace-pre-line text-muted-foreground">
+                  {resumeContent.skills.content}
+                </div>
+              )}
+            </section>
+
+          </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
