@@ -13,21 +13,21 @@ const Hero = () => {
       
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Profile Image */}
-        <div className="mb-8 relative">
-          <div className="w-40 h-40 mx-auto rounded-full bg-gradient-to-r from-purple-500 to-blue-500 p-1 animate-scale-in">
-            <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center text-6xl">
+        <div className="mb-8 relative group">
+          <div className="w-40 h-40 mx-auto rounded-full gradient-purple-pink p-1 animate-scale-in group-hover:gradient-blue-green transition-all duration-500">
+            <div className="w-full h-full rounded-full gradient-masculine flex items-center justify-center text-6xl hover:scale-110 transition-transform duration-300">
               👨‍💻
             </div>
           </div>
-          <div className="absolute inset-0 w-40 h-40 mx-auto rounded-full bg-gradient-to-r from-purple-500 to-blue-500 blur-lg opacity-50 animate-pulse"></div>
+          <div className="absolute inset-0 w-40 h-40 mx-auto rounded-full gradient-purple-pink blur-lg opacity-50 animate-pulse group-hover:gradient-orange-red transition-all duration-500"></div>
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-fade-in">
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 text-gradient-rainbow animate-fade-in hover:animate-pulse transition-all duration-500">
           Barkın Çeliker
         </h1>
         
-        <p className="text-2xl md:text-3xl text-gray-300 mb-4 animate-fade-in delay-200">
-          <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
+        <p className="text-2xl md:text-3xl mb-4 animate-fade-in delay-200">
+          <span className="text-gradient-purple font-semibold hover:text-gradient-blue transition-all duration-300">
             Yönetim Bilişim Sistemleri Öğrencisi & Developer
           </span>
         </p>
@@ -38,11 +38,11 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in delay-500">
-          <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full hover-scale">
+          <Button className="gradient-purple-pink hover:gradient-blue-green text-white px-8 py-3 rounded-full hover-scale transition-all duration-500 border-0">
             <Download className="w-4 h-4 mr-2" />
             CV İndir
           </Button>
-          <Button variant="outline" className="border-purple-400 text-purple-300 hover:bg-purple-400/20 px-8 py-3 rounded-full hover-scale">
+          <Button variant="outline" className="border-2 border-transparent gradient-warning text-foreground hover:gradient-accent px-8 py-3 rounded-full hover-scale transition-all duration-500">
             Projelerimi Gör
           </Button>
         </div>
@@ -52,23 +52,23 @@ const Hero = () => {
             href="https://github.com/barkinceliker" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-white/10 backdrop-blur-lg border border-purple-500/20 hover:bg-white/20 transition-all duration-300 hover-scale"
+            className="p-3 rounded-full gradient-masculine-subtle backdrop-blur-lg border border-ring hover:gradient-primary transition-all duration-300 hover-scale group"
           >
-            <Github className="w-6 h-6 text-purple-300" />
+            <Github className="w-6 h-6 text-gradient-accent group-hover:text-gradient-purple transition-all duration-300" />
           </a>
           <a 
             href="https://www.linkedin.com/in/celikerbarkin/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-white/10 backdrop-blur-lg border border-purple-500/20 hover:bg-white/20 transition-all duration-300 hover-scale"
+            className="p-3 rounded-full gradient-masculine-subtle backdrop-blur-lg border border-ring hover:gradient-info transition-all duration-300 hover-scale group"
           >
-            <Linkedin className="w-6 h-6 text-purple-300" />
+            <Linkedin className="w-6 h-6 text-gradient-blue group-hover:text-gradient-orange transition-all duration-300" />
           </a>
           <a 
             href="mailto:barkinclkr@gmail.com"
-            className="p-3 rounded-full bg-white/10 backdrop-blur-lg border border-purple-500/20 hover:bg-white/20 transition-all duration-300 hover-scale"
+            className="p-3 rounded-full gradient-masculine-subtle backdrop-blur-lg border border-ring hover:gradient-accent transition-all duration-300 hover-scale group"
           >
-            <Mail className="w-6 h-6 text-purple-300" />
+            <Mail className="w-6 h-6 text-gradient-accent group-hover:text-gradient-primary transition-all duration-300" />
           </a>
         </div>
       </div>
