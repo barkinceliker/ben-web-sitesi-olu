@@ -2,7 +2,8 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { useTheme, predefinedThemes } from '@/components/ThemeProvider';
+import { useTheme } from '@/components/ThemeProvider';
+import { predefinedThemes } from '@/data/predefinedThemes';
 import { Check, Palette } from 'lucide-react';
 
 const ThemeSelector: React.FC = () => {
