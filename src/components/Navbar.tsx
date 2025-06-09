@@ -22,7 +22,7 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 gradient-masculine-subtle/95 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Brand */}
@@ -31,7 +31,7 @@ const Navbar = () => {
               <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center">
                 <User size={16} className="text-primary-foreground" />
               </div>
-              <span className="font-bold text-lg text-gradient">Barkın Çeliker</span>
+              <span className="font-bold text-lg text-gradient-steel">Barkın Çeliker</span>
             </a>
           </div>
 
@@ -46,8 +46,8 @@ const Navbar = () => {
                     href={item.href}
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center space-x-2 ${
                       isActive(item.href)
-                        ? 'bg-accent text-accent-foreground border border-ring'
-                        : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                        ? 'gradient-accent text-foreground border border-ring'
+                        : 'text-gradient-accent hover:gradient-secondary hover:text-foreground'
                     }`}
                   >
                     <Icon size={16} />
@@ -64,7 +64,7 @@ const Navbar = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-muted-foreground hover:text-foreground"
+              className="text-gradient-accent hover:text-gradient-primary"
             >
               {isOpen ? <X size={20} /> : <Menu size={20} />}
             </Button>
@@ -74,7 +74,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/95 backdrop-blur-lg rounded-lg mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 gradient-masculine-subtle/95 backdrop-blur-lg rounded-lg mt-2 border border-border">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -83,8 +83,8 @@ const Navbar = () => {
                     href={item.href}
                     className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 flex items-center space-x-2 ${
                       isActive(item.href)
-                        ? 'bg-accent text-accent-foreground border border-ring'
-                        : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                        ? 'gradient-accent text-foreground border border-ring'
+                        : 'text-gradient-accent hover:gradient-secondary hover:text-foreground'
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
