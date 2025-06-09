@@ -43,18 +43,18 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 text-white">
+    <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
       {/* Header */}
-      <header className="py-8 px-6 border-b border-purple-500/20 pt-24">
+      <header className="py-8 px-6 border-b border-gray-200 pt-24">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link to="/">
-            <Button variant="outline" className="border-purple-400 text-purple-200 hover:bg-purple-400/20">
+            <Button variant="outline" className="border-purple-400 text-purple-600 hover:bg-purple-50">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Ana Sayfa
             </Button>
           </Link>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             Blog & Makaleler
           </h1>
           <div></div>
@@ -65,10 +65,10 @@ const Blog = () => {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               Teknoloji & Geliştirme
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Web geliştirme, yeni teknolojiler ve en iyi pratikler hakkında yazılarım
             </p>
           </div>
@@ -77,7 +77,7 @@ const Blog = () => {
             {blogPosts.map((post) => (
               <Card 
                 key={post.id} 
-                className="bg-white/10 backdrop-blur-lg border-purple-500/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+                className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
               >
                 <CardContent className="p-6">
                   <div className={`w-full h-48 rounded-lg bg-gradient-to-r ${post.gradient} mb-6 flex items-center justify-center relative overflow-hidden`}>
@@ -85,7 +85,7 @@ const Blog = () => {
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
                   </div>
                   
-                  <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
+                  <div className="flex items-center gap-4 text-xs text-gray-600 mb-4">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
                       {post.date}
@@ -100,22 +100,22 @@ const Blog = () => {
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-300 transition-colors">
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-purple-600 transition-colors text-gray-900">
                     {post.title}
                   </h3>
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                     {post.excerpt}
                   </p>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
                     {post.tags.map((tag) => (
-                      <Badge key={tag} className="bg-purple-500/20 text-purple-200 text-xs">
+                      <Badge key={tag} className="bg-purple-100 text-purple-800 text-xs">
                         {tag}
                       </Badge>
                     ))}
                   </div>
                   
-                  <div className="text-xs text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="text-xs text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity">
                     Devamını oku →
                   </div>
                 </CardContent>
@@ -125,9 +125,9 @@ const Blog = () => {
 
           {/* Call to Action */}
           <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 p-8 rounded-2xl border border-purple-500/20">
-              <h3 className="text-2xl font-bold mb-4">Yeni İçerikler İçin Takipte Kalın</h3>
-              <p className="text-gray-300 mb-6">
+            <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-8 rounded-2xl border border-purple-200">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Yeni İçerikler İçin Takipte Kalın</h3>
+              <p className="text-gray-600 mb-6">
                 Web geliştirme dünyasındaki son trendler ve en iyi pratikler hakkında düzenli yazılar paylaşıyorum.
               </p>
               <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full">

@@ -88,14 +88,6 @@ const Index = () => {
               <ArrowRight className="w-5 h-5 mr-2" />
               Projelerimi Gör
             </Button>
-            <Button 
-              variant="outline" 
-              onClick={() => window.location.href = '/contact'}
-              className="border-2 border-purple-400 text-purple-600 hover:bg-purple-50 px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105"
-            >
-              <Mail className="w-5 h-5 mr-2" />
-              İletişime Geç
-            </Button>
           </div>
           
           {/* Social Links */}

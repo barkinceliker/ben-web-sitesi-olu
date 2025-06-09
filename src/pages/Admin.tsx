@@ -366,6 +366,15 @@ const Admin = () => {
   // Experience CRUD operations
   const saveExperience = async () => {
     setLoading(true);
+    console.log('Saving experience:', experienceForm);
+    
+    // Form validation
+    if (!experienceForm.position || !experienceForm.company || !experienceForm.start_date) {
+      toast({ title: "Hata", description: "Pozisyon, şirket ve başlangıç tarihi zorunludur", variant: "destructive" });
+      setLoading(false);
+      return;
+    }
+
     let result;
     if (editingExperience?.id) {
       result = await supabase.from('experience').update(experienceForm).eq('id', editingExperience.id);
@@ -373,8 +382,10 @@ const Admin = () => {
       result = await supabase.from('experience').insert([experienceForm]);
     }
 
+    console.log('Save result:', result);
     if (result.error) {
-      toast({ title: "Hata", description: "Deneyim kaydedilemedi", variant: "destructive" });
+      console.error('Experience save error:', result.error);
+      toast({ title: "Hata", description: `Deneyim kaydedilemedi: ${result.error.message}`, variant: "destructive" });
     } else {
       toast({ title: "Başarılı", description: "Deneyim kaydedildi!" });
       setEditingExperience(null);
@@ -461,9 +472,9 @@ const Admin = () => {
 
   if (!isLoggedIn) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-800 flex items-center justify-center px-6">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center px-6">
         <Navbar />
-        <Card className="w-full max-w-md bg-white/10 backdrop-blur-lg border-purple-500/20">
+        <Card className="w-full max-w-md bg-white/10 backdrop-blur-lg border-purple-500/20 shadow-2xl">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold text-white mb-2">
               Admin Paneli
@@ -542,32 +553,32 @@ const Admin = () => {
 
       <div className="max-w-7xl mx-auto px-6 py-8">
         <Tabs defaultValue="projects" className="space-y-6">
-          <TabsList className="bg-white/10 backdrop-blur-lg border-purple-500/20">
-            <TabsTrigger value="projects" className="data-[state=active]:bg-purple-500/30">
+          <TabsList className="grid grid-cols-7 w-full bg-gradient-to-r from-purple-800/50 to-pink-800/50 backdrop-blur-lg border border-purple-500/30 rounded-2xl p-1 shadow-2xl">
+            <TabsTrigger value="projects" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
               <Code className="w-4 h-4 mr-2" />
               Projeler
             </TabsTrigger>
-            <TabsTrigger value="blog" className="data-[state=active]:bg-purple-500/30">
+            <TabsTrigger value="blog" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
               <FileText className="w-4 h-4 mr-2" />
-              Blog Yazıları
+              Blog
             </TabsTrigger>
-            <TabsTrigger value="about" className="data-[state=active]:bg-purple-500/30">
+            <TabsTrigger value="about" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
               <User className="w-4 h-4 mr-2" />
               Hakkımda
             </TabsTrigger>
-            <TabsTrigger value="skills" className="data-[state=active]:bg-purple-500/30">
-              <Code className="w-4 h-4 mr-2" />
+            <TabsTrigger value="skills" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
+              <Settings className="w-4 h-4 mr-2" />
               Beceriler
             </TabsTrigger>
-            <TabsTrigger value="experience" className="data-[state=active]:bg-purple-500/30">
-              <User className="w-4 h-4 mr-2" />
+            <TabsTrigger value="experience" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
+              <Settings className="w-4 h-4 mr-2" />
               Deneyim
             </TabsTrigger>
-            <TabsTrigger value="resume" className="data-[state=active]:bg-purple-500/30">
-              <FileText className="w-4 h-4 mr-2" />
+            <TabsTrigger value="resume" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
+              <Settings className="w-4 h-4 mr-2" />
               CV
             </TabsTrigger>
-            <TabsTrigger value="contact" className="data-[state=active]:bg-purple-500/30">
+            <TabsTrigger value="contact" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
               <Settings className="w-4 h-4 mr-2" />
               İletişim
             </TabsTrigger>
