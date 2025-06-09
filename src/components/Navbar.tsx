@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Home, BookOpen, Shield, User } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'react-router-dom';
 
@@ -8,15 +8,15 @@ const Navbar = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Ana Sayfa', href: '/', icon: Home },
-    { name: 'Hakkımda', href: '/about', icon: User },
-    { name: 'Projelerim', href: '/projects', icon: BookOpen },
-    { name: 'Beceriler', href: '/skills', icon: Shield },
-    { name: 'Deneyim', href: '/experience', icon: Shield },
-    { name: 'CV', href: '/resume', icon: Shield },
-    { name: 'İletişim', href: '/contact', icon: Shield },
-    { name: 'Blog', href: '/blog', icon: BookOpen },
-    { name: 'Admin', href: '/admin', icon: Shield },
+    { name: 'Ana Sayfa', href: '/', emoji: '🏠' },
+    { name: 'Hakkımda', href: '/about', emoji: '👤' },
+    { name: 'Projelerim', href: '/projects', emoji: '💼' },
+    { name: 'Beceriler', href: '/skills', emoji: '⚡' },
+    { name: 'Deneyim', href: '/experience', emoji: '🏢' },
+    { name: 'CV', href: '/resume', emoji: '📄' },
+    { name: 'İletişim', href: '/contact', emoji: '📧' },
+    { name: 'Blog', href: '/blog', emoji: '📝' },
+    { name: 'Admin', href: '/admin', emoji: '⚙️' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -29,7 +29,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center">
-                <User size={16} className="text-primary-foreground" />
+                <span className="text-lg">👨‍💻</span>
               </div>
               <span className="font-bold text-lg text-gradient-steel">Barkın Çeliker</span>
             </a>
@@ -38,9 +38,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                return (
+              {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -50,11 +48,10 @@ const Navbar = () => {
                         : 'text-gradient-accent hover:gradient-secondary hover:text-foreground'
                     }`}
                   >
-                    <Icon size={16} />
+                    <span>{item.emoji}</span>
                     <span>{item.name}</span>
                   </a>
-                );
-              })}
+                ))}
             </div>
           </div>
 
@@ -66,7 +63,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-gradient-accent hover:text-gradient-primary"
             >
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
+              <span className="text-xl">{isOpen ? '✕' : '☰'}</span>
             </Button>
           </div>
         </div>
@@ -75,9 +72,7 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 gradient-masculine-subtle/95 backdrop-blur-lg rounded-lg mt-2 border border-border">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                return (
+              {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -88,11 +83,10 @@ const Navbar = () => {
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
-                    <Icon size={16} />
+                    <span>{item.emoji}</span>
                     <span>{item.name}</span>
                   </a>
-                );
-              })}
+                ))}
             </div>
           </div>
         )}

@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Github, Linkedin, Mail, Phone, MapPin, Send } from 'lucide-react';
+
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
@@ -87,7 +87,7 @@ const Contact = () => {
             <div className="card-masculine p-8 rounded-2xl animate-fade-in">
               <div className="mb-6">
                 <h3 className="flex items-center gap-2 text-2xl text-gradient-primary font-semibold">
-                  <Send className="w-6 h-6" />
+                  <span className="text-2xl">📤</span>
                   ⚡ Mesaj Gönder
                 </h3>
               </div>
@@ -135,7 +135,7 @@ const Contact = () => {
                   disabled={loading}
                   className="w-full btn-masculine text-lg font-medium"
                 >
-                  <Send className="w-4 h-4 mr-2" />
+                  <span className="mr-2">📤</span>
                   {loading ? 'Gönderiliyor...' : '📧 Mesaj Gönder'}
                 </Button>
               </form>
@@ -151,7 +151,7 @@ const Contact = () => {
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center">
-                      <MapPin className="w-6 h-6 text-primary-foreground" />
+                      <span className="text-xl">📍</span>
                     </div>
                     <div>
                       <p className="font-semibold text-gradient-steel">Konum</p>
@@ -173,7 +173,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-lg gradient-secondary hover:gradient-accent flex items-center justify-center transition-all duration-300 hover:scale-110"
                   >
-                    <Github className="w-6 h-6 text-foreground" />
+                    <span className="text-xl">🐙</span>
                   </a>
                   <a 
                     href="https://www.linkedin.com/in/celikerbarkin/" 
@@ -181,7 +181,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-lg gradient-secondary hover:gradient-accent flex items-center justify-center transition-all duration-300 hover:scale-110"
                   >
-                    <Linkedin className="w-6 h-6 text-foreground" />
+                    <span className="text-xl">💼</span>
                   </a>
                 </div>
               </div>

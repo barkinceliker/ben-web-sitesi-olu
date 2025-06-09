@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Download, ArrowRight } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
@@ -86,7 +86,7 @@ const Index = () => {
               className="btn-masculine px-8 py-4 text-lg font-medium animate-fade-in-up"
               style={{ animationDelay: '0.8s' }}
             >
-              <ArrowRight className="w-5 h-5 mr-2" />
+              <span className="mr-2">▶️</span>
               View My Projects
             </Button>
           </div>
@@ -99,7 +99,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="p-4 rounded-full gradient-secondary hover:gradient-accent border border-border hover:border-ring transition-all duration-300 transform hover:scale-110 group"
             >
-              <Github className="w-6 h-6 text-foreground group-hover:text-primary-foreground" />
+              <span className="text-xl">🐙</span>
             </a>
             <a 
               href="https://www.linkedin.com/in/celikerbarkin/" 
@@ -107,7 +107,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="p-4 rounded-full gradient-secondary hover:gradient-accent border border-border hover:border-ring transition-all duration-300 transform hover:scale-110 group"
             >
-              <Linkedin className="w-6 h-6 text-foreground group-hover:text-primary-foreground" />
+              <span className="text-xl">💼</span>
             </a>
           </div>
 

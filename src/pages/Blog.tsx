@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
+
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -88,7 +88,7 @@ const Blog = () => {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link to="/">
             <Button className="btn-masculine">
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <span className="mr-2">⬅️</span>
               🏠 Ana Sayfa
             </Button>
           </Link>
@@ -125,15 +125,15 @@ const Blog = () => {
                 
                 <div className="flex items-center gap-4 text-xs text-gradient-accent mb-4">
                   <div className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
+                    <span className="text-xs">📅</span>
                     {post.publish_date ? formatDate(post.publish_date) : (post.date || 'Tarih yok')}
                   </div>
                   <div className="flex items-center gap-1">
-                    <Clock className="w-3 h-3" />
+                    <span className="text-xs">⏰</span>
                     {'readTime' in post ? post.readTime : '5 dk'}
                   </div>
                   <div className="flex items-center gap-1">
-                    <User className="w-3 h-3" />
+                    <span className="text-xs">👤</span>
                     {'author' in post ? post.author : 'Barkın Çeliker'}
                   </div>
                 </div>

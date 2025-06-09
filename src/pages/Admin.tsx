@@ -6,20 +6,6 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  Plus, 
-  Edit3, 
-  Trash2, 
-  Save, 
-  X, 
-  LogOut, 
-  Settings,
-  FileText,
-  Code,
-  User,
-  CheckCircle,
-  AlertCircle
-} from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
@@ -529,12 +515,12 @@ const Admin = () => {
       <header className="border-b border-purple-500/20 bg-black/20 backdrop-blur-lg mt-16">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Settings className="w-8 h-8 text-purple-400" />
+            <span className="text-2xl">⚙️</span>
             <h1 className="text-2xl font-bold">Admin Paneli</h1>
           </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <User className="w-5 h-5" />
+              <span className="text-lg">👤</span>
               <span className="text-sm text-gray-300">Barkın Çeliker</span>
             </div>
             <Button 
@@ -543,7 +529,7 @@ const Admin = () => {
               size="sm"
               className="border-red-400 text-red-300 hover:bg-red-400/20"
             >
-              <LogOut className="w-4 h-4 mr-2" />
+              <span className="mr-2">🚪</span>
               Çıkış
             </Button>
           </div>
@@ -554,31 +540,31 @@ const Admin = () => {
         <Tabs defaultValue="projects" className="space-y-6">
           <TabsList className="grid grid-cols-7 w-full bg-gradient-to-r from-purple-800/50 to-pink-800/50 backdrop-blur-lg border border-purple-500/30 rounded-2xl p-1 shadow-2xl">
             <TabsTrigger value="projects" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
-              <Code className="w-4 h-4 mr-2" />
+              <span className="mr-2">💻</span>
               Projeler
             </TabsTrigger>
             <TabsTrigger value="blog" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
-              <FileText className="w-4 h-4 mr-2" />
+              <span className="mr-2">📄</span>
               Blog
             </TabsTrigger>
             <TabsTrigger value="about" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
-              <User className="w-4 h-4 mr-2" />
+              <span className="mr-2">👤</span>
               Hakkımda
             </TabsTrigger>
             <TabsTrigger value="skills" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
-              <Settings className="w-4 h-4 mr-2" />
+              <span className="mr-2">⚙️</span>
               Beceriler
             </TabsTrigger>
             <TabsTrigger value="experience" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
-              <Settings className="w-4 h-4 mr-2" />
+              <span className="mr-2">💼</span>
               Deneyim
             </TabsTrigger>
             <TabsTrigger value="resume" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300">
-              <FileText className="w-4 h-4 mr-2" />
+              <span className="mr-2">📄</span>
               CV
             </TabsTrigger>
             <TabsTrigger value="contact" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white transition-all duration-300 rounded-xl">
-              <Settings className="w-4 h-4 mr-2" />
+              <span className="mr-2">📧</span>
               İletişim
             </TabsTrigger>
           </TabsList>
@@ -594,7 +580,7 @@ const Admin = () => {
                 }}
                 className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
               >
-                <Plus className="w-4 h-4 mr-2" />
+                <span className="mr-2">➕</span>
                 Yeni Proje
               </Button>
             </div>
@@ -611,7 +597,7 @@ const Admin = () => {
                       onClick={() => setEditingProject(null)}
                       className="text-gray-400 hover:text-white"
                     >
-                      <X className="w-4 h-4" />
+                      <span>❌</span>
                     </Button>
                   </CardTitle>
                 </CardHeader>
@@ -679,7 +665,7 @@ const Admin = () => {
                     disabled={loading}
                     className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
                   >
-                    <Save className="w-4 h-4 mr-2" />
+                    <span className="mr-2">💾</span>
                     {loading ? 'Kaydediliyor...' : 'Kaydet'}
                   </Button>
                 </CardContent>
@@ -690,7 +676,7 @@ const Admin = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.length === 0 ? (
                 <div className="col-span-full text-center py-12">
-                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <span className="text-4xl text-gray-400 mx-auto mb-4 block">⚠️</span>
                   <p className="text-gray-400">Henüz proje eklenmemiş</p>
                 </div>
               ) : (
@@ -713,7 +699,7 @@ const Admin = () => {
                           onClick={() => editProject(project)}
                           className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
                         >
-                          <Edit3 className="w-4 h-4" />
+                          <span>✏️</span>
                         </Button>
                         <Button 
                           size="sm" 
@@ -721,7 +707,7 @@ const Admin = () => {
                           onClick={() => deleteProject(project.id)}
                           className="border-red-400 text-red-200 hover:bg-red-400/20"
                         >
-                          <Trash2 className="w-4 h-4" />
+                          <span>🗑️</span>
                         </Button>
                       </div>
                     </CardContent>
@@ -742,7 +728,7 @@ const Admin = () => {
                 }}
                 className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
               >
-                <Plus className="w-4 h-4 mr-2" />
+                <span className="mr-2">➕</span>
                 Yeni Yazı
               </Button>
             </div>
@@ -759,7 +745,7 @@ const Admin = () => {
                       onClick={() => setEditingBlog(null)}
                       className="text-gray-400 hover:text-white"
                     >
-                      <X className="w-4 h-4" />
+                      <span>❌</span>
                     </Button>
                   </CardTitle>
                 </CardHeader>
@@ -837,7 +823,7 @@ const Admin = () => {
             <div className="space-y-4">
               {blogPosts.length === 0 ? (
                 <div className="text-center py-12">
-                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <span className="text-4xl text-gray-400 mx-auto mb-4 block">⚠️</span>
                   <p className="text-gray-400">Henüz blog yazısı eklenmemiş</p>
                 </div>
               ) : (
@@ -873,7 +859,7 @@ const Admin = () => {
                             onClick={() => editBlogPost(post)}
                             className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
                           >
-                            <Edit3 className="w-4 h-4" />
+                            <span>✏️</span>
                           </Button>
                           <Button 
                             size="sm" 
@@ -881,7 +867,7 @@ const Admin = () => {
                             onClick={() => deleteBlogPost(post.id)}
                             className="border-red-400 text-red-200 hover:bg-red-400/20"
                           >
-                            <Trash2 className="w-4 h-4" />
+                            <span>🗑️</span>
                           </Button>
                         </div>
                       </div>
@@ -910,7 +896,7 @@ const Admin = () => {
                       onClick={() => setEditingAbout(null)}
                       className="text-gray-400 hover:text-white"
                     >
-                      <X className="w-4 h-4" />
+                      <span>❌</span>
                     </Button>
                   </CardTitle>
                 </CardHeader>
@@ -947,7 +933,7 @@ const Admin = () => {
                     disabled={loading}
                     className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
                   >
-                    <Save className="w-4 h-4 mr-2" />
+                    <span className="mr-2">💾</span>
                     {loading ? 'Kaydediliyor...' : 'Kaydet'}
                   </Button>
                 </CardContent>
@@ -958,7 +944,7 @@ const Admin = () => {
             <div className="space-y-4">
               {aboutContent.length === 0 ? (
                 <div className="text-center py-12">
-                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <span className="text-4xl text-gray-400 mx-auto mb-4 block">⚠️</span>
                   <p className="text-gray-400">Henüz içerik eklenmemiş</p>
                 </div>
               ) : (
@@ -983,7 +969,7 @@ const Admin = () => {
                             onClick={() => editAboutContent(content)}
                             className="border-blue-400 text-blue-200 hover:bg-blue-400/20"
                           >
-                            <Edit3 className="w-4 h-4" />
+                            <span>✏️</span>
                           </Button>
                         </div>
                       </div>
@@ -1005,7 +991,7 @@ const Admin = () => {
                 }}
                 className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
               >
-                <Plus className="w-4 h-4 mr-2" />
+                <span className="mr-2">➕</span>
                 Yeni Beceri
               </Button>
             </div>
@@ -1022,7 +1008,7 @@ const Admin = () => {
                       onClick={() => setEditingSkill(null)}
                       className="text-gray-400 hover:text-white"
                     >
-                      <X className="w-4 h-4" />
+                      <span>❌</span>
                     </Button>
                   </CardTitle>
                 </CardHeader>
@@ -1083,7 +1069,7 @@ const Admin = () => {
                     disabled={loading}
                     className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
                   >
-                    <Save className="w-4 h-4 mr-2" />
+                    <span className="mr-2">💾</span>
                     {loading ? 'Kaydediliyor...' : 'Kaydet'}
                   </Button>
                 </CardContent>
@@ -1094,7 +1080,7 @@ const Admin = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {skills.length === 0 ? (
                 <div className="col-span-full text-center py-12">
-                  <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <span className="text-4xl text-gray-400 mx-auto mb-4 block">⚠️</span>
                   <p className="text-gray-400">Henüz beceri eklenmemiş</p>
                 </div>
               ) : (

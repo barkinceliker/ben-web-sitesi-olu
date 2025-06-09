@@ -126,6 +126,8 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
   
   .text-gradient-primary {
@@ -133,6 +135,8 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
   
   .text-gradient-secondary {
@@ -154,6 +158,8 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
   
   .btn-masculine {

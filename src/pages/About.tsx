@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Code, Coffee, Lightbulb, Users, Target, Heart } from 'lucide-react';
+
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -36,32 +36,32 @@ const About = () => {
 
   const highlights = [
     {
-      icon: Code,
+      emoji: "📊",
       title: "Data Analysis",
       description: "Comprehensive data analysis and statistical modeling with Python, R and SQL"
     },
     {
-      icon: Coffee,
+      emoji: "☕",
       title: "Problem Solving",
       description: "Ability to transform complex data problems into simple and effective solutions"
     },
     {
-      icon: Lightbulb,
+      emoji: "💡",
       title: "Innovation",
       description: "Passion for learning new data technologies and applying them in my projects"
     },
     {
-      icon: Users,
+      emoji: "👥",
       title: "Team Work",
       description: "Efficient project management with teamwork and agile methodologies"
     },
     {
-      icon: Target,
+      emoji: "🎯",
       title: "Goal-Oriented",
       description: "Goal-oriented approach and success in meeting deadlines"
     },
     {
-      icon: Heart,
+      emoji: "❤️",
       title: "Passion",
       description: "Continuous development thanks to my passion for data science"
     }
@@ -151,7 +151,7 @@ const About = () => {
             {highlights.map((item, index) => (
               <div key={index} className="card-masculine p-6 text-center rounded-2xl group cursor-pointer animate-scale-in" style={{ animationDelay: `${1.6 + index * 0.1}s` }}>
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <item.icon className="w-8 h-8 text-primary-foreground" />
+                  <span className="text-2xl">{item.emoji}</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-gradient-primary">{item.title}</h3>
                 <p className="text-gradient-accent text-sm leading-relaxed">{item.description}</p>

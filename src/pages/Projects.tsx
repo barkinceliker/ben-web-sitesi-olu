@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Github, ExternalLink, Code } from 'lucide-react';
+
 import Navbar from '@/components/Navbar';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
@@ -88,7 +88,7 @@ const Projects = () => {
                             window.open(`https://github.com/barkinceliker?tab=repositories`, '_blank');
                           }}
                         >
-                          <Github className="w-4 h-4 text-foreground" />
+                          <span className="text-sm">🐙</span>
                         </div>
                       )}
                       {project.demo_url && (
@@ -99,7 +99,7 @@ const Projects = () => {
                             window.open(project.demo_url, '_blank');
                           }}
                         >
-                          <ExternalLink className="w-4 h-4 text-foreground" />
+                          <span className="text-sm">🔗</span>
                         </div>
                       )}
                     </div>
@@ -129,13 +129,13 @@ const Projects = () => {
                   <div className="flex gap-2 pt-2">
                     {project.github && (
                       <div className="text-xs text-gradient-steel opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                        <Github className="w-3 h-3" />
+                        <span className="text-xs">🐙</span>
                         GitHub
                       </div>
                     )}
                     {project.demo_url && (
                       <div className="text-xs text-gradient-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                        <ExternalLink className="w-3 h-3" />
+                        <span className="text-xs">🔗</span>
                         Demo
                       </div>
                     )}
